@@ -17,20 +17,20 @@
 
 \begin{document}
 \title{\vspace{0.2in}\sc sci-wms:A python-based Web Map Service for Visualizing Geospatial data}
-%% \author{Valliappa Lakshmanan$^{1,2}$\thanks{Corresponding author: V Lakshmanan, University of Oklahoma, Norman OK lakshman@ou.edu $^1$ Cooperative Institute of Mesoscale Meteorological Studies, University of Oklahoma $^2$ National Severe Storms Laboratory, Norman, OK}, Benjamin Herzog$^{1,2}$, Darrel Kingfield$^{1,2}$}
+
 \author{Brandon A. Mayer$^{1,2}$, Brian McKenna$^{2}$, Kelly Knee$^{2}$\thanks{Brown University School Of Engineering$^{1}$, RPS-Applied Science Associates, South Kingston RI$^{2}$, Brandon\_Mayer@brown.edu, BMcKenna@asascience.com, KKnee@asascience.com}}
 
 \maketitle
 \thispagestyle{fancy}
 
 \begin{abstract}
-This paper outlines the implementation, technology stack for
+This paper outlines the implementation and technology stack for
 visualizing geo-registered meterological forecasting data using
 sci-wms.\footnote{https://github.com/asascience-open/sci-wms}
 Specifically, we consider a use case in which sci-wms was used as a
 back end to create a custom web-portal for visualizing externally
 hosted data sets indexed by the National Geophysical Data Center
-(NGDC). By separating model topology and variable values, sci-wms is
+(NGDC)~\cite{luettich13}~\cite{luettich12}. By separating model topology and variable values, sci-wms is
 able to serve custom generated content for a diverse range of models,
 including SELFE, FVCOM, SLOSH and ADCIRC in real time to many
 simultaneous clients in response to standard http GET requests.
@@ -57,7 +57,15 @@ models able to generate multiple topologies. For example, there are
 curvelinear, rectilinear, regular, or unstructured triangular grids
 which can be in the planar 2D or volumetric 3D varieties.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{./figs/overview.pdf}
+  \caption{COMT-SURA deployment of sci-wms for oceanagraphic modeling visualization.}
+  \label{fig:overview1}
+\end{figure}
+
 \bibliographystyle{ieeetr}
-\bibliography{bibfile,benherzog}
+\bibliography{ci_mayer}
+%% \bibliography{bibfile,benherzog}
 
 \end{document}
