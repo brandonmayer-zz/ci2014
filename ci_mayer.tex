@@ -86,7 +86,7 @@ Django\footnote{\url{https://www.djangoproject.com/}} web framework
 and standard cross-platform numerical software, NumPy and
 Matplotlib~\cite{numpy11, hunter07} for generating visual
 content. Vital to the efficiency of \sciwms{} is the
-abstraction of a oceanagraphic dataset into two entities: a topology,
+abstraction of an oceanagraphic dataset into two entities: a topology,
 defined as a geo-referenced spatial structure and model data as
 visualized in figure~\ref{fig:sciwms_topology_endpoints}. \Sciwms{}
 creates a local topology cache for efficiently computing spatial
@@ -98,8 +98,8 @@ earth surface, \sciwms{} uses the local topology to compute the
 subset of model data needed to fulfill each request prior to
 accessing the external data. Furthermore, by classifying
 topologies as either regular or unstructured, efficient algorithms and
-data structures are utilized to optimize the computation of relevant
-model sub-views.
+data structures are exploited to optimize the computation of relevant
+model data subsets.
 
 \begin{figure}
   \centering
@@ -133,7 +133,7 @@ framework. Figure~\ref{fig:overview1} outlines the cyberinfrastructre
 behind the deployment of \sciwms{} for the \comt{} project.
 
 Raw coastal data is hosted by the Southeastern Universities Research
-Association (\sura{}) on a dedicated server for \comt{}
+Association (\sura{}) on a dedicated server for the \comt{}
 project~\cite{luettich12}. Each data set may consist of multiple files
 in different formats, and may be the result of very different models
 run by various institutions with disparate computing
@@ -147,14 +147,14 @@ the data through a uniform interface.
 Once an \ncml{} file is confirmed to be CF-Compliant, the dataset is
 indexed by \noaa{}\footnote{National Oceanic and Atmospheric
   Administration}--\ngdc{}\footnote{National Geophysical Data Center}
-accessible via an \ogc{} catalogue web service (\csw{}). A executable
+and made accessible via an \ogc{} catalogue web service (\csw{}). A executable
 queries the \ngdc{} catalogue at regular intervals for new or modified
 datasets and automatically updates both the topologies and \opendap{}
 links in the \sciwms{} database. At any time \sciwms{} is able to
 respond to queries for visualizations of any registered dataset by
 multiple users simultaneously.
 
-\Sciwms{} is currently deployed an capable of visualizing data
+\Sciwms{} is capable of visualizing data
 associated with the first phase of \comt{} coastal and ocean
 prediction: {\em estuarine hypoxia, shelf hypoxia and coastal
   inundation}~\cite{luettich13}. For each coastal modeling challenge,
