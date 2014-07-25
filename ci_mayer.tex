@@ -84,8 +84,8 @@ mission is an extensible and universally available tool for quickly
 visualizing and assessing a diverse set of coastal modeling
 data. \sciwms{} is a general \ogc{} \wms{} solution for serving
 rasterized visualizations of geospatial data which has been deployed
-for the \comt{} project to provide fast qualitative
-evaluation of diverse set scientific data.
+for the \comt{} project to provide visualizations of a wide range of
+scientific data.
 
 \section{\sciwms{}}
 \Sciwms{} is an open-source implementation of the Open Geospatial
@@ -100,7 +100,8 @@ a cross-platform \wms{} solution which can leverage the suite of tools
 developed by the geospatial data analysis community such as
 pyugrid\footnote{https://github.com/pyugrid/pyugrid} to maintain pace
 with the latest geospatial software and standards developments such as
-unstructured grid support and CF-UGrid Compliance.
+unstructured grid support and CF-UGrid
+Compliance\footnote{https://github.com/ugrid-conventions/ugrid-conventions/blob/v0.9.0/ugrid-conventions.md}.
 
 Vital to the efficiency of \sciwms{} is the abstraction
 of an oceanagraphic dataset into two entities: a topology, defined as
@@ -135,7 +136,7 @@ to optimize the computation of relevant model data subsets.
   \centering
   \includegraphics[width=0.8\columnwidth]{./figs/sciwms_db_topology_endpoints.pdf}
   \caption{\Sciwms{} topology and endpoint data store. Typologies are
-    classified as \ugrid{} or \cgrid{} for efficient geospatial
+    classified as \cgrid{} and \ugrid{} for efficient geospatial
     queries and remote model data access.}
   \label{fig:sciwms_topology_endpoints}
 \end{figure}
