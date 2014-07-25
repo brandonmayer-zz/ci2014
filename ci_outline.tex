@@ -51,6 +51,7 @@
         disparate entities, using different models, platforms and file
         formats. Sci-wms is a critical cyberinfastructure solution facilitating such a tool.
     \end{enumerate}
+
   \item Web Map Service (WMS)~\cite{wms14}
     \begin{enumerate}[label*=\arabic*.]
       \item A standard developed by the Open Geospatial Consortium for
@@ -61,22 +62,63 @@
         which a Web Map Service can respond to by generating custom
         visual content.
     \end{enumerate}
+
   \item sci-wms as a flexible Web Map Service (WMS)
     \begin{enumerate}[label*=\arabic*.]
+      \item Sci-wms is a python based implementation of the OpenGIS Web Map Service~\cite{wms14}
       \item sci-wms implements the OpenGIS WMS standard~\cite{wms14}
         using the Django web application framework to handle http
         requests and responses and NumPy and
         Matplotlib~\cite{numpy11,hunter07} for generating visual content.
-      \item Sci-wms is a python based implementation of the OpenGIS Web Map Service~\cite{wms14}
       \item Sci-wms is implemented using the django web framework with
         numpy~\cite{numpy11} and matplotlib~\cite{hunter07} as a backend for data manipulation and
         visualization.
     \end{enumerate}
+
     \item Separating Topology and Variable Data
       \begin{enumerate}[label*=\arabic*.]
-        \item blah
+        \item Costal forcasting and simulation models can contain many
+          hundreds of Gigabytes of data, as such, an important design
+          challenge for sciwms is to replicate as little data as
+          possible.
+        \item A conflicting operational requirement is that when
+          content is requested by a client, sci-wms must respond in
+          real-time to satisfy the request for visual content.
+        \item This is achieved by viewing a dataset as consisting of
+          two separate entities, a topology and set of model variables.
+        \item 
+        \item Therefore rather than reproducing model data locally,
+          sciwms maintains a database of OpenDAP endpoints for
+          accessing model data remotely.
+       
+        \item Costal modeling experiments are conducted on a
+          geo-registered grid. The type of which defines the model
+          topology.
+        \item Example topologies are curvilinear, rectilinear, regular, and unstructured.
+        \item Define a view in the sci-wms context as a rendering of data at a particular geo-location.
+        \item When users request a view from sci-wms via the WMS http protocol sciwms
+        \item Sci-wms takes the unique approach of separating topology from variable data.
+
+        \item Costal modeling experiments are conducted on a
+          geo-registered grid. The type of which defines the model
+          topology.
+        \item Example topologies are curvilinear, rectilinear, regular, and unstructured.
+        \item Define a view in the sci-wms context as a rendering of data at a particular geo-location.
+        \item When users request a view from sci-wms via the WMS http protocol sciwms
       \end{enumerate}
-  %% \item sci-wms as an integral tool for realizing the U.S. IOOS COMT Model Testbed Vision.~\cite{luettich13, luettich12}
+    \item NCML
+      \begin{enumerate}[label*=\arabic*.]
+        \item Virtual Data layer
+        \item Exposes each dataset, which may consist of numerous
+          output files in a diverse format as a single CF-Compliant dataset.
+        \item Accessable via OpenDAP as a netCDF data structure.
+      \end{enumerate}
+
+    \item NetCDF CF-Metadata Conventions
+      \begin{enumerate}[label*=\arabic*.]
+        \item Climate and Forcast (CF) - Metadata Convnetions
+        \item Designed to share files using the netCDF API
+      \end{enumerate}
 \end{enumerate}
 
 \nocite{pyugrid}
