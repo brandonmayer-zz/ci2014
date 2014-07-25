@@ -33,7 +33,7 @@
 \newcommand{\Sciwms}{Sci-wms}
 
 \begin{document}
-\title{\vspace{0.2in}\sc sci-wms:A python-based Web Map Service for Visualizing Geospatial data}
+\title{\vspace{0.2in}\sc sci-wms:Python based Web Mapping Service for Visualizing Geospatial data}
 
 \author{Brandon A. Mayer$^{1,2}$, Brian McKenna$^{2}$, Kelly Knee$^{2}$\thanks{Brown University School Of Engineering$^{1}$, RPS-Applied Science Associates, South Kingston RI$^{2}$, Brandon\_Mayer@brown.edu, BMcKenna@asascience.com, KKnee@asascience.com}}
 
@@ -47,7 +47,7 @@ forecasts, risk assessment, model comparison and algorithmic/parameter
 selection. This abstract outlines the implementation and technology
 stack for visualizing geospatial coastal forecasting (CF) data using
 sci-wms~\cite{wms14}.\footnote{https://github.com/asascience-open/sci-wms}
-Specifically, discussing the use case for deploying \sciwms{} for visualizing
+Specifically, detailing the use case for deploying \sciwms{} for visualizing
 model data and simulations within the scope of the U.S. \ioos{} Coastal
 and Ocean Modeling Testbed project.~\cite{luettich13}
 \end{abstract}
@@ -55,39 +55,39 @@ and Ocean Modeling Testbed project.~\cite{luettich13}
 \section{Motivation}
 The U.S. Integrated Ocean Observing System (\ioos{}) Coastal and Ocean
 Modeling Testbed (\comt{}) was formed to unify otherwise disparate
-entities in government, academia and industry to leverage ubiquity of
-computing hardware and the proliferation of coastal data and modeling
-techniques to combat natural and man-made stressors by accelerating
-the turnaround from research and development to operational
-application of society-critical applications including forecasting,
-model comparison, model skill assessment, and
-algorithmic/parameterization improvements~\cite{luettich13}. Key to
-the U.S. \ioos{} \comt{} mission is an extensible and universally
-available tool for quickly visualizing and assessing coastal modeling data.
+entities in government, academia and industry to leverage the
+proliferation of coastal data and modeling techniques to combat
+natural and man-made stressors by accelerating the turnaround from
+research and development to operational application of
+society-critical applications including: forecasting, model comparison,
+model skill assessment, and algorithmic/parameterization
+improvements~\cite{luettich13}. Key to the U.S. \ioos{} \comt{}
+mission is an extensible and universally available tool for quickly
+visualizing and assessing coastal modeling data.
 
 \section{\sciwms{}}
-\Sciwms{} was designed is an implementation of the Open Geospatial
-Consortium's (\ogc{}) Web Map Service (\wms{}) standard, that
-describes an http interface for generating rasterized visualizations
-of geospatial data~\cite{wms14}. Sci-wms is implemented in python
-using the Django\footnote{\url{https://www.djangoproject.com/}} web
-frame work and standard cross-platform numerical software, NumPy and
+\Sciwms{} is an implementation of the Open Geospatial Consortium's
+(\ogc{}) Web Map Service (\wms{}) standard which specifies a http
+interface for generating rasterized visualizations of geospatial
+data~\cite{wms14}. Sci-wms is implemented in python using the
+Django\footnote{\url{https://www.djangoproject.com/}} web framework
+and standard cross-platform numerical software, NumPy and
 Matplotlib~\cite{numpy11, hunter07} for generating visual
-content. Vital to the real-time performance of sci-wms is the
+content. Vital to the efficiency of \sciwms{} is the
 abstraction of a oceanagraphic dataset into two entities: a topology,
 defined as a geo-referenced spatial structure and model data as
 visualized in figure~\ref{fig:sciwms_topology_endpoints}. \Sciwms{}
-creates a local topology cache for efficient computing of spatial
-neighborhoods with respect to topology structures.  For storage
-efficiency, model data is not replicated when hosted externally, but
-reference via web-enabled endpoints and subsequently retrieves only
-the fraction of data needed to fulfill a \wms{} request. Queries for
-data required for generating visualizations can be constrained by
-requesting only subsets of data according to the portion of the earth
-that is visible for a given geospatial \wms{} http request.  Furthermore, by
-classifying topologies as either regular or unstructured, efficient
-algorithms and data structures are utilized to optimize the response
-time for each request.
+creates a local topology cache for efficiently computing spatial
+neighborhoods with respect to topology structure.  For storage
+efficiency, model data is not replicated when hosted externally but
+reference via web-enabled endpoints. Because
+geospatial \wms{} requests are commonly restricted to a subset of the
+earth surface, \sciwms{} uses the local topology to compute the
+subset of model data needed to fulfill each request prior to
+accessing the external data. Furthermore, by classifying
+topologies as either regular or unstructured, efficient algorithms and
+data structures are utilized to optimize the computation of relevant
+model sub-views.
 
 \begin{figure}
   \centering
@@ -123,22 +123,22 @@ behind the deployment of \sciwms{} for the \comt{} project.
 Raw coastal data is hosted by the Southeastern Universities Research
 Association (\sura{}) on a dedicated server for \comt{}
 project~\cite{luettich12}. Each data set may consist of multiple files
-in different formats, and may be the results of very different models
+in different formats, and may be the result of very different models
 run by various institutions with disparate computing
 resources. However, accompanying each dataset is an \ncml{} virtual
-layer which exposes each dataset as a single \netcdf{}
-object. Furthermore, the \ncml facade presents a consistent set of meta
-information in accordance to CF-Conventions~\cite{cf} so
-that services like \sciwms{} can access the data through a uniform
-interface.
+layer which exposes each dataset as a single \netcdf{} object which
+may be accessed via \opendap{}. Furthermore, the \ncml facade presents
+a consistent set of meta information in accordance to
+CF-Conventions~\cite{cf} so services like \sciwms{} can access
+the data through a uniform interface.
 
 Once an \ncml{} file is confirmed to be CF-Compliant, the dataset is
 indexed by \noaa{}\footnote{National Oceanic and Atmospheric
-  Administration} \ngdc{}\footnote{National Geophysical Data Center}
-an is made accessible via an \ogc{} catalogue web service (\csw{}). A
+  Administration}--\ngdc{}\footnote{National Geophysical Data Center}
+accessible via an \ogc{} catalogue web service (\csw{}). A
 nightly executable queries the \ngdc{} catalogue for new or modified
 datasets and automatically updates both the topologies and \opendap{}
-links in registered in the \sciwms{} database. At any time \sciwms{} is able to
+links in the \sciwms{} database. At any time \sciwms{} is able to
 respond to queries for visualizations of any registered dataset by
 multiple users simultaneously.
 
