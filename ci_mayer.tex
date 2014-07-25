@@ -108,7 +108,7 @@ model sub-views.
   \includegraphics[width=\columnwidth]{./figs/sciwms_db_topology_endpoints.pdf}
   \caption{\Sciwms{} topology and endpoint data store. Typologies are
     classified as \ugrid{} or \cgrid{} for efficient geospatial
-    queries and remote data access.}
+    queries and remote model data access.}
   \label{fig:sciwms_topology_endpoints}
 \end{figure}
 
@@ -135,8 +135,8 @@ the data through a uniform interface.
 Once an \ncml{} file is confirmed to be CF-Compliant, the dataset is
 indexed by \noaa{}\footnote{National Oceanic and Atmospheric
   Administration}--\ngdc{}\footnote{National Geophysical Data Center}
-accessible via an \ogc{} catalogue web service (\csw{}). A
-nightly executable queries the \ngdc{} catalogue for new or modified
+accessible via an \ogc{} catalogue web service (\csw{}). A executable
+queries the \ngdc{} catalogue at regular intervals for new or modified
 datasets and automatically updates both the topologies and \opendap{}
 links in the \sciwms{} database. At any time \sciwms{} is able to
 respond to queries for visualizations of any registered dataset by
