@@ -31,6 +31,18 @@
 \newcommand{\netcdf}{NetCDF}
 \newcommand{\sciwms}{sci-wms}
 \newcommand{\Sciwms}{Sci-wms}
+\newcommand{\adcirc}{ADCIRC}
+\newcommand{\fvcom}{FVCOM}
+\newcommand{\selfe}{SELFE}
+\newcommand{\slosh}{SLOSH}
+\newcommand{\mdl}{MDL}
+\newcommand{\und}{UND}
+\newcommand{\usf}{USF}
+\newcommand{\vims}{VIMS}
+\newcommand{\umass}{UMASS}
+\newcommand{\dal}{DAL}
+\newcommand{\tamu}{TAMU}
+
 
 \begin{document}
 \title{\vspace{0.2in}\sc sci-wms:Python based Web Mapping Service for Visualizing Geospatial data}
@@ -141,6 +153,18 @@ datasets and automatically updates both the topologies and \opendap{}
 links in the \sciwms{} database. At any time \sciwms{} is able to
 respond to queries for visualizations of any registered dataset by
 multiple users simultaneously.
+
+\Sciwms{} is currently deployed an capable of visualizing data
+associated with the first phase of \comt{} coastal and ocean
+prediction: {\em estuarine hypoxia, shelf hypoxia and coastal
+  inundation}~\cite{luettich13}. For each coastal modeling challenge,
+\sciwms{} is successfully generating visualizations resulting from
+\adcirc{}, \fvcom{}, \selfe{} and \slosh{} models run by scientists at
+\mdl{}, \und{}, \usf{}, \vims{}, \umass{}, \dal{}, \tamu{} and
+\noaa{}. The \ioos{} \comt{} use case is an example of how \sciwms{}
+can be leveraged as an effective tool for delivering consistent
+visualizations of scientific data to a diverse community utilizing
+various sophisticated modeling technologies.
 
 
 \bibliographystyle{ieeetr}
