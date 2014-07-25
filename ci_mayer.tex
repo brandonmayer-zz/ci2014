@@ -25,27 +25,42 @@
 \thispagestyle{fancy}
 
 \begin{abstract}
-This paper outlines the implementation and technology stack for
-visualizing geo-registered meterological forecasting data using
+This abstract outlines the implementation and technology stack for
+visualizing geo-registered coastal forecasting (CF) data using
 sci-wms~\cite{wms14}.\footnote{https://github.com/asascience-open/sci-wms}
-Specifically, we consider a use case in which sci-wms was used as a
-back end to create a custom web-portal for visualizing externally
-hosted data sets indexed by the National Geophysical Data Center
-(NGDC)~\cite{luettich13}~\cite{luettich12}. By separating model topology and variable values, sci-wms is
-able to serve custom generated content for a diverse range of models,
-including SELFE, FVCOM, SLOSH and ADCIRC in real time to many
-simultaneous clients in response to standard http GET requests.
+Specifically, discussing the deployment of sci-wms for visualizing
+model data and simulations within the scope of the U.S. IOOS Costal
+and Ocean Modeling Testbed cyberinfrastructure as an
+extensible visualization tool for qualitativly assessing
+society-critical oceanagraphic applications including: forecasts, risk
+assessment, model comparison and algorithmic/parameter selection.~\cite{leuttich13}
 \end{abstract}
 
 \section{Motivation}
-The ubiquity of computing hardware, interconnected by the
-world-wide-web, has lead to the proliferation of both meterological
-data and the development of models for the interpretation of said
-data. As scientists continue to refine and develop models to simulate
-and analyze storm data, an simple and efficient work flow for model
-aggregation and comparison, whether for forecasting purposes or
-retrospective model evaluation is essential for streamlining the
-scientific process.
+The U.S. IOOS Coastal and Ocean Modeling Testbed (COMT) was formed to
+unify otherwise disparate entities in government, academia and
+industry to leverage ubiquity of computing hardware and the
+proliferation of coastal and oceanagraphic models and data to combat
+natural and man-made stressors by accelerating the turnaround from
+research and development to operational application of society
+critical applications, including forecasting, model comparison, model
+skill assessment and algorithmic/parameterization
+improvements~\cite{luettich13}. Key to the U.S. IOOS COMT mission is
+an extensible tool for quickly visualizing and assessing coastal data.
+
+The OpenGIS Web Map Service (WMS)~\cite{wms14} is a standard
+describing a http interface for visualizing geospatial data. Sci-wms
+implements the OpenGIS-WMS standard in python using Django as a web
+framework and standard cross platform numerical software, Numpy and
+Matplotlib~\cite{numpy11, hunter07} for generating rasterized visual
+content.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\columnwidth]{./figs/sciwms_db_topology_endpoints.pdf}
+  \caption{sci-wms Topology and Endpoint Datastore.}
+  \label{fig:sciwms_topology_endpoints}
+\end{figure}
 
 sci-wms is a software solution able to visualize meterological
 simulations regardless of the underlying methodology by abstracting a
@@ -65,12 +80,7 @@ which can be in the planar 2D or volumetric 3D varieties.
   \label{fig:overview1}
 \end{figure}
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\columnwidth]{./figs/sciwms_db_topology_endpoints.pdf}
-  \caption{sci-wms Topology and Endpoint Datastore.}
-  \label{fig:sciwms_topology_endpoints}
-\end{figure}
+
 
 \bibliographystyle{ieeetr}
 \bibliography{ci_mayer}
