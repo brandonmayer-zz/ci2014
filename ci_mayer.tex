@@ -12,7 +12,7 @@
 \renewcommand{\footrulewidth}{0pt}
 \rhead{\includegraphics[height=0.6in]{cilogo.png}}
 \fancyhead[LO]{\sc sci-wms\ldots} % shorter form of title to fit in space
-\fancyhead[LE]{\sc Mayer, McKenna, Knee} % author list or et al., to fit in space
+\fancyhead[LE]{\sc Mayer, McKenna, Foster, Knee} % author list or et al., to fit in space
 \chead{}
 \cfoot{}
 
@@ -27,7 +27,7 @@
 \newcommand{\ncml}{NcML}
 \newcommand{\noaa}{NOAA}
 \newcommand{\ngdc}{NGDC}
-\newcommand{\opendap}{OpenDAP}
+\newcommand{\opendap}{OPeNDAP}
 \newcommand{\netcdf}{NetCDF}
 \newcommand{\sciwms}{SCI-WMS}
 \newcommand{\Sciwms}{SCI-WMS}
@@ -48,7 +48,7 @@
 \begin{document}
 \title{\vspace{0.2in}\sc sci-wms:Python based Web Mapping Service for Visualizing Geospatial data}
 
-\author{Brandon A. Mayer$^{1,2}$, Brian McKenna$^{2}$, Kelly Knee$^{2}$\thanks{Brown University School Of Engineering$^{1}$, RPS ASA, South Kingston RI$^{2}$, Brandon\_Mayer@brown.edu, BMcKenna@asascience.com, KKnee@asascience.com}}
+\author{Brandon A. Mayer$^{1,2}$, Brian McKenna$^{2}$, Dave A. Foster$^{2}$, Kelly Knee$^{2}$\thanks{Brown University School Of Engineering$^{1}$, RPS ASA, South Kingston RI$^{2}$, Brandon\_Mayer@brown.edu, BMcKenna@asascience.com, DFoster@asascience.com, KKnee@asascience.com}}
 
 \maketitle
 \thispagestyle{fancy}
@@ -64,7 +64,7 @@ geospatial data science community, able to produce visualizations for
 numerous types of model outputs with transparent support for both
 structured and unstructured geo-referenced topologies. This abstract
 outlines the implementation and technology stack for visualizing
-geospatial coastal forecasting (CF) data using
+geospatial Climatological and Forecasting (CF) data using
 \sciwms{}\footnote{https://github.com/asascience-open/sci-wms} and
 details the deployment of \sciwms{} for visualizing model data and
 simulations within the scope of the U.S. \ioos{} Coastal and Ocean
@@ -188,7 +188,7 @@ the suite of tools and utilities the geophysical science community has developed
 continues to develop for advanced data analysis. The rapid development and integration
 of unstructured grid support into a WMS compliant service is demonstrated throught the
 efforts to display and analyze the \ioos{} \comt{} program model output. Ongoing development
-is in progress for sci-WMS to support emerging geophysical datasets such as enesemble model
+is in progress for \sciwms{} to support emerging geophysical datasets such as enesemble model
 output as well as provide clear visual support for the assessment and quantification of
 model skill and performance metrics.
 
