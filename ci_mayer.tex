@@ -42,12 +42,13 @@
 \newcommand{\umass}{UMASS}
 \newcommand{\dal}{DAL}
 \newcommand{\tamu}{TAMU}
+\newcommand{\http}{HTTP}
 
 
 \begin{document}
 \title{\vspace{0.2in}\sc sci-wms:Python based Web Mapping Service for Visualizing Geospatial data}
 
-\author{Brandon A. Mayer$^{1,2}$, Brian McKenna$^{2}$, Kelly Knee$^{2}$\thanks{Brown University School Of Engineering$^{1}$, RPS-Applied Science Associates, South Kingston RI$^{2}$, Brandon\_Mayer@brown.edu, BMcKenna@asascience.com, KKnee@asascience.com}}
+\author{Brandon A. Mayer$^{1,2}$, Brian McKenna$^{2}$, Kelly Knee$^{2}$\thanks{Brown University School Of Engineering$^{1}$, RPS ASA, South Kingston RI$^{2}$, Brandon\_Mayer@brown.edu, BMcKenna@asascience.com, KKnee@asascience.com}}
 
 \maketitle
 \thispagestyle{fancy}
@@ -126,7 +127,7 @@ to optimize the computation of relevant model data subsets.
     database via a nightly service which queries CF-Compliant datasets
     cataloged by \ngdc{}. Model data is hosted on an external web
     server through an \ncml{} facade accessible to \sciwms{} through
-    \opendap{} as a single \netcdf data structure. \Sciwms then
+    \opendap{} as a single \netcdf{} data structure. \Sciwms{} then
     responds to http requests made simultaneously by multiple clients
     interfacing through a custom built web-portal.}
   \label{fig:overview1}
