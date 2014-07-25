@@ -1,1 +1,1 @@
-Run `pdflatex ci_besttrack.tex` to build `ci_besttrack.pdf`
+Run `pdflatex ci_mayer.tex` to build `ci_mayer.pdf`
