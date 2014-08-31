@@ -121,9 +121,9 @@ data. Furthermore, by classifying topologies as either regular or
 unstructured, efficient algorithms and data structures are exploited
 to optimize the computation of relevant model data subsets.
 
-\begin{figure}
+\begin{figure}[ht!]
   \centering
-  \includegraphics[width=\columnwidth]{./figs/overview.pdf}
+  \includegraphics[width=0.8\columnwidth]{./figs/overview.pdf}
   \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
     \comt{} project. \Sciwms{} updates its topology and endpoint
     database via a nightly service which queries CF-Compliant datasets
@@ -135,9 +135,9 @@ to optimize the computation of relevant model data subsets.
   \label{fig:overview1}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.8\columnwidth]{./figs/sciwms_db_topology_endpoints.pdf}
+  \includegraphics[width=0.6\columnwidth]{./figs/sciwms_db_topology_endpoints.pdf}
   \caption{\Sciwms{} topology and endpoint data store. Typologies are
     classified as \cgrid{} and \ugrid{} for efficient geospatial
     queries and remote model data access.}
@@ -165,36 +165,58 @@ facade presents a consistent set of meta information in accordance to
 CF-Conventions~\cite{cf} so services like \sciwms{} can access the
 data through a uniform interface.
 
-The \noaa{}\footnote{National Oceanic and Atmospheric Administration}--\ngdc{}\footnote{National Geophysical
-Data Center} Geoportal indexes public geophysical datasets and provides an \ogc{} Catalogue Web Service (\csw{})
-to query datasets by their metadata attributes. Sci-wms queries the \ngdc{} Geoportal at regular intervals
-updating both the topologies and \opendap{} links for all new or modified datasets.
+The \noaa{}\footnote{National Oceanic and Atmospheric
+  Administration}--\ngdc{}\footnote{National Geophysical Data Center}
+Geoportal indexes public geophysical datasets and provides an \ogc{}
+Catalogue Web Service (\csw{}) to query datasets by their metadata
+attributes. Sci-wms queries the \ngdc{} Geoportal at regular intervals
+updating both the topologies and \opendap{} links for all new or
+modified datasets.
 
-\sciwms{} is designed to be scalable and responsive to handle queries for visualizations of
-any registered dataset by multiple users simultaneously.
+%% \sciwms{} is designed to be scalable and responsive to handle queries
+%% for visualizations of any registered dataset by multiple users
+%% simultaneously.
 
-\Sciwms{} is used to visualize data from the first phase groups
-of \comt{} program: {\em estuarine hypoxia, shelf hypoxia and coastal
- inundation}~\cite{luettich13}. For each modeling group,
-\sciwms{} successfully generates visualizations from
-\adcirc{}, \fvcom{}, \selfe{} and \slosh{} models run by scientists at
-\mdl{}, \und{}, \usf{}, \vims{}, \umass{}, \dal{}, \tamu{} and
-\noaa{}. The \ioos{} \comt{} use case is an example of how \sciwms{}
-can be leveraged as an effective tool for delivering consistent
-visualizations of scientific data to a diverse community utilizing
-various sophisticated modeling technologies.
+\Sciwms{} is used to visualize data from the first phase groups of
+\comt{} program: {\em estuarine hypoxia, shelf hypoxia and coastal
+  inundation}~\cite{luettich13}. For each modeling group, \sciwms{}
+successfully generates visualizations from \adcirc{}, \fvcom{},
+\selfe{} and \slosh{} models run by scientists at \mdl{}, \und{},
+\usf{}, \vims{}, \umass{}, \dal{}, \tamu{} and
+\noaa{}. Figure~\ref{fig:adcirc_comp} shows a web-portal utilizing the
+\sciwms{} backend to compare ADCIRC model output for Hurricane Ike
+with water levels observed by NOAA Stations. The \ioos{} \comt{} use
+case is an example of how \sciwms{} can be leveraged as an effective
+tool for delivering consistent visualizations of scientific data to a
+diverse community utilizing various sophisticated modeling
+technologies.
 
-\section{Conclusion}
-\sciwms{} is an Python implementation of the OGC WMS standard
-leveraging the suite of tools and utilities the geophysical science
-community has developed and continues to develop for advanced data
-analysis. The rapid development and integration of unstructured grid
-support into a WMS compliant service is demonstrated throught the
-efforts to display and analyze the \ioos{} \comt{} program model
-output. Ongoing development is in progress for \sciwms{} to support
-emerging geophysical datasets such as ensemble model output as well
-as provide clear visual support for the assessment and quantification
-of model skill and performance metrics.
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=\columnwidth]{./figs/SciWMS_ModelObsComparison}
+  \caption{Comparison of ADCIRC (unstructured topology) model results
+    with observed water levels in the Norther Gulf of Mexico for
+    Hurricane Ike. Verified observed water levels are from NOAA's
+    Station 8760922 (red dot on map). The map shows modeled water
+    levels (in meters above the geoid) at the peak of the storm in
+    southern Louisiana. The time series plot shows both the modeled
+    (green) and observed (orange) water levels. The vertical blue line
+    in the time series plot corresponds to the current time of the
+    map.}
+  \label{fig:adcirc_comp}
+\end{figure}
+
+%% \section{Conclusion}
+%% \sciwms{} is a scalable Python implementation of the \ogc{}-\wms{}
+%% standard leveraging the suite of tools and utilities the geophysical
+%% science community has developed for advanced data analysis. The rapid
+%% development and integration of unstructured grid support into a WMS
+%% compliant service is demonstrated throughout the efforts to display and
+%% analyze the \ioos{} \comt{} program model output. Ongoing development
+%% is in progress for \sciwms{} to support emerging geophysical datasets
+%% such as ensemble model output as well as provide clear visual support
+%% for the assessment and quantification of model skill and performance
+%% metrics.
 
 \bibliographystyle{ieeetr}
 \bibliography{ci_mayer}
