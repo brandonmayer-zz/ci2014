@@ -109,7 +109,7 @@ Compliance\footnote{https://github.com/ugrid-conventions/ugrid-conventions/blob/
 Vital to the efficiency of \sciwms{} is the abstraction
 of an oceanagraphic dataset into two entities: a topology, defined as
 a geo-referenced spatial structure and numerical model output as
-visualized in figure~\ref{fig:sciwms_topology_endpoints}. \Sciwms{}
+visualized in Figure~\ref{fig:sciwms_topology_endpoints}. \Sciwms{}
 creates a local topology cache for efficiently computing spatial
 neighborhoods with respect to topology structure.  For storage
 efficiency, model output is not replicated locally but referenced via
@@ -120,7 +120,6 @@ fulfill each request prior to accessing the external
 data. Furthermore, by classifying topologies as either regular or
 unstructured, efficient algorithms and data structures are exploited
 to optimize the computation of relevant model data subsets.
-
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.7\columnwidth]{./figs/overview.pdf}
@@ -128,13 +127,11 @@ to optimize the computation of relevant model data subsets.
     \comt{} project. \Sciwms{} updates its topology and endpoint
     database via a nightly service which queries CF-Compliant datasets
     cataloged by \ngdc{}. Model data is hosted on an external web
-    server through an \ncml{} facade accessible to \sciwms{} through
-    \opendap{} as a single \netcdf{} data structure. \Sciwms{} then
-    responds to http requests made simultaneously by multiple clients
-    interfacing through a custom built web-portal.}
+    exposed by an \ncml{} facade as a single \netcdf{} data structure
+    accessable to \sciwms{} via \opendap{}. \Sciwms{} responds to http
+    clients interfacing through a custom built web-portal.}
   \label{fig:overview1}
 \end{figure}
-
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=0.6\columnwidth]{./figs/sciwms_db_topology_endpoints.pdf}
@@ -143,7 +140,6 @@ to optimize the computation of relevant model data subsets.
     queries and remote model data access.}
   \label{fig:sciwms_topology_endpoints}
 \end{figure}
-
 \section{Deploying \sciwms{} for the U.S. \ioos{} \comt{} Testbed}
 While \sciwms{} is a general software solution for geospatial
 visualization, it is a key component in realizing the U.S. \ioos{}
@@ -151,6 +147,14 @@ visualization, it is a key component in realizing the U.S. \ioos{}
 aggregation through a unified visualization
 framework. Figure~\ref{fig:overview1} outlines the cyberinfrastructre
 behind the deployment of \sciwms{} for the \comt{} project.
+
+The \noaa{}\footnote{National Oceanic and Atmospheric
+  Administration}--\ngdc{}\footnote{National Geophysical Data Center}
+Geoportal indexes public geophysical datasets and provides an \ogc{}
+Catalogue Web Service (\csw{}) to query datasets by their metadata
+attributes. Sci-wms queries the \ngdc{} Geoportal at regular intervals
+updating both the topologies and \opendap{} links for all new or
+modified datasets.
 
 Raw coastal data is hosted by the Southeastern Universities Research
 Association (\sura{}) on a dedicated server for the \comt{}
@@ -162,20 +166,8 @@ layer which exposes each dataset as a single \netcdf{} object which
 may be accessed via
 \opendap{}\footnote{http://www.opendap.org/}. Furthermore, the \ncml{}
 facade presents a consistent set of meta information in accordance to
-CF-Conventions~\cite{cf} so services like \sciwms{} can access the
-data through a uniform interface.
-
-The \noaa{}\footnote{National Oceanic and Atmospheric
-  Administration}--\ngdc{}\footnote{National Geophysical Data Center}
-Geoportal indexes public geophysical datasets and provides an \ogc{}
-Catalogue Web Service (\csw{}) to query datasets by their metadata
-attributes. Sci-wms queries the \ngdc{} Geoportal at regular intervals
-updating both the topologies and \opendap{} links for all new or
-modified datasets.
-
-%% \sciwms{} is designed to be scalable and responsive to handle queries
-%% for visualizations of any registered dataset by multiple users
-%% simultaneously.
+CF-Conventions~\cite{cf} providing services like \sciwms{} access to
+the raw data through a uniform interface.
 
 Currently, \Sciwms{} is used to visualize data from the first phase
 groups of \ioos{} \comt{} program: {\em estuarine hypoxia, shelf hypoxia and
