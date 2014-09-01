@@ -64,7 +64,7 @@ selection. The modular cross-platform implementation of \sciwms{}
 allows the service to keep pace with the rapid developments in the
 geospatial data science community and to produce visualizations for
 numerous types of model outputs with transparent support for both
-structured and unstructured geo-referenced topologies. This abstract
+structured and unstructured geo-referenced topologies. This article
 outlines the implementation and technology stack for visualizing
 geospatial Climatological and Forecasting (CF) data using
 \sciwms{}\footnote{https://github.com/asascience-open/sci-wms} and
@@ -96,11 +96,11 @@ Consortium's (\ogc{}) Web Map Service (\wms{}) standard which
 specifies an HTTP interface for generating rasterized visualizations
 of geospatial data~\cite{wms14}. \sciwms{} is implemented in Python
 using the Django\footnote{\url{https://www.djangoproject.com/}} web
-framework and standard cross-platform numerical software, NumPy and
-Matplotlib~\cite{numpy11, hunter07} for generating visual
-content. Additionally, the open-source python implementation provides
-a cross-platform \wms{} solution which can leverage the suite of tools
-developed by the geospatial data analysis community such as
+framework and standard cross-platform numerical software,
+NumPy~\cite{numpy11} and Matplotlib~\cite{hunter07} for generating
+visual content. Additionally, the open-source python implementation
+provides a cross-platform \wms{} solution which can leverage the suite
+of tools developed by the geospatial data analysis community such as
 pyugrid\footnote{https://github.com/pyugrid/pyugrid} to maintain pace
 with the latest geospatial software and standards developments such as
 unstructured grid support and CF-UGrid
@@ -126,7 +126,7 @@ to optimize the computation of relevant model data subsets.
   \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
     \comt{} project. \Sciwms{} updates its topology and endpoint
     database via a nightly service which queries CF-Compliant datasets
-    cataloged by \ngdc{}. Model data is hosted on an external web
+    cataloged by \ngdc{}. Model data is hosted on an external web server
     exposed by an \ncml{} facade as a single \netcdf{} data structure
     accessable to \sciwms{} via \opendap{}. \Sciwms{} responds to http
     clients interfacing through a custom built web-portal.}
@@ -186,7 +186,7 @@ the assessment and quantification of model skill and performance
 metrics.
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.9\columnwidth]{./figs/SciWMS_ModelObsComparison}
+  \includegraphics[width=\columnwidth]{./figs/SciWMS_ModelObsComparison}
   \caption{Comparison of ADCIRC (unstructured topology) model results
     with observed water levels in the Norther Gulf of Mexico for
     Hurricane Ike. Verified observed water levels are from NOAA's
