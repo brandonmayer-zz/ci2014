@@ -48,13 +48,23 @@
 \makeposter
 
 \section{Introduction}
-\sciwms{} is an open-source python implementation of the \ogc{} \wms{} service for qualitatively assessing society-critical atmostpheric and oceanagraphic model and forcasting data including:
-
 \begin{itemize}
-  \item forecasting
-  \item risk assessment
-  \item model comparison
-  \item algorithmic/parameter selection
+  \item \sciwms{} is an open-source python implementation of the \ogc{} \wms{} service for qualitatively assessing society-critical atmostpheric and oceanagraphic model and forcasting data including: forecasting, risk assessment, model comparison, algorithmic/parameter selection
+  \item \sciwms{} is able to achieve real-time visualization of
+    externally hosted CF-Compliant georegistered data by abstracting a
+    "dataset" into two quantities: a topology and corresponding
+    model-data.
+  \item A topology is defined as a geo-referenced structure and further categorized into one of two groups: \cgrid{} and \ugrid{} topologies
+    \begin{itemize}
+    \item \cgrid{} - Any regular grid, defined as a topology that is
+      parameterizable. This includes rectangular grids or curvelinear
+      grids.
+    \item \ugrid{} - Unstructured grids
+      \begin{itemize}
+        \item blah
+      \end{itemize}
+    \end{itemize}
+    
 \end{itemize}
 
 \sciwms{} source code is available at https://github.com/brandonmayer/sci-wms/tree/testbed
