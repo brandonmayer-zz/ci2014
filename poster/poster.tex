@@ -13,8 +13,15 @@
 \usepackage{graphicx}
 %% \usepackage{subcaption}
 \usepackage{wrapfig}
+
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+
 \usepackage{../macros}
 
+\useunder{\uline}{\ulined}{}%
+\DeclareUrlCommand{\bulurl}{\def\UrlFont{\ttfamily\color{blue}\ulined}}
 
 
 \begin{document}
@@ -49,39 +56,84 @@
 
 \section{Introduction}
 \begin{itemize}
-  \item \sciwms{} is an open-source python implementation of the \ogc{} \wms{} service for qualitatively assessing society-critical atmostpheric and oceanagraphic model and forcasting data including: forecasting, risk assessment, model comparison, algorithmic/parameter selection
-  \item \sciwms{} is able to achieve real-time visualization of
-    externally hosted CF-Compliant georegistered data by abstracting a
-    "dataset" into two quantities: a topology and corresponding
-    model-data.
-  \item A topology is defined as a geo-referenced structure and further categorized into one of two groups: \cgrid{} and \ugrid{} topologies
-    \begin{itemize}
-    \item \cgrid{} - Any regular grid, defined as a topology that is
-      parameterizable. This includes rectangular grids or curvelinear
-      grids.
-    \item \ugrid{} - Unstructured grids
-      \begin{itemize}
-        \item blah
-      \end{itemize}
-    \end{itemize}
+  \item \sciwms{} is an open-source python implementation of an \ogc{}
+    \wms{} service for CF-Compliant data with support for structured
+    and unstructured topologies
+  
+  \item \sciwms{} is deployed for the IOOS project for qualitatively
+    assessing society-critical atmostpheric and oceanagraphic model
+    and forcasting data including: forecasting, risk assessment, model
+    comparison, algorithmic/parameter selection
     
+  \item Able to achieve real-time visualization of
+    externally hosted CF-Compliant georegistered
+
+  \item \sciwms{} abstracts a dataset into two objects: a topology
+      and corresponding model-data.
+    
+  \item Topologies are stored locally for efficient spatial queries
+
+  \item Model data is hosted externally, subsets of which are downloaded and rendered per request
+  
+  \item \sciwms{} source code is available at {\color{blue} \url{https://github.com/brandonmayer/sci-wms/tree/testbed}}
+    
+  \item \sciwms{} deployed for IOOS at {\color{blue} \url{http://testbedwww.sura.org/explorer/}}
 \end{itemize}
 
-\sciwms{} source code is available at https://github.com/brandonmayer/sci-wms/tree/testbed
 
-\begin{minipage}[r]{\linewidth}
+\section{Architecture Overview}
+
+%% \begin{minipage}[r]{\linewidth}
+%%   \centering
+%%   \includegraphics[width=0.45\linewidth]{../figs/overview.pdf}
+%%   \captionspace{}
+%%   \textbf{Figure \getIncFigcounter{}}: \textit{Overview of the \sciwms{} architecture within the scope of the U.S. \ioos{} \comt{} project.}
+%% \end{minipage}
+
+%% \figspace{}
+
+%% \begin{minipage}[t]{\linewidth}
+%%   \centering
+%%   \includegraphics[width=\linewidth]{../figs/sciwms_db_topology_endpoints.pdf}
+%%   \textbf{Figure \getIncFigcounter{}}: \textit{Topology and endpoint data store. Topologies are classified as either \cgrid{} or \ugrid{} for efficient geospatial queries and remote model data access.}
+%% \end{minipage}
+
+\begin{minipage}[t]{0.49\linewidth}
   \centering
   \includegraphics[width=\linewidth]{../figs/overview.pdf}
   \captionspace{}
   \textbf{Figure \getIncFigcounter{}}: \textit{Overview of the \sciwms{} architecture within the scope of the U.S. \ioos{} \comt{} project.}
 \end{minipage}
-
-\begin{minipage}[t]{\linewidth}
+\begin{minipage}[t]{0.49\linewidth}
   \centering
-  \includegraphics[width=\linewidth]{../figs/sciwms_db_topology_endpoints.pdf}
+  \raisebox{0.15\height}{\includegraphics[width=\linewidth]{../figs/sciwms_db_topology_endpoints.pdf}}
   \textbf{Figure \getIncFigcounter{}}: \textit{Topology and endpoint data store. Topologies are classified as either \cgrid{} or \ugrid{} for efficient geospatial queries and remote model data access.}
 \end{minipage}
 
+
+\figspace{}
+
+\begin{itemize}
+    \item Unstructured Grids are cached using R-Trees
+      \begin{itemize}
+        \item Fast queries for lat/lon coordinates lying within current view (getMap WMS request)
+        \item Fast K-Nearest point lookups for getFeatureInfo requests.
+      \end{itemize}
+\end{itemize}
+
+\section{\wms{} Extensions}
+
+While \sciwms{} is fully complient with the \ogc{} \wms{}
+specification, it offers some extensions which make developing
+dynamic front-end clints much simpler
+
+\begin{itemize}
+  \item Returns list of all available datasets and layers in json(p) format
+  \item Responsds to requests for all available styles and colormaps in json(p) format
+  \item Can generate and serve color-ramp png previews
+\end{itemize}
+
+\section{Examples}
 \begin{minipage}[t]{\linewidth}
   \centering
   \includegraphics[width=\linewidth]{../figs/SciWMS_ModelObsComparison}
@@ -95,5 +147,18 @@
     water levels. The vertical blue line in the time series plot
     corresponds to the current time of the map.}
 \end{minipage}
+\figspace{}
+\begin{minipage}[t]{\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{../figs/vims_selfe_ubaratropic_vbaratropic_chesapeake_bay}
+  \textbf{Figure \getIncFigcounter{}}: \textit{SELFE model of current
+    direction and speedin the Chesapeake Bay.}
+\end{minipage}
+\figspace{}
+\begin{minipage}[t]{\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{../figs/inundation_tropical_VIMS_SELFE_hurricane_rita_2d_final_run_with_waves_sea_surface_wave_significant_height}
+\end{minipage}
+
 
 \end{document}
