@@ -322,7 +322,7 @@
       %% CUnibig downloaded from
       %% http://www.cam.ac.uk/localusersonly/cambuniv/docstyle/
       %% \includegraphics[width=20cm]{CUnibig.eps}
-      \resizebox{4.5in}{!}{\includegraphics[width=20cm]{../figs/rpsasa_logo.pdf}}
+      \resizebox{4.5in}{!}{\includegraphics[width=20cm]{../figs/rpsasa_logo_with_ci.pdf}}
     }%
   \fi  
   % Put in the logo
