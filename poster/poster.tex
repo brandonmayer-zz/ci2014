@@ -56,28 +56,37 @@
 
 \section{Introduction}
 \begin{itemize}
-  \item \sciwms{} is an open-source python implementation of an \ogc{}
-    \wms{} service for CF-Compliant data with support for structured
-    and unstructured topologies
+  \item \sciwms{} is an open-source python implementation of an \href{http://www.opengeospatial.org/standards/wms}{\color{blue}\ogc{} \wms{}} service for \href{http://cfconventions.org/}{\color{blue}CF-Compliant} data with
+    support for structured and unstructured topologies
   
-  \item \sciwms{} is deployed for the IOOS project for qualitatively
-    assessing society-critical atmostpheric and oceanagraphic model
-    and forcasting data including: forecasting, risk assessment, model
-    comparison, algorithmic/parameter selection
+  \item Deployed for the
+    \href{http://www.ioos.noaa.gov/modeling/testbed.html}{{\color{blue}IOOS-COMT}}
+    project for qualitatively assessing society-critical atmostpheric
+    and oceanagraphic model and forcasting data including:
+    forecasting, risk assessment, model comparison,
+    algorithmic/parameter selection
     
-  \item Able to achieve real-time visualization of
-    externally hosted CF-Compliant georegistered
+  \item Achieves real-time visualization of
+    externally hosted CF-Compliant data
 
-  \item \sciwms{} abstracts a dataset into two objects: a topology
-      and corresponding model-data.
+  \item Can visualized structured and unstructured grid by adhering to
+    \href{https://github.com/ugrid-conventions/ugrid-conventions/blob/v0.9.0/ugrid-conventions.md}{\color{blue}CF-UGRID Conventions}
+
+  \item Abstracts a dataset into two objects: a topology
+      and corresponding model data.
     
   \item Topologies are stored locally for efficient spatial queries
 
-  \item Model data is hosted externally, subsets of which are downloaded and rendered per request
+  \item Model data is hosted externally, subsets of which are
+    downloaded and rendered per request
+
+  \item Supports arbitrary cartographic projections 
   
-  \item \sciwms{} source code is available at {\color{blue} \url{https://github.com/brandonmayer/sci-wms/tree/testbed}}
+  \item Source code is available at {\color{blue}
+    \url{https://github.com/brandonmayer/sci-wms/tree/testbed}}
     
-  \item \sciwms{} deployed for IOOS at {\color{blue} \url{http://testbedwww.sura.org/explorer/}}
+  \item Deployed for COMT-IOOS at {\color{blue}
+    \url{http://testbedwww.sura.org/explorer/}}
 \end{itemize}
 
 
@@ -114,23 +123,29 @@
 \figspace{}
 
 \begin{itemize}
-    \item Unstructured Grids are cached using R-Trees
+    \item Unstructured grids (UGrid) are cached using R-Trees
       \begin{itemize}
-        \item Fast queries for lat/lon coordinates lying within current view (getMap WMS request)
-        \item Fast K-Nearest point lookups for getFeatureInfo requests.
+        \item Fast queries for lat/lon coordinates lying within
+          current view for a \wms{} \getMap{} request
+          
+        \item Fast K-nearest point lookups for \getFeatureInfo{} requests.
       \end{itemize}
 \end{itemize}
 
 \section{\wms{} Extensions}
 
 While \sciwms{} is fully complient with the \ogc{} \wms{}
-specification, it offers some extensions which make developing
-dynamic front-end clints much simpler
+specification, \sciwms{} supports extensions to augment and simplify
+the basic \wms{} API for rapid front end UI development
 
 \begin{itemize}
-  \item Returns list of all available datasets and layers in json(p) format
-  \item Responsds to requests for all available styles and colormaps in json(p) format
-  \item Can generate and serve color-ramp png previews
+  \item Query and return list of all available datasets and layers via
+    json(p)
+    
+  \item Responsds to requests for all available styles and colormaps
+    in json(p) format
+    
+  \item Can generate and serve color-ramp previews
 \end{itemize}
 
 \section{Examples}
@@ -158,7 +173,6 @@ dynamic front-end clints much simpler
 \begin{minipage}[t]{\linewidth}
   \centering
   \includegraphics[width=\linewidth]{../figs/inundation_tropical_VIMS_SELFE_hurricane_rita_2d_final_run_with_waves_sea_surface_wave_significant_height}
+  \textbf{Figure \getIncFigcounter{}}: \textit{Visualizing SELFE model of significant sea surface wave height along the eastern coast of the United States. The underlying topology is an unstructured grid with over 5 million nodes which SCI-WMS can handle in real time.}
 \end{minipage}
-
-
 \end{document}
