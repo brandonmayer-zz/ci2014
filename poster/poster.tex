@@ -56,21 +56,27 @@
 
 \section{Introduction}
 \begin{itemize}
-  \item \sciwms{} is an open-source python implementation of an \href{http://www.opengeospatial.org/standards/wms}{\color{blue}\ogc{} \wms{}} service for \href{http://cfconventions.org/}{\color{blue}CF-Compliant} data with
-    support for structured and unstructured topologies
+  \item \sciwms{} is an open-source Python implementation of the
+    \href{http://www.opengeospatial.org/standards/wms}{\color{blue}\ogc{}
+      \wms{}} (Web Mapping Service) API for
+    \href{http://cfconventions.org/}{\color{blue}CF-Compliant}
+    coastal, atmospheric, climate and weather data with support for
+    structured and unstructured topologies
   
-  \item Deployed for the
+  \item Deployed within the
     \href{http://www.ioos.noaa.gov/modeling/testbed.html}{{\color{blue}IOOS-COMT}}
-    project for qualitatively assessing society-critical atmostpheric
-    and oceanagraphic model and forcasting data including:
-    forecasting, risk assessment, model comparison,
+    project scope for qualitatively assessing society-critical
+    atmostpheric and oceanagraphic model and forcasting data
+    including: forecasting, risk assessment, model comparison,
     algorithmic/parameter selection
     
   \item Achieves real-time visualization of
     externally hosted CF-Compliant data
 
-  \item Can visualized structured and unstructured grid by adhering to
-    \href{https://github.com/ugrid-conventions/ugrid-conventions/blob/v0.9.0/ugrid-conventions.md}{\color{blue}CF-UGRID Conventions}
+  \item Can visualize data registered to structured or unstructured
+    grids by adhering to
+    \href{https://github.com/ugrid-conventions/ugrid-conventions/blob/v0.9.0/ugrid-conventions.md}{\color{blue}CF-UGRID
+      Conventions}
 
   \item Abstracts a dataset into two objects: a topology
       and corresponding model data.
@@ -123,7 +129,7 @@
 \figspace{}
 
 \begin{itemize}
-    \item Unstructured grids (UGrid) are cached using R-Trees
+    \item Unstructured grid locations are cached using R-Trees
       \begin{itemize}
         \item Fast queries for lat/lon coordinates lying within
           current view for a \wms{} \getMap{} request
@@ -141,6 +147,9 @@ the basic \wms{} API for rapid front end UI development
 \begin{itemize}
   \item Query and return list of all available datasets and layers via
     json(p)
+
+  \item Return requests for subsets (spatial/temporal) of raw model
+    data as json(p)
     
   \item Responsds to requests for all available styles and colormaps
     in json(p) format
