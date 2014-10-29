@@ -24,6 +24,7 @@
                              % when including figure files
 \usepackage{multicol}        % used for the two-column index
 \usepackage[bottom]{footmisc}% places footnotes at page bottom
+\usepackage{placeins}
 
 % see the list of further useful packages
 % in the Reference Guide
@@ -194,6 +195,8 @@ groups of \ioos{} \comt{} program: {\em estuarine hypoxia, shelf hypoxia and
 \sciwms{} can be leveraged as a scalable solution for delivering
 consistent visualizations of scientific data to a diverse community.
 
+\section{Results}
+\label{sec:results}
 Figure~\ref{fig:adcirc_comp} shows a web portal utilizing the
 \sciwms{} backend to compare ADCIRC model output for Hurricane Ike
 with water levels observed by NOAA stations. Ongoing development is in
@@ -233,7 +236,7 @@ metrics.
 %% \caption{If the width of the figure is less than 7.8 cm use the \texttt{sidecapion} command to flush the caption on the left side of the page. If the figure is positioned at the top of the page, align the sidecaption with the top of the figure -- to achieve this you simply need to use the optional argument \texttt{[t]} with the \texttt{sidecaption} command}
 %% \label{fig:1}       % Give a unique label
 %% \end{figure}
-
+\FloatBarrier
 \bibliographystyle{ieeetr}
 \bibliography{../ci_mayer}
 \end{document}
