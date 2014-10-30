@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\usepackage[normalem]{ulem}
+\usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{placeins}
+\usepackage{url}
+%% \usepackage{enumerate}
+\input{../macros.sty}
+\author{Brandon A. Mayer}
+\title{\sciwms{} CI-2014 Book Chapter Outline}
+\date{}
+
+\newbool{commentson}
+\booltrue{commentson}
+\ifbool{commentson}
+{
+  \long\def\commentbam#1{{\color{red}\bf **Brandon: #1**}}
+  %%Just in case Brian is compelled to comment.
+  \long\def\commentbm#1{{\color{green}\bf **Brian: #1**}}
+}
+{
+  \long\def\commentb#1{{}}
+  \long\def\commentm#1{{}}
+}
+
+\begin{document}
+\maketitle
+
+\section{Motivation}
+\begin{enumerate}
+  \item What is the problem?
+  \item Why is the problem important?
+  \item How does \sciwms{} solve the problem?
+  \item State Novelties and Contributions
+    \begin{enumerate}[label*=\arabic*.]
+      \item Support for arbitrary projections specified by client through EPS string.
+      \item \sciwms{} is the first WMS to support unstructured CF-Compliant data.
+    \end{enumerate}
+\end{enumerate}
+
+\section{\sciwms{}}
+\begin{enumerate}
+  \item Overview of OpenGIS WMS specification
+    \begin{enumerate}[label*=\arabic*.]
+      \item What is a WMS specification?
+      \item getCapabilities, getFeatureInfo, and getMap
+      \item Standard Http Interface
+      \item REST-like API for client-server seperation
+    \end{enumerate}
+  \item Overview of CF-Standard
+    \begin{enumerate}[label*=\arabic*.]
+      \item Standard names for Atmospheric, Climate, Weather and Forcasting data
+    \end{enumerate}
+
+  \item Overview of Grid Types and Models
+    \begin{enumerate}[label*=\arabic*.]
+      \item ADCIRC      
+      \item SELFE
+      \item FVCOM
+      \item SLOSH
+      \item ROMS
+    \end{enumerate}
+
+  \item Overview of R-Tree Database
+    \begin{enumerate}
+      \item WMS getMap requests are orthogonal range queries, ideally suited for Rtree datastructures
+      \item Rtree figure?
+      \item Create local cache of unstructured grid points using Rtree database
+      \item Run time of creation
+      \item Run time analysis of query
+      \item Each getMap request finds the indices of the appropriate data in optimal time
+        via queries to the Rtree database.
+    \end{enumerate}
+\end{enumerate}
+
+\section{COMT-IOOS Deployment}
+\begin{enumerate}
+  \item Mission of COMT-IOOS
+  \item Use case of federated dataset hosted at multiple organizations unified by a CSW catalogue.
+  \item \sciwms{} deployed for qualitative parameter selection, skill assessment and model comparison.
+\end{enumerate}
+\end{document}
