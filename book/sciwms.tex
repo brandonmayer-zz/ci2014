@@ -1,0 +1,88 @@
+
+\section{\sciwms{}}
+\label{sec:sciwms}
+\Sciwms{} is an open-source implementation of the Open Geospatial
+Consortium's (\ogc{}) Web Map Service (\wms{}) standard which
+specifies an HTTP interface for generating rasterized visualizations
+of geospatial data~\cite{wms14}. \sciwms{} is implemented in Python
+using the Django\footnote{\url{https://www.djangoproject.com/}} web
+framework and standard cross-platform numerical software,
+NumPy~\cite{numpy11} and Matplotlib~\cite{hunter07} for generating
+visual content. Additionally, the open-source python implementation
+provides a cross-platform \wms{} solution which can leverage the suite
+of tools developed by the geospatial data analysis community such as
+pyugrid\footnote{https://github.com/pyugrid/pyugrid} to maintain pace
+with the latest geospatial software and standards developments such as
+unstructured grid support and CF-UGrid
+Compliance\footnote{https://github.com/ugrid-conventions/ugrid-conventions/blob/v0.9.0/ugrid-conventions.md}.
+
+Vital to the efficiency of \sciwms{} is the abstraction
+of a dataset into two entities: a topology, defined as
+a geo-referenced spatial structure and numerical model output as
+visualized in Figure~\ref{fig:sciwms_topology_endpoints}. \Sciwms{}
+creates a local topology cache for efficiently computing spatial
+neighborhoods with respect to topology structure.  For storage
+efficiency, model output is not replicated locally but referenced via
+OGC compliant web-services. Because geospatial \wms{} requests are
+commonly restricted to a subset of the Earth's surface, \sciwms{} uses
+the local topology to compute the subset of model data needed to
+fulfill each request prior to accessing the external
+data. Furthermore, by classifying topologies as either regular or
+unstructured, efficient algorithms and data structures are exploited
+to optimize the computation of relevant model data subsets.
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.7\columnwidth]{../figs/sciwms_overview_v2.pdf}
+  \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
+    \comt{} project. \Sciwms{} updates its topology and endpoint
+    database via a nightly service which queries CF-Compliant datasets
+    cataloged by \ngdc{}. Model data is hosted on an external web server
+    exposed by an \ncml{} facade as a single \netcdf{} data structure
+    accessable to \sciwms{} via \opendap{}. \Sciwms{} responds to http
+    clients interfacing through a custom built web portal.}
+  \label{fig:overview1}
+\end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.6\columnwidth]{../figs/sciwms_db_topology_endpoints.pdf}
+  \caption{\Sciwms{} topology and endpoint data store. Typologies are
+    classified as \cgrid{} and \ugrid{} for efficient geospatial
+    queries and remote model data access.}
+  \label{fig:sciwms_topology_endpoints}
+\end{figure}
+\section{Deploying \sciwms{} for the U.S. \ioos{} \comt{} Testbed}
+While \sciwms{} is a general software solution for geospatial
+visualization, it is a key component in realizing the U.S. \ioos{}
+\comt{} mission, facilitating qualitative model comparisons and
+aggregation through a unified visualization
+framework. Figure~\ref{fig:overview1} outlines the cyberinfrastructre
+behind the deployment of \sciwms{} for the \comt{} project.
+
+The \noaa{}\footnote{National Oceanic and Atmospheric
+  Administration}--\ngdc{}\footnote{National Geophysical Data Center}
+Geoportal indexes public geophysical datasets and provides an \ogc{}
+Catalogue Web Service (\csw{}) to query datasets by their metadata
+attributes. \sciwms{} queries the \ngdc{} Geoportal at regular intervals
+updating both the topologies and \opendap{} links for all new or
+modified datasets.
+
+Raw coastal data is hosted by the Southeastern Universities Research
+Association (\sura{}) on a dedicated server for the \comt{}
+project~\cite{luettich12}. Each data set may consist of multiple files
+in different formats, and may be the result of very different models
+run by various institutions with disparate computing
+resources. However, accompanying each dataset is an \ncml{} virtual
+layer which exposes each dataset as a single \netcdf{} object which
+may be accessed via
+\opendap{}\footnote{http://www.opendap.org/}. Furthermore, the \ncml{}
+facade presents a consistent set of meta information in accordance to
+CF-Conventions~\cite{cf} providing services like \sciwms{} access to
+the raw data through a uniform interface.
+
+Currently, \Sciwms{} is used to visualize data from the first phase
+groups of \ioos{} \comt{} program: {\em estuarine hypoxia, shelf hypoxia and
+  coastal inundation}~\cite{luettich13}. For each modeling group,
+\sciwms{} successfully generates visualizations from \adcirc{},
+\fvcom{}, \selfe{} and \slosh{} models and serves as a use-case of how
+\sciwms{} can be leveraged as a scalable solution for delivering
+consistent visualizations of scientific data to a diverse community.
