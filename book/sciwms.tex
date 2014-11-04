@@ -1,4 +1,4 @@
-
+%%this is /book/sciwms.tex
 \section{\sciwms{}}
 \label{sec:sciwms}
 \Sciwms{} is an open-source implementation of the Open Geospatial
@@ -50,39 +50,5 @@ to optimize the computation of relevant model data subsets.
     queries and remote model data access.}
   \label{fig:sciwms_topology_endpoints}
 \end{figure}
-\section{Deploying \sciwms{} for the U.S. \ioos{} \comt{} Testbed}
-While \sciwms{} is a general software solution for geospatial
-visualization, it is a key component in realizing the U.S. \ioos{}
-\comt{} mission, facilitating qualitative model comparisons and
-aggregation through a unified visualization
-framework. Figure~\ref{fig:overview1} outlines the cyberinfrastructre
-behind the deployment of \sciwms{} for the \comt{} project.
 
-The \noaa{}\footnote{National Oceanic and Atmospheric
-  Administration}--\ngdc{}\footnote{National Geophysical Data Center}
-Geoportal indexes public geophysical datasets and provides an \ogc{}
-Catalogue Web Service (\csw{}) to query datasets by their metadata
-attributes. \sciwms{} queries the \ngdc{} Geoportal at regular intervals
-updating both the topologies and \opendap{} links for all new or
-modified datasets.
 
-Raw coastal data is hosted by the Southeastern Universities Research
-Association (\sura{}) on a dedicated server for the \comt{}
-project~\cite{luettich12}. Each data set may consist of multiple files
-in different formats, and may be the result of very different models
-run by various institutions with disparate computing
-resources. However, accompanying each dataset is an \ncml{} virtual
-layer which exposes each dataset as a single \netcdf{} object which
-may be accessed via
-\opendap{}\footnote{http://www.opendap.org/}. Furthermore, the \ncml{}
-facade presents a consistent set of meta information in accordance to
-CF-Conventions~\cite{cf} providing services like \sciwms{} access to
-the raw data through a uniform interface.
-
-Currently, \Sciwms{} is used to visualize data from the first phase
-groups of \ioos{} \comt{} program: {\em estuarine hypoxia, shelf hypoxia and
-  coastal inundation}~\cite{luettich13}. For each modeling group,
-\sciwms{} successfully generates visualizations from \adcirc{},
-\fvcom{}, \selfe{} and \slosh{} models and serves as a use-case of how
-\sciwms{} can be leveraged as a scalable solution for delivering
-consistent visualizations of scientific data to a diverse community.

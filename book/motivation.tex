@@ -25,30 +25,24 @@ While a decentralized approach to data management offers many
 advantages such as robustness to failure (a failure at any one
 organization only effects the data associated with that organization),
 data reduction and analysis tools have been slower to adapt to the new
-framework. For example, there exist many programs to visualize
-cartographic data on a single machine and many such programs are
-designed to deal with output of specific applications or data saved in
-a particular file format. This type of workflow is ripe for different
-analysts to download local copies of the same datasets to different
-machines and use different tools to create incompatible visualizations
-or comparisons of the same data.
+framework. For example, there are an abundance of applications for
+visualizing cartographic data on a single machine, however, many such
+programs are designed to deal with the output of specific modeling
+applications or data saved in a particular file format. Combining
+localized tools to a decentralized dataset exposes the risk that
+different analysts working with identical local copies of data obtained
+from the same federated source may use different tools locally to create
+incompatible visualizations or comparisons of the same data.
 
 \sciwms{} is a web service designed for visualizing federated
-data. Specifically, \sciwms{} maintains a list of http endpoints and a local cache of information for producing visualizations in realtime.
-
-
-The U.S. Integrated Ocean Observing System (\ioos{}) Coastal and Ocean
-Modeling Testbed (\comt{}) was formed to unify otherwise disparate
-entities in government, academia and industry to leverage the
-proliferation of oceanagraphic data and modeling techniques to combat
-natural and man-made coastal stressors by accelerating the turnaround
-from research and development to operational application of
-society-critical applications including: forecasting, model
-comparison, model skill assessment, and algorithmic/parameterization
-improvements~\cite{luettich13}. Key to the U.S. \ioos{} \comt{}
-mission is an extensible and universally available tool for quickly
-visualizing and assessing a diverse set of coastal modeling
-data. \sciwms{} is a general \ogc{} \wms{} solution for serving
-rasterized visualizations of geospatial data which has been deployed
-for the \comt{} project to provide visualizations of a wide range of
-scientific data.
+data. Specifically, \sciwms{} maintains a list of web accessible
+endpoints and a local cache of information for producing
+visualizations in real-time. Additionally, \sciwms{} is augmented with
+services for reading standard data-aggregation catalogues such as
+\csw{}~\cite{csw}, allowing \sciwms{} to keep track of dynamic
+federations. By providing a simple interface for analysts to produce
+visualizations of federated data costs are lowered as the analyst
+doesn't spend time customizing a specific tool to a local copy of a
+single dataset. More importantly, a single web-based tool for
+producing visualizations of federated data, ensures qualitative
+assessments and conclusions are made on equal footing.
