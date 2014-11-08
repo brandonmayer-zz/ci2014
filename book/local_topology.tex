@@ -1,0 +1,42 @@
+%%this is ci2014/book/local_topology.tex
+\subsection{Local Topology Cache}
+Visualization tools often decompose data into structure and
+attributes.  Structure encapsulates both the locations (where) and
+geometry (connectivity) relations between attributes and constrain the
+visualization task. Similarly, \sciwms{} decomposes an externally
+hosted dataset into a structure (topology), defined as a
+geo-referenced spatial set of locations and geometries (connectivity
+of locations), and the underlying data layer. 
+
+For example, atmospheric and oceanagrphic models typically define a
+fixed topology covering a particular spatial extent of the earth. A
+model will extimate attributes of interest such as sea-surface-height,
+wind or current magnitudes and directions. The topology of the model
+referrs to positions and connectivity of the locations for which
+attributes are to be computed. While a model produces data associated
+with every location specified by the topology, visualizations are
+typically generated for a subset of the topology (a region of
+interest) and a single attribute such as current direction. It is
+therefore paramount to the efficiency of visualization software to
+represent topologies in such a way as to optimize topology storage and
+reduction to facilitate efficient attribute retrieval. 
+
+Topologies can be further classified into one of two categories,
+structured and unstructured, referred to as {\bf c-grid} and {\bf
+  u-grid} topologies respectively in \sciwms{}
+nomenclature. Structured topologies can be represented using
+analytically while unstructured topologies require explicit
+enumeration. These differences admit different optimal data structures
+and algorithms for storage and processing.
+
+To this end, when an dataset endpoint is submitted to \sciwms{}, the
+topology of the underlying endpoint is stored locally to \sciwms{} and
+a database of topology-endpoint associations are maintained as
+visualized in Figure~\ref{fig:sciwms_topology_endpoints}. 
+
+\subsection{Structured (c-grid) Topologies}
+Structured or {\bf c-grid} topologies refer geo-referenced locations
+and geometries that can be analytically specified, e.g., rectilinear
+or curvilinear grids. Storing \cgrid{} topologies amount to storing
+the closed form formula. When an analyst requests a view of a
+particular region, the subseting

@@ -16,6 +16,8 @@ with the latest geospatial software and standards developments such as
 unstructured grid support and CF-UGrid
 Compliance\footnote{https://github.com/ugrid-conventions/ugrid-conventions/blob/v0.9.0/ugrid-conventions.md}.
 
+
+
 Vital to the efficiency of \sciwms{} is the abstraction
 of a dataset into two entities: a topology, defined as
 a geo-referenced spatial structure and numerical model output as
@@ -30,25 +32,43 @@ fulfill each request prior to accessing the external
 data. Furthermore, by classifying topologies as either regular or
 unstructured, efficient algorithms and data structures are exploited
 to optimize the computation of relevant model data subsets.
-\begin{figure}[ht!]
+
+%% \begin{figure}[ht!]
+%%   \centering
+%%   \includegraphics[width=0.7\columnwidth]{../figs/sciwms_overview_v2.pdf}
+%%   \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
+%%     \comt{} project. \Sciwms{} updates its topology and endpoint
+%%     database via a nightly service which queries CF-Compliant datasets
+%%     cataloged by \ngdc{}. Model data is hosted on an external web server
+%%     exposed by an \ncml{} facade as a single \netcdf{} data structure
+%%     accessable to \sciwms{} via \opendap{}. \Sciwms{} responds to http
+%%     clients interfacing through a custom built web portal.}
+%%   \label{fig:overview1}
+%% \end{figure}
+%% \begin{figure}[ht!]
+%%   \centering
+%%   \includegraphics[width=0.6\columnwidth]{../figs/sciwms_book_db_topology_endpoints.pdf}
+%%   \caption{\Sciwms{} topology and endpoint data store. Typologies are
+%%     classified as \cgrid{} and \ugrid{} for efficient geospatial
+%%     queries and remote model data access.}
+%%   \label{fig:sciwms_topology_endpoints}
+%% \end{figure}
+
+\begin{figure}
   \centering
-  \includegraphics[width=0.7\columnwidth]{../figs/sciwms_overview_v2.pdf}
-  \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
-    \comt{} project. \Sciwms{} updates its topology and endpoint
-    database via a nightly service which queries CF-Compliant datasets
-    cataloged by \ngdc{}. Model data is hosted on an external web server
-    exposed by an \ncml{} facade as a single \netcdf{} data structure
-    accessable to \sciwms{} via \opendap{}. \Sciwms{} responds to http
-    clients interfacing through a custom built web portal.}
-  \label{fig:overview1}
-\end{figure}
-\begin{figure}[ht!]
-  \centering
-  \includegraphics[width=0.6\columnwidth]{../figs/sciwms_db_topology_endpoints.pdf}
-  \caption{\Sciwms{} topology and endpoint data store. Typologies are
-    classified as \cgrid{} and \ugrid{} for efficient geospatial
-    queries and remote model data access.}
-  \label{fig:sciwms_topology_endpoints}
+  \begin{subfigure}[b]{0.455\textwidth}
+    \includegraphics[width=\textwidth]{../figs/sciwms_book_db_topology_endpoints.pdf}
+    \caption{\Sciwms{} topology and endpoint data store.}
+    \label{fig:sciwms_topology_endpoints}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../figs/sciwms_overview_v2.pdf}
+    \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
+      \comt{} project.}
+    \label{fig:overview1}
+  \end{subfigure}
+  \caption{\sciwms{} architecture.}
+  \label{fig:architecture}
 \end{figure}
 
 
