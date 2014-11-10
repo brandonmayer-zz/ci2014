@@ -2,20 +2,20 @@
 \subsection{Dataset Abstractions}
 Visualization tools often decompose data into structure and
 attributes~\cite{vtk}. Due to the discrete nature of digital
-computers, any numerical function to be visualized must be sampled and
+computers, any continuous function to be estimated must be sampled and
 measured at a discrete set of points. However, rendering a
 visualization typically requires knowledge of the values between the
-samples to produce a perceptually continuous image from arbitrary
+samples to produce a perceptually continuous images from arbitrary
 viewpoints. Structure encapsulates both the locations and connectivity
-relations onto which attributes are superimposed. Structural locations
-specify the locations of sampled measurements while connectivity
-constrains the interpolation problem. Note that some authors further
-decompose structure further into topology and geometry~\cite{weiler},
-however, in the context of this research, topology is synonymous with
-the structure abstraction. Figure~\ref{fig:data_hierarchy} outlines
-the data model abstraction adopted by \sciwms{}. A dataset is composed
-of attributes and an associated structure, further classified as a
-regular or irregular topology.
+relations onto which attributes are superimposed where connectivity
+serves to constrain the interpolation problem. Note that some authors
+further decompose structure further into topology and
+geometry~\cite{weiler}, however, in the context of this research,
+topology is synonymous with the structure
+abstraction. Figure~\ref{fig:data_hierarchy} outlines the data model
+abstraction adopted by \sciwms{}. A dataset is composed of attributes
+and an associated structure, further classified as a regular or
+irregular topology.
 
 \begin{figure}[ht!]
   \centering
@@ -39,27 +39,29 @@ regular or irregular topology.
 
 \subsection{Local Topology Cache}
 
-\sciwms{} adopts the \cfugrid{} conventions for implementing the data model abstraction. A topology is always embedded in either $\mathbb{R}^1$,
-$\mathbb{R}^2$ or, $\mathbb{R}^3$ while the dimension of a topology
-encapsulates the connectivity of coordinate locations within the
-ambient space. For example, a topology with dimension 0 is a set of
+\sciwms{} adopts the \cfugrid{} conventions for implementing the data
+model. A topology is always embedded in either $\mathbb{R}^1$,
+$\mathbb{R}^2$ or, $\mathbb{R}^3$ where the dimension of a topology
+summarizes the connectivity of coordinate locations within the ambient
+space. For example, a topology with dimension 0 is a set of
 disconnected points, a 1D topology consists of lines or curved
 boundaries, a 2D topology is a set of planes or surfaces enclosed by a
-set of edges (e.g. triangulation) and a 3D topology specifies a
-volume enclosed by a set of faces.
+set of edges (e.g. triangulation) and a 3D topology specifies a volume
+enclosed by a set of faces.
 
 Attributes are defined as numerical quantities that are associated
 with the topology. For example, an atmospheric model may estimate wind
-direction at the points of a 2D topology or may specify air
-temperature at the centroid of cell volumes specified by a 3D
-topology. Additionally, attributes have their  own dimensionallity. An
-attribute specifying temperature or sea-surface-height are scalars
-while wind directions are vector valued and tensor valued attributes are
-also possible.
+direction at the vertices of a triangulated 2D topology or may specify
+air temperature at the centroid of cell volumes specified by a 3D
+topology. Additionally, attributes maintain their own
+dimensionallity. An attribute specifying temperature or
+sea-surface-height for example, are scalars while wind directions are
+vector valued and tensor valued attributes are also possible.
 
 \subsection{Topology Types}
-Topologies are further classified as either regular or irregular
-({\bf \cgrid{}} and {\bf \ugrid} in \sciwms{} terminology).
+Topologies are further classified as either regular or irregular ({\bf
+  \cgrid{}} and {\bf \ugrid} in \sciwms{} terminology) which admit
+different data structures and algorithms for storage and processing.
 
 {\bf \cgrid{}} topologies refer geo-referenced locations and geometries that can be analytically specified, e.g., rectilinear
 or curvilinear grids. Storing \cgrid{} topologies amount to storing
@@ -68,7 +70,10 @@ finding nearest neighbors or finding points that fall withing a
 polygonal subset are computed directly using the implicit \cgrid{}
 representation.
 
-{\bf \ugrid{}} are defined as topologies that are not regular, i.e. do not admit a closed form representaqtion. \ugrid{} topologies typically require a definition via explicit enumeration, requiring spatially-aware data structures for optimal storage and processing.
+{\bf \ugrid{}} are defined as topologies that are not regular, i.e.,
+do not admit a closed form representaqtion. \ugrid{} topologies
+typically require a definition via explicit enumeration, requiring
+spatially-aware data structures for optimal storage and processing.
 
 \subsection{Distributed Memory Model}
 Following these conventions, \sciwms{} decomposes an externally hosted
