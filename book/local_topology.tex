@@ -20,13 +20,21 @@ regular or irregular topology.
 \begin{figure}[ht!]
   \centering
   \begin{subfigure}[t]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{../figs/data_hierarchy_rough}
-  \end{subfigure}
-  \caption{Decomposition hierarchy of the data model. A dataset submitted
-    to \sciwms{} is decomposed into attributes and structure
-    which is further classified as a regular (\cgrid{}) or irregular
-    (\ugrid{}) topology.}
+    \includegraphics[width=\textwidth]{../figs/data_model_hierarchy}
+  \caption{}
   \label{fig:data_hierarchy}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.45\textwidth}
+    \includegraphics[height=2in]{../figs/sciwms_book_db_topology_endpoint_chart}
+    \caption{}
+    \label{fig:sciwms_topology_endpoints}
+  \end{subfigure}
+  \caption{(a) Decomposition hierarchy of the data model. A dataset
+    submitted to \sciwms{} is decomposed into attributes and structure
+    which is further classified as a regular (\cgrid{}) or irregular
+    (\ugrid{}) topologies. (b) \Sciwms{} topology and endpoint data
+    store. Topolgies are stored locally in implicit form for \cgrid{}
+    or binary R-Tree databases for \ugrid{} topologies. }
 \end{figure}
 
 \subsection{Local Topology Cache}
@@ -92,11 +100,11 @@ topology of the underlying endpoint is stored locally to \sciwms{} and
 a database of topology-endpoint associations are maintained as
 visualized in Figure~\ref{fig:sciwms_topology_endpoints}. 
 
-\begin{figure}[ht!]
-  \centering
-  \includegraphics[height=2in]{../figs/sciwms_book_db_topology_endpoint_chart}
-  \caption{\Sciwms{} topology and endpoint data store.}
-  \label{fig:sciwms_topology_endpoints}
-\end{figure}
+%% \begin{figure}[ht!]
+%%   \centering
+%%   \includegraphics[height=2in]{../figs/sciwms_book_db_topology_endpoint_chart}
+%%   \caption{\Sciwms{} topology and endpoint data store.}
+%%   \label{fig:sciwms_topology_endpoints}
+%% \end{figure}
 
 

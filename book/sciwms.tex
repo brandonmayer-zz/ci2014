@@ -6,13 +6,14 @@
 \Sciwms{} is an open-source implementation of the Open Geospatial
 Consortium's (\ogc{}) Web Map Service (\wms{}) standard which
 specifies an HTTP interface for generating rasterized visualizations
-of geospatial data~\cite{wms14}. A \wms{} is a RESTful API which
-serves content to web clients based on HTTP GET requests recieved from
-the client. Typically, a \wms{} request specifies a data layer and
-region of interest to be visualized along with meta information such
-as rendering style parameters. A \wms{} response may be meta-data
-concerning the registered datasets and rendering styles or a
-rasterized visualization for display by the front end client.
+of geospatial data~\cite{wms14}. More specifically, \wms{} defines a
+RESTful API which delivers standardized content in response to a HTTP
+GET request from a web client. Typically, a \wms{} request contains a
+data layer and region of interest and optional with meta data such as
+rendering style parameters. A \wms{} response may be either meta data
+providing information about datasets registered with the \wms{}
+service or a rasterized visualization (typically a png or other image
+format) for display by the front end client.
 
 \sciwms{} is implemented in Python using the Django~\cite{django} web
 framework and standard cross-platform numerical software,
@@ -24,20 +25,25 @@ pyugrid~\cite{pyugrid}, to maintain pace with the latest geospatial
 software and standards developments including unstructured grid
 support and \cfugrid{} Compliance~\cite{cfugrid}.
 
-Vital to the efficiency of \sciwms{} is the abstraction of a dataset
-into structure and attributes. \Sciwms{} maintains a local cache for
-efficient storage and processing of spatial neighborhoods and subsets
-with respect to structure. For storage efficiency, attributes are not
-replicated locally but referenced via OGC compliant web-services and a
-database of structure-endpoint pairs is maintained as visualized in
+While the \ogc{} \wms{} specification standardizes the client-server
+communication protocol, \wms{} are left free to design and implement
+the system that will fulfill \wms{} requests and responses. Vital to
+the efficiency of \sciwms{} is the abstraction of a registered dataset
+into structure and attributes as shown in
+figure~\ref{data_model_hierarchy} and detailed in subsequent
+sections. \Sciwms{} maintains a local cache for efficient storage and
+processing of spatial neighborhoods and subsets with respect to data
+structure. For storage efficiency, attributes are not replicated
+locally but referenced via OGC compliant web-services and a database
+of structure-endpoint pairs is maintained as visualized in
 figure~\ref{fig:sciwms_topology_endpoints}. Because geospatial \wms{}
 requests are commonly restricted to a subset of the Earth's surface,
 \sciwms{} uses the topology cache to compute the subset of model data
-needed to fulfill each request then retrieves the appropriate
-attributes (which are hosted externally) prior to fetching the
-underlying data. Furthermore, by classifying topologies as either
-regular or irregular, efficient algorithms and data structures are
-exploited to optimize the computation of relevant model data subsets.
+needed to fulfill each request prior to retrieving the appropriate
+attributes (which are external to the \sciwms{} server and accessed via
+HTTP). Furthermore, by classifying topologies as either regular or
+irregular, efficient algorithms and data structures are exploited to
+optimize the computation of relevant model data subsets.
 
 %% \begin{figure}[ht!]
 %%   \centering
