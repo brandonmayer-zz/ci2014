@@ -2,11 +2,11 @@
 \subsection{Local Topology Cache}
 Visualization tools often decompose data into structure and
 attributes.  Structure encapsulates both the locations (where) and
-geometry (connectivity) relations between attributes and constrain the
-visualization task. Similarly, \sciwms{} decomposes an externally
+geometry (connectivity) relations between attributes which constrain
+the visualization task. Similarly, \sciwms{} decomposes an externally
 hosted dataset into a structure (topology), defined as a
-geo-referenced spatial set of locations and geometries (connectivity
-of locations), and the underlying data layer. 
+geo-referenced spatial set of locations and geometries, and the
+underlying data layer.
 
 For example, atmospheric and oceanagrphic models typically define a
 fixed topology covering a particular spatial extent of the earth. A
@@ -34,9 +34,10 @@ topology of the underlying endpoint is stored locally to \sciwms{} and
 a database of topology-endpoint associations are maintained as
 visualized in Figure~\ref{fig:sciwms_topology_endpoints}. 
 
-\subsection{Structured (c-grid) Topologies}
-Structured or {\bf c-grid} topologies refer geo-referenced locations
-and geometries that can be analytically specified, e.g., rectilinear
+\subsection{Topology Types}
+\paragraph{{\bf \cgrid{}} topologies refer geo-referenced locations and geometries that can be analytically specified, e.g., rectilinear
 or curvilinear grids. Storing \cgrid{} topologies amount to storing
 the closed form formula. When an analyst requests a view of a
-particular region, the subseting
+particular region, the subseting}
+
+\paragraph{{\bf \ugrid{}} topology types} 

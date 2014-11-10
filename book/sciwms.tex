@@ -1,34 +1,35 @@
 %%this is /book/sciwms.tex
 \section{\sciwms{}}
 \label{sec:sciwms}
+\subsection{Overview}
 \Sciwms{} is an open-source implementation of the Open Geospatial
 Consortium's (\ogc{}) Web Map Service (\wms{}) standard which
 specifies an HTTP interface for generating rasterized visualizations
 of geospatial data~\cite{wms14}. \sciwms{} is implemented in Python
-using the Django\footnote{\url{https://www.djangoproject.com/}} web
-framework and standard cross-platform numerical software,
-NumPy~\cite{numpy11} and Matplotlib~\cite{hunter07} for generating
-visual content. Additionally, the open-source python implementation
-provides a cross-platform \wms{} solution which can leverage the suite
-of tools developed by the geospatial data analysis community such as
-pyugrid\footnote{https://github.com/pyugrid/pyugrid} to maintain pace
-with the latest geospatial software and standards developments such as
-unstructured grid support and CF-UGrid
-Compliance\footnote{https://github.com/ugrid-conventions/ugrid-conventions/blob/v0.9.0/ugrid-conventions.md}.
+using the Django~\cite{django} web framework and standard
+cross-platform numerical software, NumPy~\cite{numpy11} and
+Matplotlib~\cite{hunter07} for generating visual
+content. Additionally, the open-source python implementation provides
+a cross-platform \wms{} solution which can leverage the suite of tools
+developed by the geospatial data analysis community, such as
+pyugrid~\cite{pyugrid}, to maintain pace with the latest geospatial
+software and standards developments including unstructured grid support
+and \cfugrid{} Compliance~\cite{cfugrid}.
 
 
 
-Vital to the efficiency of \sciwms{} is the abstraction
-of a dataset into two entities: a topology, defined as
-a geo-referenced spatial structure and numerical model output as
-visualized in Figure~\ref{fig:sciwms_topology_endpoints}. \Sciwms{}
-creates a local topology cache for efficiently computing spatial
-neighborhoods with respect to topology structure.  For storage
-efficiency, model output is not replicated locally but referenced via
-OGC compliant web-services. Because geospatial \wms{} requests are
-commonly restricted to a subset of the Earth's surface, \sciwms{} uses
-the local topology to compute the subset of model data needed to
-fulfill each request prior to accessing the external
+Vital to the efficiency of \sciwms{} is the abstraction of a dataset
+into two entities: a topology, defined as a geo-referenced spatial
+structure and numerical data attributes. \Sciwms{} creates a local
+topology cache for efficiently computing spatial neighborhoods and
+subsets with respect to topology structure. For storage efficiency,
+attributes associated with the topology is not replicated locally but
+referenced via OGC compliant web-services and a database of
+topology-endpoint pairs is maintained as visualized in
+figure~\ref{fig:sciwms_topology_endpoints}. Because geospatial \wms{}
+requests are commonly restricted to a subset of the Earth's surface,
+\sciwms{} uses the local topology to compute the subset of model data
+needed to fulfill each request prior to accessing the external
 data. Furthermore, by classifying topologies as either regular or
 unstructured, efficient algorithms and data structures are exploited
 to optimize the computation of relevant model data subsets.
