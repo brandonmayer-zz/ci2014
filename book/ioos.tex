@@ -1,5 +1,18 @@
 %% this is /book/ioos.txt
 \section{Deploying \sciwms{} for the U.S. \ioos{} \comt{} Testbed}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\columnwidth]{../figs/sciwms_overview_v2.pdf}
+  \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
+    \comt{} project. \Sciwms{} updates its topology and endpoint
+    database via a nightly service which queries CF-Compliant datasets
+    cataloged by \ngdc{}. Model data is hosted on an external web server
+    exposed by an \ncml{} facade as a single \netcdf{} data structure
+    accessable to \sciwms{} via \opendap{}. \Sciwms{} responds to http
+    clients interfacing through a custom built web portal.}
+  \label{fig:overview1}
+\end{figure}
+
 While \sciwms{} is a general software solution for geospatial
 visualization, it is a key component in realizing the U.S. \ioos{}
 \comt{} mission, facilitating qualitative model comparisons and

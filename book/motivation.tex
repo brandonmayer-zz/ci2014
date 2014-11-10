@@ -3,7 +3,7 @@
 \label{sec:motivation}
 Due to the explosion of the amount of atmospheric, oceanagraphic,
 climate and weather data, either recorded \emph{in-situ} or generated
-by modeling, inference and prediction algorithms, it is no longer
+by modeling, inference or prediction algorithms, it is no longer
 feasible for a single institution to host and maintain a centralized
 datastore. Modern data management has been shifting hosting and
 maintenance responsibilities of large datasets to multiple
@@ -50,9 +50,9 @@ of time and accuracy.
 aforementioned problems. By maintaining a list of web accessible
 endpoints, \sciwms{} is able to transparently produce consistent
 visualizations for federated data. While \sciwms{} implements the
-\ogc{} \wms{} protocol, it is augmented with services for reading
-standard data-aggregation catalogues such as \csw{}~\cite{csw14},
-allowing \sciwms{} to autonomously track dynamic federations. 
+\ogc{} \wms{} protocol, it is augmented with services for interacting
+with standard meta-data catalogues such as \csw{}~\cite{csw14},
+allowing \sciwms{} to autonomously track dynamic federations.
 
 \sciwms{} uses \ncml{} (NetCDF Markup Language) as a data abstraction
 layer. This allows data hosting agencies can run their modeling
@@ -68,4 +68,5 @@ generate consistent visualizations of federated datasets. Perhaps more
 importantly, by the introduction of a single web-based visualization
 service for federated data ensures qualitative assessments and
 conclusions are made on equal footing regardless of analyst or data
-origin.
+origin and is one of the first services for visualizing data generated
+on an unstructured topology.
