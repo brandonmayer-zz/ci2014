@@ -1,4 +1,5 @@
 %%this is ci2014/book/local_topology.tex
+\subsection{Dataset Abstractions}
 Visualization tools often decompose data into structure and
 attributes~\cite{vtk}. Due to the discrete nature of digital
 computers, any numerical function to be visualized must be sampled and
@@ -12,6 +13,19 @@ constrains the interpolation problem. Note that some authors further
 decompose structure further into topology and geometry~\cite{weiler},
 however, in the context of this research, topology is synonymous with
 the structure abstraction.
+
+\subsection{Local Topology Cache}
+\begin{figure}[ht!]
+  \centering
+  \begin{subfigure}[t]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../figs/data_hierarchy_rough}
+  \end{subfigure}
+  \caption{Decomposition hierarchy of a dataset. A dataset submitted
+    to the federation is decomposed into attributes and structure
+    which is further classified as a regular (\cgrid{}) or irregular
+    (\ugrid{}) topology.}
+  \label{fig:data_hierarchy}
+\end{figure}
 
 \sciwms{} adopts the \cfugrid{} conventions for defining a topology. A
 topology is always embedded in either $\mathbb{R}^1$, $\mathbb{R}^2$
@@ -32,13 +46,7 @@ attribute specifying temperature or sea-surface-height are scalars
 while wind directions are vector valued, tensor valued attributes are
 also possible.
 
-\subsection{Local Topology Cache}
-\begin{figure}[ht!]
-  \centering
-  \begin{subfigure}[t]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{../figs/data_hierarchy_rough}
-  \end{subfigure}
-\end{figure}
+
 
 \subsection{Topology Types}
 Topologies are further classified as either regular or irregular or
@@ -52,6 +60,7 @@ representation.}
 
 \paragraph{{\bf \ugrid{}} are defined as topologies that are not regular, i.e. do not admit a closed form representaqtion. \ugrid{} topologies typically require a definition via explicit enumeration, requiring spatially-aware data structures for optimal storage and processing.}
 
+\subsection{Distributed Memory Model}
 Following these conventions, \sciwms{} decomposes an externally hosted
 dataset into a structure (topology), defined as a geo-referenced
 spatial set of locations and connections, and the underlying data
@@ -61,14 +70,13 @@ For example, atmospheric and oceanagrphic models typically define a
 fixed topology covering a particular spatial extent of the earth. A
 model will extimate attributes of interest such as sea-surface-height,
 wind or current magnitudes and directions. The topology of the model
-referrs to positions and connectivity of the locations for which
-attributes are to be computed. While a model produces data associated
-with every location specified by the topology, visualizations are
-typically generated for a subset of the topology (a region of
-interest) and a single attribute such as current direction. It is
+encapsulates the positions and connectivity of the dataset for which
+attributes are associated. Visualizations of datasets are typically
+restricted so some region of interest, a subset of the available
+topology and a single attribute such as current direction. It is
 therefore paramount to the efficiency of visualization software to
 represent topologies in such a way as to optimize topology storage and
-reduction to facilitate efficient attribute retrieval. 
+reduction algorithms to facilitate efficient attribute retrieval.
 
 To this end, when an dataset endpoint is submitted to \sciwms{}, the
 topology of the underlying endpoint is stored locally to \sciwms{} and
@@ -78,7 +86,9 @@ visualized in Figure~\ref{fig:sciwms_topology_endpoints}.
 \begin{figure}[ht!]
   \centering
   \begin{subfigure}[t]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{../figs/topology_mem_model}
+    \includegraphics[width=\textwidth]{../figs/topology_memModel}
+    \caption{\sciwms{} distributed memory model.}
+    \label{fig:sciwms_mem_model}
   \end{subfigure}
   \begin{subfigure}[t]{0.455\textwidth}
     \includegraphics[width=\textwidth]{../figs/sciwms_book_db_topology_endpoints.pdf}
