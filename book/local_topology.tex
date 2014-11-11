@@ -71,9 +71,33 @@ polygonal subset are computed directly using the implicit \cgrid{}
 representation.
 
 {\bf \ugrid{}} are defined as topologies that are not regular, i.e.,
-do not admit a closed form representaqtion. \ugrid{} topologies
-typically require a definition via explicit enumeration, requiring
+do not admit a closed form representaqtion. \ugrid{} topologies offer
+the highest level of flexibility from a visualization and modeling
+standpoint as samples can be more densely place in regions of
+interest. However, they require via explicit enumeration, requiring
 spatially-aware data structures for optimal storage and processing.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[height=2in]{../figs/xy_table}
+    \caption{}
+    \label{fig:xytable}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[height=2in]{../figs/v_table}
+    \caption{}
+    \label{fig:vtable}
+  \end{subfigure}
+  \caption{Unstructured grid location and connectivity arrays as
+    specified by \cfugrid{} conventions. In this example, table (a)
+    defines the location of 2D vertices: while (b) defines a 2D
+    topology: a list of indicies on each row of verticies which
+    specify a triangle. In this example, there are $N$ points and $M$
+    triangles.}
+\end{figure}
 
 \subsection{Distributed Memory Model}
 Following these conventions, \sciwms{} decomposes an externally hosted
