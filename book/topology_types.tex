@@ -1,10 +1,4 @@
-\subsection{Topology Types}
-Topologies are further classified as either regular or irregular ({\bf
-  \cgrid{}} and {\bf \ugrid} respectively in \sciwms{} terminology)
-which admit different data structures and algorithms for storage and
-processing.
-
-\subsubsection{\cgrid{} Topology}
+\subsection{\cgrid{} Topology}
 \cgrid{} topologies refer geo-referenced locations and
 geometries that can be defined analytically, e.g., rectilinear or
 curvilinear grids. Storing \cgrid{} topologies amount to storing the
@@ -13,7 +7,7 @@ finding nearest neighbors or finding points that fall withing a
 polygonal subset are computed directly using the implicit \cgrid{}
 representation, incurring computational overhead.
 
-\subsubsection{\ugrid{} Topolgy}
+\subsection{\ugrid{} Topolgy}
 A \ugrid{} topology is  defined as a topology that is not regular, i.e.,
 do not admit a closed form representation. \ugrid{} topologies offer
 the highest level of flexibility from a visualization and modeling
@@ -93,10 +87,9 @@ processing.
     \caption{}
     \label{fig:vtable}
   \end{subfigure}
-  \caption{Unstructured grid location and connectivity arrays as
-    specified by \cfugrid{} conventions. In this example, table (a)
-    defines the location of 2D vertices: while (b) defines a 2D
-    topology: a list of indicies on each row of verticies which
-    specify a triangle. In this example, there are $N$ points and $M$
-    triangles.}
+  \caption{Examples of an \ugrid{} topology and \cfugrid compliant
+    vertex and connectivity arrays. (a) The location of $N$
+    vertices in the real plane. (b) A 2D topology with
+    $M$ triangles. Each triangle represented as a row in the table
+    referencing locations as indices into the vertex array.}
 \end{figure}

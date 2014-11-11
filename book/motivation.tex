@@ -1,7 +1,7 @@
 %% this is /book/motivation.tex
 \section{Motivation}
 \label{sec:motivation}
-Due to the explosion of the amount of atmospheric, oceanagraphic,
+Due to the explosion in the amount of atmospheric, oceanagraphic,
 climate and weather data, either recorded \emph{in-situ} or generated
 by modeling, inference or prediction algorithms, it is no longer
 feasible for a single institution to host and maintain a centralized
@@ -12,41 +12,44 @@ single, unified view of the distributed data to the end user or
 analyst.
 
 A common practice is for data producing organizations to host their
-own data to be exposed to the catalogue service via a particular
+own data that is exposed to the catalogue service via a particular
 communication protocol. The institution responsible for maintaining
 the catalogue then provides a unified view of the aggregated dataset
-to end users by compiling meta data associated with the external
-datum. Such federated datasets may span petabytes of geospatial
-information, be composed of millions of files in different formats all
-generated and hosted by vastly different systems located across the
-globe. Additionally, the catalogue can grow or shrink as new datasets
-or participants are added and removed from the federation. By
-interacting with the catalogue, the end user (such as an analyst) can
-navigate and search through the aggregated meta data and interact with
-particular datasets of interest, agnostic to distributed nature of the
-database.
+to end users by compiling meta data associated with the participating
+organizations and registered data. Such federated datasets may
+span petabytes of geospatial information, be composed of millions of
+files in different formats all generated and hosted by vastly
+different systems located across the globe. Additionally, the
+catalogue can grow or shrink as new datasets or participants are added
+and removed from the federation. By interacting with the catalogue,
+the end user (such as an analyst) can navigate and search through the
+aggregated meta data and interact with particular data of
+interest, agnostic to distributed nature of the database.
 
 While a decentralized approach to data management offers many
 advantages such as robustness to failure (a failure at any one
 organization only effects the data associated with that organization),
 data reduction and analysis tools have been slower to adapt to the new
 framework. For example, there are an abundance of applications for
-visualizing cartographic data on a single machine. However, many such
-programs are designed to deal with the output of specific modeling
-applications or data saved in a particular file format. To use these
-tools, analysts must download local copies of datasets to process a
-particular dataset with their local tools. This increases the projects
-cost in terms of bandwidth usage and time needed to wait for downloads
-to finish. Additionally, such a decentralized-local analytical
-workflow increases the risk that different analysts working with
-identical local copies of data obtained from the same federation may
-use different local programs to generate incompatible visualizations
-or comparisons of the same data. Normalizing comparisons and
-visualizations made with different software introduces another
-potential point of error and increases the costs of analysis in terms
-of time and accuracy.
+visualizing cartographic data on a single machine or
+clusters. However, many such programs are designed to deal with data
+saved in a particular \textit{local} file format. To use these tools,
+analysts must download copies of datasets to process a particular
+dataset with these local tools. This increases the projects cost in
+terms of bandwidth usage, time and storage. Additionally, coupling
+decentralized hosting and local analytical workflows introduces the
+risk that different analysts working with identical local copies of
+data obtained from the same federation may use different local
+programs to generate incompatible visualizations or comparisons of the
+same data. Normalizing these results introduces another potential
+point of error and increases the costs of analysis in terms of time
+and accuracy. Furthermore, the local analysis paradigm violates the
+eothos of distributed database schemes. The goal of a federated
+datastore is to eliminate data redundency therefore, data processing
+and visualization software must adapt to the imposed distributed
+memory model to likewise minimize redundency.
 
- \sciwms{} is a web service designed to solve many of the
+\sciwms{} is a web service designed to solve many of the
 aforementioned problems. By maintaining a list of web accessible
 endpoints, \sciwms{} is able to transparently produce consistent
 visualizations for federated data. While \sciwms{} implements the
@@ -62,11 +65,7 @@ reformating each file to a standard format. Additionally, \sciwms{} is
 CF-Compliant~\cite{cf}, offering consistent views of endpoints which
 adhering to the CF-Metadata conventions embedded in the \ncml{} file.
 
-Local analyis workflow violates the eothos of distributed database
-schemes. If the goal of a federated project is to eliminate data
-redundency, data processing and visualization software must adapt to
-the imposed distributed memory model to likewise minimize data
-redundency. \sciwms{} adherse to distributed database principles while
+\sciwms{} adherse to distributed database principles while
 saving costs to data analysis projects by providing a simple interface
 for end users to generate consistent visualizations of federated
 datasets. Perhaps more importantly, the introduction of a single
