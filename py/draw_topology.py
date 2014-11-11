@@ -54,5 +54,5 @@ plt.triplot(xpt,ypt,nv,
             markersize=2,
             markerfacecolor='#666666')
             
-
+plt.tight_layout()
 plt.show()
