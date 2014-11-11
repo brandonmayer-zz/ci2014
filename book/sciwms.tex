@@ -7,13 +7,14 @@
 Consortium's (\ogc{}) Web Map Service (\wms{}) standard which
 specifies an HTTP interface for generating rasterized visualizations
 of geospatial data~\cite{wms14}. More specifically, \wms{} defines a
-RESTful API which delivers standardized content in response to a HTTP
-GET request from a web client. Typically, a \wms{} request contains a
-data layer and region of interest and optional with meta data such as
-rendering style parameters. A \wms{} response may be either meta data
-providing information about datasets registered with the \wms{}
-service or a rasterized visualization (typically a png or other image
-format) for display by the front end client.
+RESTful API which responds to standardized HTTP GET requests from a
+web client. A typical \wms{} request specifies a data layer and region
+of interest with optional meta data such as rendering style
+parameters. A \wms{} response may include additional meta data
+providing information about data registered with the service or a
+rasterized visualization (typically a png or other another image
+format) of a particular data layer for display by the front end
+client.
 
 \sciwms{} is implemented in Python using the Django~\cite{django} web
 framework and standard cross-platform numerical software,

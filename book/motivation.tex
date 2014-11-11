@@ -8,17 +8,16 @@ feasible for a single institution to host and maintain a centralized
 datastore. Modern data management has been shifting hosting and
 maintenance responsibilities of large datasets to multiple
 participating institutions unified by a catalogue service to provide a
-single, unified view of the distributed data to the end user or
-analyst.
+single, unified view of the distributed data to end users and analysts.
 
 A common practice is for data producing organizations to host their
-own data that is exposed to the catalogue service via a particular
+own data which is exposed to the catalogue service via a particular
 communication protocol. The institution responsible for maintaining
 the catalogue then provides a unified view of the aggregated dataset
 to end users by compiling meta data associated with the participating
 organizations and registered data. Such federated datasets may
 span petabytes of geospatial information, be composed of millions of
-files in different formats all generated and hosted by vastly
+files in different formats generated and hosted by vastly
 different systems located across the globe. Additionally, the
 catalogue can grow or shrink as new datasets or participants are added
 and removed from the federation. By interacting with the catalogue,
@@ -31,45 +30,46 @@ advantages such as robustness to failure (a failure at any one
 organization only effects the data associated with that organization),
 data reduction and analysis tools have been slower to adapt to the new
 framework. For example, there are an abundance of applications for
-visualizing cartographic data on a single machine or
+visualizing cartographic data on a single computer or
 clusters. However, many such programs are designed to deal with data
-saved in a particular \textit{local} file format. To use these tools,
-analysts must download copies of datasets to process a particular
-dataset with these local tools. This increases the projects cost in
-terms of bandwidth usage, time and storage. Additionally, coupling
-decentralized hosting and local analytical workflows introduces the
-risk that different analysts working with identical local copies of
-data obtained from the same federation may use different local
-programs to generate incompatible visualizations or comparisons of the
-same data. Normalizing these results introduces another potential
-point of error and increases the costs of analysis in terms of time
-and accuracy. Furthermore, the local analysis paradigm violates the
-eothos of distributed database schemes. The goal of a federated
-datastore is to eliminate data redundency therefore, data processing
-and visualization software must adapt to the imposed distributed
-memory model to likewise minimize redundency.
+saved in a particular \textit{local} file format, requiring analysts
+to download a local copy datasets, potentially reformat the data into
+the appropriate container before processing and analysis may
+begin. This increases the projects cost in terms of bandwidth usage,
+time and storage. Additionally, coupling decentralized hosting and
+local analytical workflows introduces the risk that different analysts
+working with identical local copies of data obtained from the same
+federation may use different local programs to generate incompatible
+visualizations or comparisons. Normalizing these results introduces
+another potential point of error and likewise increases the costs of
+analysis in terms of time and accuracy. Furthermore, the local
+analysis paradigm violates the ethos of distributed data storage. The
+goal of a federated datastore is to minimize data
+redundency. Therefore, data processing and visualization software must
+adapt to the imposed distributed memory model to likewise minimize
+redundency.
 
 \sciwms{} is a web service designed to solve many of the
 aforementioned problems. By maintaining a list of web accessible
 endpoints, \sciwms{} is able to transparently produce consistent
-visualizations for federated data. While \sciwms{} implements the
+visualizations of federated data. While \sciwms{} implements the
 \ogc{} \wms{} protocol, it is augmented with services for interacting
 with standard meta-data catalogues such as \csw{}~\cite{csw14},
 allowing \sciwms{} to autonomously track dynamic federations.
 
 \sciwms{} uses \ncml{} (NetCDF Markup Language) to implement a data
 abstraction layer. This allows data hosting agencies to maintain their
-own environments and file formats which are exposed to the outside
-world without writing custom i/o software or replicating and
-reformating each file to a standard format. Additionally, \sciwms{} is
+own environments and file formats which are exposed to \sciwms{}
+without writing custom i/o software or replicating and reformating
+data file to a standard format. Additionally, \sciwms{} is
 CF-Compliant~\cite{cf}, offering consistent views of endpoints which
 adhering to the CF-Metadata conventions embedded in the \ncml{} file.
 
-\sciwms{} adherse to distributed database principles while
-saving costs to data analysis projects by providing a simple interface
-for end users to generate consistent visualizations of federated
-datasets. Perhaps more importantly, the introduction of a single
-web-based visualization service for federated data ensures qualitative
-assessments and conclusions are made on equal footing regardless of
-analyst or data origin and is one of the first services for
-visualizing data associated with an unstructured topology.
+\sciwms{} embraces distributed database principles while saving costs
+to data analysis projects by providing a simple interface for end
+users to generate consistent visualizations of federated data. Perhaps
+more importantly, the introduction of a single web-based visualization
+service for distributed datasets ensures qualitative assessments and
+conclusions are made on equal footing regardless of analyst or data
+origin and is one of the first services for visualizing geospatial
+data associated with an unstructured topology.
