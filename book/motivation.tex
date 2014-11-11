@@ -54,14 +54,13 @@ visualizations for federated data. While \sciwms{} implements the
 with standard meta-data catalogues such as \csw{}~\cite{csw14},
 allowing \sciwms{} to autonomously track dynamic federations.
 
-\sciwms{} uses \ncml{} (NetCDF Markup Language) as a data abstraction
-layer. This allows data hosting agencies can run their modeling
-software and host it in their chosen environment which they expose to
-\sciwms{} via the \ncml{} file. This avoids writing custom i/o
-software or reformat each dataset to a standard format. Additionally,
-\sciwms{} is CF-Compliant~\cite{cf}, offering consistent views of
-endpoints which adhering to the CF-Metadata conventions embedded in
-the \ncml{} file.
+\sciwms{} uses \ncml{} (NetCDF Markup Language) to implement a data
+abstraction layer. This allows data hosting agencies to maintain their
+own environments and file formats which are exposed to the outside
+world without writing custom i/o software or replicating and reformating each file to
+a standard format. Additionally, \sciwms{} is CF-Compliant~\cite{cf},
+offering consistent views of endpoints which adhering to the
+CF-Metadata conventions embedded in the \ncml{} file.
 
 Local analyis workflow violates the eothos of distributed database
 schemes. If the goal of a federated project is to eliminate data
