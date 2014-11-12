@@ -21,18 +21,16 @@ consists of lines or curved boundaries known as
 enclosed by a set of edges (e.g. triangulation) called
 \textbf{\textit{faces}}, and a 3D topology specifies the volume enclosed
 by a set of faces called \textbf{\textit{volumes}}.
-
 For example, figure~\ref{fig:xytable} visualizes a list of a sample
 locations as an array of coordinates in the real plane. Topology
 connectivity is specified by a list of indicies into the vertex array
 interpreted anticlockwise. Figure~\ref{fig:vtable} visualizes a 2D
 connectivity list, defining a triangulation in the plane, for the
-vertex array in figure~\ref{fig:xytable} where each entry is an
-indexes an element of the vertex list: $v_n^{\cdot}\in
-\{0,\ldots,N-1\}$. Each row of the connectivity array defines a
-triangle: triangle $m$ is specified by linking the coordinates
-associated with vertex lists by connecting $v^0_m$ to $v^1_m$ to
-$v^2_m$ and back to $v^0_m$.
+vertex array in figure~\ref{fig:xytable} where each entry indexes an
+element of the vertex list: $v_n^{\cdot}\in \{0,\ldots,N-1\}$. Each
+row of the connectivity array defines a triangle: triangle $m$ is
+specified by linking the coordinates associated with vertex lists by
+connecting $v^0_m$ to $v^1_m$ to $v^2_m$ and back to $v^0_m$.
 \begin{figure}[ht!]
   \centering
   \begin{subfigure}[t]{0.33\textwidth}
