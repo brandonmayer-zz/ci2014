@@ -76,7 +76,8 @@ as such, require spatially-aware data structures for optimal storage
 and processing for performant visualization algorithms. To this end,
 \sciwms{} creates a local topology cache, storing \ugrid{} topologies
 as \rtree{}~\cite{Guttman84} data structures on disk local to the
-deployment server for fast access. The \rtree{} is created when the
-dataset is first registered with the \sciwms{} service. If a change in
-the underlying data is detected at an endpoint associated with a
-topology cache, the \rtree{} is rebuilt.
+deployment server for fast access along with the connectivity
+array. The \rtree{} is created when the dataset is first registered
+with the \sciwms{} service. If a change in the underlying data is
+detected at an endpoint associated with a topology cache, the \rtree{}
+is rebuilt.
