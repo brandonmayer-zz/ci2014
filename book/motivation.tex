@@ -35,19 +35,22 @@ clusters. However, many such programs are designed to deal with data
 saved in a particular \textit{local} file format, requiring analysts
 to download a local copy datasets, potentially reformat the data into
 the appropriate container before processing and analysis may
-begin. This increases the projects cost in terms of bandwidth usage,
-time and storage. Additionally, coupling decentralized hosting and
-local analytical workflows introduces the risk that different analysts
-working with identical local copies of data obtained from the same
-federation may use different local programs to generate incompatible
-visualizations or comparisons. Normalizing these results introduces
-another potential point of error and likewise increases the costs of
-analysis in terms of time and accuracy. Furthermore, the local
-analysis paradigm violates the ethos of distributed data storage. The
-goal of a federated datastore is to minimize data
-redundency. Therefore, data processing and visualization software must
-adapt to the imposed distributed memory model to likewise minimize
-redundency.
+begin. This paradigm implicitly assumes every potential end user has
+the resources to copy and process a potentially massive amount of
+data, which is not always the case. Even if an analyst has access
+sufficient resources, tools operating on local systems increase the
+project costs in terms of bandwidth usage, time and
+storage. Additionally, coupling decentralized storage and local
+processing introduces the risk that different analysts working with
+identical local copies of data obtained from the same federation may
+use different local programs to generate incompatible visualizations
+or conclusions. Normalizing these results introduces a potential point
+of error and likewise increases the costs of analysis in terms of time
+and accuracy. The local analysis paradigm violates the ethos of
+distributed data storage as the goal of a federated project is to
+minimize data redundency. Therefore, data processing and visualization
+software must adapt to the imposed distributed memory model to
+likewise to realize the same benefits.
 
 \sciwms{} is a web service designed to solve many of the
 aforementioned problems. By maintaining a list of web accessible
@@ -57,19 +60,24 @@ visualizations of federated data. While \sciwms{} implements the
 with standard meta-data catalogues such as \csw{}~\cite{csw14},
 allowing \sciwms{} to autonomously track dynamic federations.
 
-\sciwms{} uses \ncml{} (NetCDF Markup Language) to implement a data
+\sciwms{} uses \ncml{} (\netcdf{} Markup Language) to implement a data
 abstraction layer. This allows data hosting agencies to maintain their
 own environments and file formats which are exposed to \sciwms{}
-without writing custom i/o software or replicating and reformating
-data file to a standard format. Additionally, \sciwms{} is
-CF-Compliant~\cite{cf}, offering consistent views of endpoints which
-adhering to the CF-Metadata conventions embedded in the \ncml{} file.
+without writing custom i/o software or replication and reformatting of
+information. Additionally, \sciwms{} is CF-Compliant~\cite{cf},
+offering consistent views of endpoints which adhering to the
+CF-Metadata conventions embedded in the \ncml{} file.
 
-\sciwms{} embraces distributed database principles while saving costs
-to data analysis projects by providing a simple interface for end
-users to generate consistent visualizations of federated data. Perhaps
-more importantly, the introduction of a single web-based visualization
-service for distributed datasets ensures qualitative assessments and
-conclusions are made on equal footing regardless of analyst or data
-origin and is one of the first services for visualizing geospatial
-data associated with an unstructured topology.
+\sciwms{} embraces distributed database principles and promotes the
+separation of concerns software and project management
+practice. \sciwms{} may be deployed by a member of a much larger
+project who's sole responsibility is providing a visualization
+platform, promoting quality through specialization. Additionally,
+\sciwms{} saves costs for data analysis projects by providing a simple
+interface for end users to generate consistent visualizations of
+federated data. Perhaps more importantly, the introduction of a single
+web-based visualization service for distributed datasets ensures
+qualitative assessments and conclusions are made on equal footing
+regardless of analyst or data origin and is one of the first services
+for visualizing geospatial data associated with an unstructured
+topology.
