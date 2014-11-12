@@ -1,9 +1,7 @@
 \subsection{Distributed Memory Model}
-
-Following these conventions, \sciwms{} decomposes an externally hosted
-dataset into a structure (topology), defined as a geo-referenced
-spatial set of locations and connections, and the underlying data
-attribute layer.
+\sciwms{} decomposes an externally hosted dataset into a structure
+(topology), defined as a geo-referenced spatial set of sample
+locations and connections, with associated attributes.
 
 \begin{figure}[ht!]
   \centering
@@ -11,6 +9,18 @@ attribute layer.
   \caption{\sciwms{} distributed memory model.}
   \label{fig:sciwms_mem_model}
 \end{figure}
+
+Fufilling a \wms{} request requires computing visible regions of a
+topology, fetching attributes and using connectivity information to
+produce an accurate rendering. The most computationally expensive
+operation in this pipeline is determining the minimal amount of
+attributes needed to be fetched for processing for a given
+visualization request. To this end, for every dataset with an
+underlying \ugrid{} topology, \sciwms{} maintains a binary \rtree{}
+stored locally to the \sciwms{} deployment server for fast access and
+processing.
+
+After
 
 For example, atmospheric and oceanagrphic models typically define a
 fixed topology covering a particular spatial extent of the earth. A
