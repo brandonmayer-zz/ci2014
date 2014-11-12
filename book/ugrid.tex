@@ -33,23 +33,7 @@ indexes an element of the vertex list: $v_n^{\cdot}\in
 triangle: triangle $m$ is specified by linking the coordinates
 associated with vertex lists by connecting $v^0_m$ to $v^1_m$ to
 $v^2_m$ and back to $v^0_m$.
-
-Figure~\ref{fig:usf_fvcom_ugrid} shows a \ugrid{} 2D topology, a
-triangulation in the plane, used by a climate model for simulating
-hurricane conditions in the Gulf of Mexico. Vertices represent
-locations where attributes are estimated and the connectivity is shown
-as red lines connecting the vertices throughout the region of
-interest. The visualization was produced by accessing the \cfugrid{}
-compliant \ncml{} file. The \ugrid{} topology allows the modelers to
-save storage and computational resources by sparsely sampling areas
-where accuracy can be sacrificed, such as the center of the Gulf,
-while allowing for higher sampling rates where accuracy is paramount,
-such as densely populated coastal areas. However as shown, \ugrid{}
-topologies require explicit enumeration of verticies and connectivity,
-and as such, require spatially-aware data structures for optimal
-storage and processing for performant visualization algorithms.
-
-\begin{figure}
+\begin{figure}[ht!]
   \centering
   \begin{subfigure}[t]{0.33\textwidth}
     \centering
@@ -75,3 +59,24 @@ storage and processing for performant visualization algorithms.
     $M$ triangles. Each triangle represented as a row in the table
     referencing locations as indices into the vertex array.}
 \end{figure}
+
+Figure~\ref{fig:usf_fvcom_ugrid} shows a \ugrid{} 2D topology, a
+triangulation in the plane, used by a climate model for simulating
+hurricane conditions in the Gulf of Mexico. Vertices represent
+locations where attributes are estimated and the connectivity is shown
+as red lines connecting the vertices throughout the region of
+interest. The visualization was produced by accessing the \cfugrid{}
+compliant \ncml{} file. The \ugrid{} topology allows the modelers to
+save storage and computational resources by sparsely sampling areas
+where accuracy can be sacrificed, such as the center of the Gulf,
+while allowing for higher sampling rates where accuracy is paramount,
+such as densely populated coastal areas. However, \ugrid{} topologies
+require explicit enumeration of sample locations and connectivity, and
+as such, require spatially-aware data structures for optimal storage
+and processing for performant visualization algorithms. To this end,
+\sciwms{} creates a local topology cache, storing \ugrid{} topologies
+as \rtree{}~\cite{Guttman84} data structures on disk local to the
+deployment server for fast access. The \rtree{} is created when the
+dataset is first registered with the \sciwms{} service. If a change in
+the underlying data is detected at an endpoint associated with a
+topology cache, the \rtree{} is rebuilt.
