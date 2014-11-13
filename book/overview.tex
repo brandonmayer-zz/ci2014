@@ -1,9 +1,6 @@
 %%this is /book/sciwms.tex
 \section{\sciwms{}}
 \label{sec:sciwms}
-
-\subsection{Overview}
-\label{sec:overview}
 \Sciwms{} is an open-source implementation of the Open Geospatial
 Consortium's (\ogc{}) Web Map Service (\wms{}) standard which
 specifies an HTTP interface for generating rasterized visualizations
@@ -16,15 +13,15 @@ providing information about data registered with the service or a
 visualization (commonly a PNG or other standard image format) of a
 particular data layer for display by the front end web client.
 
-\sciwms{} is implemented in Python using the Django~\cite{django} web
-framework and standard cross-platform numerical software,
-NumPy~\cite{numpy11} and Matplotlib~\cite{hunter07} for generating
-visual content. Additionally, the open-source python implementation
-provides a cross-platform \wms{} solution which can leverage the suite
-of tools developed by the geospatial data analysis community, such as
-pyugrid~\cite{pyugrid}, to maintain pace with the latest geospatial
-software and standards developments including unstructured grid
-support and \cfugrid{} Compliance~\cite{cfugrid}.
+%% \sciwms{} is implemented in Python using the Django~\cite{django} web
+%% framework and standard cross-platform numerical software,
+%% NumPy~\cite{numpy11} and Matplotlib~\cite{hunter07} for generating
+%% visual content. Additionally, the open-source python implementation
+%% provides a cross-platform \wms{} solution which can leverage the suite
+%% of tools developed by the geospatial data analysis community, such as
+%% pyugrid~\cite{pyugrid}, to maintain pace with the latest geospatial
+%% software and standards developments including unstructured grid
+%% support and \cfugrid{} Compliance~\cite{cfugrid}.
 
 While the \ogc{} \wms{} specification standardizes the client-server
 communication protocol, \wms{} implementations vary dramatically in

@@ -52,32 +52,22 @@ minimize data redundency. Therefore, data processing and visualization
 software must adapt to the imposed distributed memory model to
 likewise to realize the same benefits.
 
-\sciwms{} is a web service designed to solve many of the
-aforementioned problems. By maintaining a list of web accessible
-endpoints, \sciwms{} is able to transparently produce consistent
-visualizations of federated data. While \sciwms{} implements the
-\ogc{} \wms{} protocol, it is augmented with services for interacting
-with standard meta-data catalogues such as \csw{}~\cite{csw14},
-allowing \sciwms{} to autonomously track dynamic federations.
-
-\sciwms{} uses \ncml{} (\netcdf{} Markup Language) to implement a data
-abstraction layer. This allows data hosting agencies to maintain their
-own environments and file formats which are exposed to \sciwms{}
-without writing custom i/o software or replication and reformatting of
-information. Additionally, \sciwms{} is CF-Compliant~\cite{cf},
-offering consistent views of endpoints which adhering to the
-CF-Metadata conventions embedded in the \ncml{} file.
+By maintaining a list of web accessible data endpoints, \sciwms{} is
+able to transparently produce consistent visualizations of federated
+data. While \sciwms{} implements the \ogc{} \wms{} protocol, it is
+augmented with services for interacting with standard meta-data
+catalogues such as \csw{}~\cite{csw14}, allowing \sciwms{} to
+autonomously track dynamic federations. \sciwms{} uses \ncml{}
+(\netcdf{} Markup Language) to implement a data abstraction layer
+allowing data hosting agencies to maintain their own file formats
+which are exposed to \sciwms{} without writing custom i/o software or
+duplication and reformatting.
 
 \sciwms{} embraces distributed database principles and promotes the
 separation of concerns software and project management
 practice. \sciwms{} may be deployed by a member of a much larger
 project who's sole responsibility is providing a visualization
-platform, promoting quality through specialization. Additionally,
-\sciwms{} saves costs for data analysis projects by providing a simple
-interface for end users to generate consistent visualizations of
-federated data. Perhaps more importantly, the introduction of a single
-web-based visualization service for distributed datasets ensures
-qualitative assessments and conclusions are made on equal footing
-regardless of analyst or data origin and is one of the first services
-for visualizing geospatial data associated with an unstructured
-topology.
+platform, promoting quality through specialization saving time and
+costs for data analysis projects by providing a simple interface for
+end users to generate consistent visualizations of federated
+data. 
