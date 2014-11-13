@@ -16,41 +16,63 @@ data. While \sciwms{} is a general software solution for geospatial
 visualization, it is a key component in realizing the U.S. \ioos{}
 \comt{} mission, facilitating qualitative model comparisons and
 aggregation through a unified visualization framework.
-%% \sciwms{} is a general \ogc{} \wms{} solution
-%% for serving rasterized visualizations of geospatial data which has
-%% been deployed for the \comt{} project to provide visualizations of a
-%% wide range of scientific data.
 
 \begin{figure}[ht!]
   \centering
-  \begin{subfigure}[t]{0.49\textwidth}
-    \centering
-    \includegraphics[width=\columnwidth]{../figs/sciwms_overview_v2.pdf}
-    \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
-      \comt{} project. \Sciwms{} updates its topology and endpoint
-      database via a nightly service which queries CF-Compliant datasets
-      cataloged by \ngdc{}. Model data is hosted on an external web server
-      exposed by an \ncml{} facade as a single \netcdf{} data structure
-      accessable to \sciwms{} via \opendap{}. \Sciwms{} responds to http
-      clients interfacing through a custom built web portal.}
+  \includegraphics[width=0.6\columnwidth]{../figs/sciwms_overview_v2.pdf}
+  \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
+    \comt{} project. \Sciwms{} updates its topology and endpoint
+    database via a nightly service which queries CF-Compliant datasets
+    cataloged by \ngdc{}. Model data is hosted on an external web server
+    exposed by an \ncml{} facade as a single \netcdf{} data structure
+    accessable to \sciwms{} via \opendap{}. \Sciwms{} responds to http
+    clients interfacing through a custom built web portal.}
   \label{fig:overview1}
-  \end{subfigure}
-  \begin{subfigure}[t]{0.49\textwidth}
-    \centering
-    \includegraphics[width=\columnwidth]{../figs/SciWMS_ModelObsComparison}
-    \caption{Comparison of ADCIRC (unstructured topology) model results
-      with observed water levels in the Northern Gulf of Mexico for
-      Hurricane Ike. Verified observed water levels are from NOAA's
-      Station 8760922 (red dot on map). The map shows modeled water
-      levels (in meters above the geoid) at the peak of the storm in
-      southern Louisiana. The time series plot shows both the modeled
-      (green) and observed (orange) water levels. The vertical blue line
-      in the time series plot corresponds to the current time of the
-      map.}
-    \label{fig:adcirc_comp}
-  \end{subfigure}
+\end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.8\columnwidth]{../figs/SciWMS_ModelObsComparison}
+  \caption{Comparison of ADCIRC (unstructured topology) model results
+    with observed water levels in the Northern Gulf of Mexico for
+    Hurricane Ike. Verified observed water levels are from NOAA's
+    Station 8760922 (red dot on map). The map shows modeled water
+    levels (in meters above the geoid) at the peak of the storm in
+    southern Louisiana. The time series plot shows both the modeled
+    (green) and observed (orange) water levels. The vertical blue line
+    in the time series plot corresponds to the current time of the
+    map.}
+  \label{fig:adcirc_comp}
 \end{figure}
 
+%% \begin{figure}[ht!]
+%%   \centering
+%%   \begin{subfigure}[t]{0.6\textwidth}
+%%     \centering
+%%     \includegraphics[width=\columnwidth]{../figs/sciwms_overview_v2.pdf}
+%%     \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
+%%       \comt{} project. \Sciwms{} updates its topology and endpoint
+%%       database via a nightly service which queries CF-Compliant datasets
+%%       cataloged by \ngdc{}. Model data is hosted on an external web server
+%%       exposed by an \ncml{} facade as a single \netcdf{} data structure
+%%       accessable to \sciwms{} via \opendap{}. \Sciwms{} responds to http
+%%       clients interfacing through a custom built web portal.}
+%%   \label{fig:overview1}
+%%   \end{subfigure}
+%%   \begin{subfigure}[t]{0.6\textwidth}
+%%     \centering
+%%     \includegraphics[width=\columnwidth]{../figs/SciWMS_ModelObsComparison}
+%%     \caption{Comparison of ADCIRC (unstructured topology) model results
+%%       with observed water levels in the Northern Gulf of Mexico for
+%%       Hurricane Ike. Verified observed water levels are from NOAA's
+%%       Station 8760922 (red dot on map). The map shows modeled water
+%%       levels (in meters above the geoid) at the peak of the storm in
+%%       southern Louisiana. The time series plot shows both the modeled
+%%       (green) and observed (orange) water levels. The vertical blue line
+%%       in the time series plot corresponds to the current time of the
+%%       map.}
+%%     \label{fig:adcirc_comp}
+%%   \end{subfigure}
+%% \end{figure}
 %% \begin{figure}[ht!]
 %%   \centering
 %%   \includegraphics[height=2in]{../figs/sciwms_overview_v2.pdf}
@@ -63,7 +85,6 @@ aggregation through a unified visualization framework.
 %%     clients interfacing through a custom built web portal.}
 %%   \label{fig:overview1}
 %% \end{figure}
-
 Figure~\ref{fig:overview1} outlines the cyberinfrastructre behind the
 deployment of \sciwms{} for the \comt{}
 project\footnote{\url{http://testbedwww.sura.org/explorer/}}. The
@@ -116,18 +137,20 @@ and to provide clear visual support for the assessment and
 quantification of model skill and performance metrics.
 \begin{figure}[ht!]
   \centering
-  \begin{subfigure}[t]{0.45\textwidth}
+  \begin{subfigure}[t]{0.49\columnwidth}
     \centering
     \includegraphics[width=\columnwidth]{../figs/vims_selfe_ubaratropic_vbaratropic_chesapeake_bay_crop_27_175_2825_1600}
-    \caption{SELFE model of current
-      direction and speed in the Chesapeake Bay area.}
+    \caption{}
     \label{fig:vims_selfe_chesapeake}
   \end{subfigure}
-  \begin{subfigure}[t]{0.45\textwidth}
+  \begin{subfigure}[t]{0.49\columnwidth}
     \centering
     \includegraphics[width=\columnwidth]{../figs/inundation_tropical_VIMS_SELFE_hurricane_rita_2d_final_run_with_waves_sea_surface_wave_significant_height_crop_27_175_2825_1600}
-    \caption{Visualizing SELFE model of significant sea surface wave height along the eastern coast of the United States. The underlying topology is an unstructured grid with over 5 million nodes which SCI-WMS can handle in real time.}
+    \caption{}
     \label{fig:vims_selfe_ssh}
   \end{subfigure}
+  \caption{(a) Visualizing Current direction and speed in the
+    Chesapeake Bay area. (b) Visualizing significant sea surface wave
+    height along the eastern coast of the United States.}
 \end{figure}
 \FloatBarrier
