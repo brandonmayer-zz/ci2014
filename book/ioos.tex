@@ -42,7 +42,7 @@ Center (\ngdc{}) geoportal indexes public geophysical datasets and
 provides an \ogc{} \csw{} service to query datasets by their metadata
 attributes. \sciwms{} queries the \ngdc{} Geoportal at regular
 intervals updating both the topologies and
-\opendap{}~\cite{Cornillon03} links for all new or modified datasets.
+\opendap{}~\cite{Cornillon03} links for new or modified datasets.
 Raw coastal data is hosted by the Southeastern Universities Research
 Association (\sura{}) on a dedicated server for the \comt{}
 project~\cite{luettich12}. Each data set may consist of multiple files
@@ -61,25 +61,25 @@ groups of \ioos{} \comt{} program: {\em estuarine hypoxia, shelf
 group, \sciwms{} successfully generates visualizations from
 \adcirc{}~\cite{adcirc}, \fvcom{}~\cite{chen06},
 \selfe{}~\cite{zhang08} and \slosh{}~\cite{chen84} coastal modeling
-algorithms and serves as a use-case of how \sciwms{} can be leveraged
+algorithms and serves as a use-case for how \sciwms{} can be leveraged
 as a scalable solution for delivering consistent visualizations of
 scientific data to a diverse community. 
 
 \sciwms{} currently supports contour and filled-contour visualizations
 styles for scalar attributes while 2D flow fields can be shown as
-arrows are barbs for vector valued
+arrows or barbs for vector valued
 attributes. Figure~\ref{fig:adcirc_comp} shows a web portal utilizing
 the \sciwms{} backend to compare ADCIRC model output for Hurricane Ike
-with water levels observed by NOAA
-stations. Figure~\ref{fig:vims_selfe_chesapeake} visualizes current
-direction and speed in the Chesapeake Bay
-area. Figure~\ref{vims_selfe_ssh} renders the sea surface wave height
-computed along the Eastern coast of South America, the Gulf of Mexico,
-all the way up to Canada. The topology in this example is unstructured
-(\ugrid{}), a triangulated grid containing over 5 million vertices
-(sample locations). Data pulled from the appropriate external server
-as needed, rendered, cached for performance, but ultimately discarded
-after processing to minimize storage redundency.
+with water levels observed by \noaa{} stations and
+figure~\ref{fig:vims_selfe_chesapeake} visualizes current direction
+and speed in the Chesapeake Bay area. Figure~\ref{fig:vims_selfe_ssh}
+renders the sea surface wave height computed along the Atlantic coast
+of South America, the Gulf of Mexico, up to Canada. The topology in
+this example is unstructured (\ugrid{}), a triangulation containing
+over 5 million vertices (sample locations). Attributes are fetched
+from the appropriate external server as needed, rendered, cached for
+performance, but ultimately discarded after processing to minimize
+storage redundency.
 
 A custom web portal was implemented for the \comt{} \ioos{} to provide
 researchers an intuitive interface for generating visualizations of
@@ -93,9 +93,6 @@ Ongoing development is in progress for \sciwms{} to support emerging
 geophysical datasets such as ensemble model output and to provide
 clear visual support for the assessment and quantification of model
 skill and performance metrics.
-
-
-
 \begin{figure}[ht!]
   \centering
   \begin{subfigure}[t]{0.45\textwidth}
@@ -108,11 +105,12 @@ skill and performance metrics.
     \centering
     \includegraphics[height=2in]{../figs/ui_vectors_crop_inundation_tropical_UND_ADCIRC_Hurricane_Ike_3d_final_run_with_waves}
     \caption{Parameters for visualizing vector fields.}
+  \label{fig:ui_vector}
   \end{subfigure}
   \caption{User interface for manipulating rendering style parameters
     to be sent to \sciwms{} via HTTP. The images behind the UI
     controls are the rendering returned by \sciwms{}.}
-  \label{fig:ui_vector}
+  \label{fig:ui}
 \end{figure}
 
 \begin{figure}[ht!]
