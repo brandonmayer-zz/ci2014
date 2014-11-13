@@ -8,7 +8,7 @@
 Consortium's (\ogc{}) Web Map Service (\wms{}) standard which
 specifies an HTTP interface for generating rasterized visualizations
 of geospatial data~\cite{wms14}. More specifically, \wms{} defines a
-RESTful API which responds to standardized HTTP GET requests from a
+REST API~\cite{Fielding02} which responds to standardized HTTP GET requests from a
 web client. A typical \wms{} request specifies a data layer and region
 of interest with optional meta data such as rendering style
 parameters. A \wms{} response may include additional meta data
@@ -27,21 +27,22 @@ software and standards developments including unstructured grid
 support and \cfugrid{} Compliance~\cite{cfugrid}.
 
 While the \ogc{} \wms{} specification standardizes the client-server
-communication protocol, \wms{} implementations free to design that
-fulfills \wms{} requests and responses. Vital to the efficiency of
-\sciwms{} is the abstraction of a registered dataset into structure
-(also known as topology) and attributes as shown in
-figure~\ref{fig:data_hierarchy} and detailed in subsequent
-sections. \Sciwms{} maintains a local topology cache for efficient
-storage and processing of spatial neighborhoods and subsets with
-respect to data structure. For storage efficiency, attributes are not
-replicated locally but referenced via OGC compliant web-services and a
-database of structure-endpoint pairs is maintained as visualized in
-figure~\ref{fig:sciwms_topology_endpoints}. Because geospatial \wms{}
-requests are commonly restricted to a subset of the Earth's surface,
-\sciwms{} uses the topology cache to compute the subset of numerical
-attributes needed to fulfill each request prior to retrieving the
-appropriate attributes (which are typically external to the server
-hosting \sciwms{} and accessed via HTTP). Furthermore, by classifying
-a topology as regular or irregular, efficient algorithms and data
-structures are exploited to optimize the computation of attribute subsets.
+communication protocol, \wms{} implementations vary dramatically in
+how a particular system fulfills the \wms{} requests and
+responses. Vital to the efficiency of \sciwms{} is the abstraction of
+a registered dataset into structure (also known as topology) and
+attributes as shown in figure~\ref{fig:data_hierarchy} and detailed in
+subsequent sections. \Sciwms{} maintains a local topology cache for
+efficient storage and processing of spatial neighborhoods and subsets
+with respect to data structure. For storage efficiency, attributes are
+not replicated locally but referenced via OGC compliant web-services
+and a database of structure-endpoint pairs is maintained as visualized
+in figure~\ref{fig:sciwms_topology_endpoints}. As geospatial
+\wms{} requests are commonly restricted to a subset of the Earth's
+surface, \sciwms{} uses the topology cache to compute the subset of
+numerical attributes needed to fulfill each request prior to
+retrieving the appropriate data, which are typically external to
+the server hosting \sciwms{} and accessed via HTTP. Furthermore, by
+classifying a topology as regular or irregular, efficient algorithms
+and data structures are exploited to optimize the computation of
+attribute subsets.

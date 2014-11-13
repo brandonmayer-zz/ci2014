@@ -1,19 +1,18 @@
-\subsection{Dataset Abstractions}
+\subsection{Data Model}
 Visualization tools often decompose data into structure and
 attributes~\cite{vtk}. Any continuous function to be represented by a
-digital computer must be measured at a discrete set of
-samples. However, rendering scientific data typically requires
-knowledge of the values between samples to produce a perceptually
-continuous images from arbitrary viewpoints. Structure encapsulates
-both the locations and connectivity relations onto which attributes
-are superimposed, where connectivity serves to constrain the
-interpolation problem. Note that some authors further decompose
-structure further into topology and geometry~\cite{weiler}, however,
-in the context of this research, topology is synonymous with
-structure. Figure~\ref{fig:data_hierarchy} outlines the
-data model adopted by \sciwms{}. A dataset is composed of attributes
-with associated structure that is further classified as a regular or
-irregular, known as \cgrid{} and \ugrid{} topologies in
+digital computer must be measured at a discrete set of samples while
+rendering numerical data typically requires knowledge of the values
+between samples to produce perceptually continuous images from
+arbitrary viewpoints. Structure encapsulates both the locations and
+connectivity relations onto which attributes are superimposed, where
+connectivity serves to constrain the interpolation problem. Note that
+some authors continue the abstraction of structure into topology and
+geometry~\cite{weiler}, however in the context of this research,
+topology is synonymous with structure. Figure~\ref{fig:data_hierarchy}
+outlines the data model adopted by \sciwms{}. A dataset is composed of
+attributes with associated structure which is further classified as a
+regular or irregular, known as \cgrid{} and \ugrid{} topologies in
 \sciwms{} documentation.
 
 \begin{figure}[ht!]
