@@ -14,25 +14,27 @@ The local topology cache and external attribute mechanism defines a
 distributed memory model for datasets registered with \sciwms{} as
 visualized in figure~\ref{fig:sciwms_mem_model}. The grid on the left,
 depicts a regular grid stored locally to \sciwms{}. A possible region
-of interest is highlighted by the red-dashed square. Attributes are
-stored externally by federations members and are exposed to \sciwms{}
-in such a way as it can be visualized using the table on the left of
-the figure. Different attribute layers are represented by the rows of
-the table while columns correspond to memory locations of attribute
-values associated with the topology. The region of interest may correspond
-to memory locations highlighted by the red cells in the table. Given
-the request for a rendering of an attribute layer(s), \sciwms{}
-dispatches a request for externally hosted numerical data necessary to
-render the region of interest. 
+of interest is highlighted by the dashed red square. Attributes are
+stored externally by multiple institutions and are exposed to
+\sciwms{} in such a way as it can be visualized using the table on the
+left of the figure. Different attribute layers are represented by the
+rows of the table while columns correspond to memory locations of
+attribute values associated with the topology. In this example,
+attributes associated with positions within the region of interest
+correspond to memory locations highlighted by the red cells in the
+table. Given the request for a rendering of an attribute layer(s),
+\sciwms{} dispatches a request for externally hosted numerical data
+necessary to render the region of interest.
 \begin{figure}[ht!]
   \centering
   \includegraphics[width=\textwidth]{../figs/topology_memModel}
-  \caption{\sciwms{} distributed memory model. The grid on the left
-    shows a regular grid stored locally to the \sciwms{} server and
-    the table to the right visualizes the attribute memory locations
-    hosted by an external web-service. While attributes may be
-    heterogeneous, the external attribute table offers a convenient
-    first order conceptualization. The relationship between topology
-    and attributes is specified through \ncml{} meta data.}
+  \caption{The \sciwms{} distributed memory model. The grid on the
+    left shows a regular grid stored locally to the \sciwms{} server
+    and the table to the right visualizes the attribute memory
+    locations hosted by an external web-service. While attributes may
+    be heterogeneous, the external attribute table visualization
+    offers a convenient first order conceptualization while the exact
+    relationship between topology and attributes is specified via
+    \ncml{} meta data.}
   \label{fig:sciwms_mem_model}
 \end{figure}
