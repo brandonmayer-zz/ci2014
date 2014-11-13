@@ -22,7 +22,7 @@ aggregation through a unified visualization framework.
 %% wide range of scientific data.
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.7\columnwidth]{../figs/sciwms_overview_v2.pdf}
+  \includegraphics[height=2in]{../figs/sciwms_overview_v2.pdf}
   \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
     \comt{} project. \Sciwms{} updates its topology and endpoint
     database via a nightly service which queries CF-Compliant datasets
@@ -32,7 +32,6 @@ aggregation through a unified visualization framework.
     clients interfacing through a custom built web portal.}
   \label{fig:overview1}
 \end{figure}
-
 Figure~\ref{fig:overview1} outlines the cyberinfrastructre behind the
 deployment of \sciwms{} for the \comt{} project. The National Oceanic
 and Atmospheric Administration (\noaa{}) - National Geophysical Data
@@ -77,43 +76,38 @@ this example is unstructured (\ugrid{}), a triangulation containing
 over 5 million vertices (sample locations). Attributes are fetched
 from the appropriate external server as needed, rendered, cached for
 performance, but ultimately discarded after processing to minimize
-storage redundency.
+storage redundency.  
 
 A custom web
 portal\footnote{\url{http://testbedwww.sura.org/explorer/}} for
 interacting with the \sciwms{} visualization service was developed the
 \comt{} \ioos{} project to provide researchers an intuitive interface
-for generating visualizations of observational and modeling
-data. Figure~\ref{fig:ui_colormaps_scalar} shows the user interface
-for manipulating color themes of a scalar filled-contour plot while
-figure~\ref{fig:ui_vector} shows the interface for manipulating the
-visualization parameters of a vector flow field.
-
+for generating visualizations of observational and modeling data.
 Ongoing development is in progress for \sciwms{} to support emerging
 geophysical datasets such as ensemble model output and to provide
 clear visual support for the assessment and quantification of model
 skill and performance metrics.
-\begin{figure}[ht!]
-  \centering
-  \begin{subfigure}[t]{0.45\textwidth}
-    \centering
-    \includegraphics[width=\columnwidth]{../figs/ui_scalar_inundation_extratropical_UND_ADCIRC_hs_crop_734_910}
-    \caption{}
-    \label{fig:ui_colormaps_scalar}
-  \end{subfigure}
-  \begin{subfigure}[t]{0.45\textwidth}
-    \centering
-    \includegraphics[width=\columnwidth]{../figs/ui_vectors_UND_ADCIRC_Rita_crop_734_910}
-    \caption{}
-  \label{fig:ui_vector}
-  \end{subfigure}
-  \caption{The \comt{} \ioos{} user interface for manipulating
-    rendering style parameters to be sent to \sciwms{} via HTTP. (a)
-    shows a sample of the available colormaps and controls for scalar
-    attributes while (b) shows the parameter controls for vectors.
-    \sciwms{}.}
-  \label{fig:ui}
-\end{figure}
+%% \begin{figure}[ht!]
+%%   \centering
+%%   \begin{subfigure}[t]{0.45\textwidth}
+%%     \centering
+%%     \includegraphics[width=\columnwidth]{../figs/ui_scalar_inundation_extratropical_UND_ADCIRC_hs_crop_734_910}
+%%     \caption{}
+%%     \label{fig:ui_colormaps_scalar}
+%%   \end{subfigure}
+%%   \begin{subfigure}[t]{0.45\textwidth}
+%%     \centering
+%%     \includegraphics[width=\columnwidth]{../figs/ui_vectors_UND_ADCIRC_Rita_crop_734_910}
+%%     \caption{}
+%%   \label{fig:ui_vector}
+%%   \end{subfigure}
+%%   \caption{The \comt{} \ioos{} user interface for manipulating
+%%     rendering style parameters to be sent to \sciwms{} via HTTP. (a)
+%%     shows a sample of the available colormaps and controls for scalar
+%%     attributes while (b) shows the parameter controls for vectors.
+%%     \sciwms{}.}
+%%   \label{fig:ui}
+%% \end{figure}
 
 \begin{figure}[ht!]
   \centering
@@ -132,7 +126,7 @@ skill and performance metrics.
 
 \newif\ifpltsub
 
-%% \pltsubtrue%set to true comment if false
+\pltsubtrue%set to true comment if false
 
 \ifpltsub
 \begin{figure}[ht!]
