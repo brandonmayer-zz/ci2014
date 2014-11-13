@@ -31,7 +31,7 @@ communication protocol, \wms{} implementations free to design that
 fulfills \wms{} requests and responses. Vital to the efficiency of
 \sciwms{} is the abstraction of a registered dataset into structure
 (also known as topology) and attributes as shown in
-figure~\ref{data_model_hierarchy} and detailed in subsequent
+figure~\ref{fig:data_hierarchy} and detailed in subsequent
 sections. \Sciwms{} maintains a local topology cache for efficient
 storage and processing of spatial neighborhoods and subsets with
 respect to data structure. For storage efficiency, attributes are not
@@ -39,48 +39,9 @@ replicated locally but referenced via OGC compliant web-services and a
 database of structure-endpoint pairs is maintained as visualized in
 figure~\ref{fig:sciwms_topology_endpoints}. Because geospatial \wms{}
 requests are commonly restricted to a subset of the Earth's surface,
-\sciwms{} uses the topology cache to compute the subset of model data
-needed to fulfill each request prior to retrieving the appropriate
-attributes (which are typically external to the server hosting
-\sciwms{} and accessed via HTTP). Furthermore, by classifying a
-topology as regular or irregular, efficient algorithms and data
-structures are exploited to optimize the computation of relevant model
-data subsets.
-
-%% \begin{figure}[ht!]
-%%   \centering
-%%   \includegraphics[width=0.7\columnwidth]{../figs/sciwms_overview_v2.pdf}
-%%   \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
-%%     \comt{} project. \Sciwms{} updates its topology and endpoint
-%%     database via a nightly service which queries CF-Compliant datasets
-%%     cataloged by \ngdc{}. Model data is hosted on an external web server
-%%     exposed by an \ncml{} facade as a single \netcdf{} data structure
-%%     accessable to \sciwms{} via \opendap{}. \Sciwms{} responds to http
-%%     clients interfacing through a custom built web portal.}
-%%   \label{fig:overview1}
-%% \end{figure}
-%% \begin{figure}[ht!]
-%%   \centering
-%%   \includegraphics[width=0.6\columnwidth]{../figs/sciwms_book_db_topology_endpoints.pdf}
-%%   \caption{\Sciwms{} topology and endpoint data store. Typologies are
-%%     classified as \cgrid{} and \ugrid{} for efficient geospatial
-%%     queries and remote model data access.}
-%%   \label{fig:sciwms_topology_endpoints}
-%% \end{figure}
-
-%% \begin{figure}
-%%   \centering
-%%   \begin{subfigure}[b]{0.455\textwidth}
-%%     \includegraphics[width=\textwidth]{../figs/sciwms_book_db_topology_endpoints.pdf}
-%%     \caption{\Sciwms{} topology and endpoint data store.}
-%%     \label{fig:sciwms_topology_endpoints}
-%%   \end{subfigure}
-%%   \begin{subfigure}[b]{0.45\textwidth}
-%%     \includegraphics[width=\textwidth]{../figs/sciwms_overview_v2.pdf}
-%%     \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
-%%       \comt{} project.}
-%%     \label{fig:overview1}
-%%   \end{subfigure}
-%%   \caption{\sciwms{} architecture.}
-%%   \label{fig:architecture}
-%% \end{figure}
+\sciwms{} uses the topology cache to compute the subset of numerical
+attributes needed to fulfill each request prior to retrieving the
+appropriate attributes (which are typically external to the server
+hosting \sciwms{} and accessed via HTTP). Furthermore, by classifying
+a topology as regular or irregular, efficient algorithms and data
+structures are exploited to optimize the computation of attribute subsets.
