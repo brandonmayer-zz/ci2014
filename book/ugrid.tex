@@ -13,7 +13,7 @@ more accessible, complex unstructured representations have become more
 prevalent. However, most existing visualization technologies in the
 \cf{} community can render only regularly structured
 datasets. \sciwms{} is one of the first visualization services to
-support rendering data associated with an unstructured topology.
+support rendering data assocwith an unstructured topology.
 
 Any \ncml{} file exposing the topology of an externally hosted dataset
 according to the \cfugrid{} sepcification can be processed by
@@ -23,22 +23,22 @@ locations, the vertices of the topology, exposed as an array of
 coordinates in the appropriate ambient space. Vertex connectivity is
 expressed as an array where each element is an index into the vertex
 list. The dimension of a topology defines the atomic spatial element
-created by the connectivity list. In \cfugrid{} terminology, a
-topology with dimension 0 defines a set of disconnected points (no
-connectivity) called \textbf{\textit{nodes}}, a 1D topology consists
-of lines or curved boundaries known as \textbf{\textit{edges}}, a 2D
-topology is a set of planes or surfaces enclosed by a set of edges
-(e.g. triangulation) called \textbf{\textit{faces}}, and a 3D topology
-specifies the volume enclosed by a set of faces called
-\textbf{\textit{volumes}}.
+created by the connectivity list. The \cfugrid{} specification defines
+topology dimension recursively: a topology with dimension 0 defines a
+set of disconnected points (no connectivity) called
+\textbf{\textit{nodes}}, a 1D topology consists of lines or curved
+boundaries known as \textbf{\textit{edges}}, a 2D topology is a set of
+planes or surfaces enclosed by a set of edges (e.g. triangulation)
+called \textbf{\textit{faces}}, and a 3D topology specifies the volume
+enclosed by a set of faces called \textbf{\textit{volumes}}.
 
 In contrast with \cgrid{} topologies, \ugrid{} topologies require
 explicit enumeration of sample locations and connectivity, requiring
 spatially-aware data structures for optimal storage and processing for
 performant visualization algorithms. To this end, \sciwms{} maintains
 a local topology cache, storing \ugrid{} topologies using binary
-\rtree{}~\cite{Guttman84} data structures on disk local to the
+\rtree{}~\cite{Guttman84} data structures on disk locally on the
 deployment server for fast access. The \rtree{} is created when the
-dataset is first registered with the \sciwms{} service and if a change in
-the underlying data is detected at an endpoint associated with a
+dataset is first registered with the \sciwms{} service and if a change
+in the underlying data is detected at an endpoint associated with a
 topology cache, the \rtree{} is rebuilt.
