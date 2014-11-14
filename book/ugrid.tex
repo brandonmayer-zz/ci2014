@@ -1,19 +1,18 @@
 \subsection{\ugrid{} Topolgy}
-An unstructured (\ugrid{}) topology is defined as a topology that is
-not regular, i.e., does not admit a closed-form representation of
-sample locations and connectivity. Unstructured topologies offer the
-highest level of flexibility from a visualization and modeling
-standpoint as higher sampling frequencies may be used in regions of
-interest while sparsely sampling low-impact areas to conserve
-computational resources. 
-
-There is a large quantity of \cf{} data associated with structured
-topologies. However, as storage and processing hardware has become
-more accessible, complex unstructured representations have become more
-prevalent. However, most existing visualization technologies in the
-\cf{} community can render only regularly structured
+A \ugrid{} (also called {\bf irregular} or {\bf unstructured})
+topology is defined as a set of sample locations with connectivity
+relations that do not admit a closed-form representation. Unstructured
+topologies offer the highest level of flexibility from a visualization
+and modeling standpoint as higher sampling frequencies may be used in
+regions of interest while sparsely sampling low-impact areas to
+conserve computational resources, but have larger storage and
+processing requirements compared to regular topologies. As storage and
+processing hardware has become more accessible, unstructured data has
+become more prevalent due to the flexibility of the
+representation. However, most existing visualization technologies in
+the \cf{} community can only render regularly structured
 datasets. \sciwms{} is one of the first visualization services to
-support rendering data assocwith an unstructured topology.
+support rendering irregularly structured data.
 
 Any \ncml{} file exposing the topology of an externally hosted dataset
 according to the \cfugrid{} sepcification can be processed by
