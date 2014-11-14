@@ -2,61 +2,61 @@
 \section{Motivation}
 \label{sec:motivation}
 Due to the explosion in the amount of atmospheric, oceanagraphic,
-climate and weather data, either recorded \emph{in-situ} or generated
-by modeling, inference or prediction algorithms, it is no longer
+climate and weather data either recorded \emph{in-situ} or generated
+by modeling, inference and prediction algorithms, it is no longer
 feasible for a single institution to host and maintain a centralized
-datastore. Modern data management has been shifting hosting and
-maintenance responsibilities of large datasets to multiple
-participating institutions unified by a catalogue to provide a
-single, unified view of the distributed data to end users and
-analysts.
+database of information. Modern data management has been shifting
+hosting and maintenance responsibilities of large datasets to multiple
+participating institutions unified by a catalogue to provide a single,
+unified view of the distributed data to end users and analysts.
 
 A common practice is for data producing organizations to host their
-own data and provide metadata information to a centralized catalogue
-service. The institution responsible for maintaining the catalogue
-then provides a unified view of the aggregated dataset to end users by
-compiling meta data associated with the participating organizations
-and registered data. Such federated datasets may span petabytes of
-geospatial information, be composed of millions of files in different
-formats generated and hosted by vastly different systems located
-across the globe. By interacting with the catalogue, the end user (such as
-an analyst) can navigate and search through the aggregated meta data
-and interact with particular data of interest, agnostic to distributed
-nature of the database.
+own data and provide metadata information to a centralized aggregation
+service called a catalogue. The institution responsible for
+maintaining the catalogue provides a unified view of the data to end
+users by compiling meta data provided by other members. Such federated
+datasets may span petabytes of geospatial information, be composed of
+millions of files in different formats generated and hosted by vastly
+different systems located across the globe. By interacting with the
+catalogue the end user (such as an analyst or scientist) can navigate
+and search through the aggregated meta data and interact with
+particular data of interest, agnostic to distributed nature of the
+database.
 
 While a decentralized approach to data management offers many
 advantages, data reduction and analysis tools have been slow to adapt
 to the distributed framework. For example, there are an abundance of
 applications for visualizing cartographic data on a single computer or
-clusters yet many such programs are designed to deal with data saved
-in a particular file format, requiring analysts to download a local
-copy datasets and potentially reformat the data into the appropriate
-container before processing and analysis can begin. Even if an end
-user has access sufficient resources to download and process a
-dataset, tools operating on local systems increase the project costs
-in terms of bandwidth usage, time and storage. Additionally, coupling
-decentralized storage and local processing introduces the risk that
-different analysts working with identical local copies of data
-obtained from the same federation may use different local programs to
-generate incompatible visualizations or conclusions. Normalizing these
-results introduces a potential point of error and likewise increases
-the costs of analysis in terms of time and accuracy. 
+computer clusters, yet many such programs are designed to deal with
+data on a local system, requiring analysts to download a local copy
+datasets and potentially reformat the data into the appropriate file
+format before processing and analysis can begin. Even if an end user
+has access sufficient resources to download and process a dataset,
+which is not always the case, tools designed for local or centralized
+data increase project costs in terms of bandwidth usage, time and
+storage. Additionally, applying centralized processing with
+decentralized storage the risk that different analysts working with
+identical local copies of data obtained from the same federation may
+use different local programs to generate incompatible visualizations
+or reach conflicting conclusions. Normalizing these results introduces
+a potential point of error and likewise increases the costs of
+analysis in terms of time and accuracy.
 
 By maintaining a list of web accessible data endpoints, \sciwms{} is
-able to transparently produce consistent visualizations of federated
-data. While \sciwms{} implements the \ogc{} \wms{} protocol, it is
-augmented with services for interacting with standard meta-data
-catalogues such as \csw{}~\cite{csw14}, allowing \sciwms{} to
-autonomously track dynamic federations. \sciwms{} uses \ncml{}
-(\netcdf{} Markup Language) to implement a data abstraction layer
-allowing data hosting agencies to maintain their own file formats
-which are exposed to \sciwms{} without writing custom i/o software, data
-duplication or reformatting.
+able to transparently produce consistent visualizations of web-hosted
+data. While \sciwms{} implements the \ogc{} \wms{}~\cite{wms14}
+protocol, it is augmented with services for interacting with standard
+meta-data catalogues such as \csw{}~\cite{csw14}, allowing \sciwms{}
+to autonomously track dynamic catalogues. \sciwms{} uses
+\ncml{}~\cite{ncml06} (\netcdf{} Markup Language) to implement a data
+abstraction layer allowing data hosting agencies to maintain their own
+file formats which are exposed to \sciwms{} without writing custom i/o
+software, data duplication or reformatting.
 
 \sciwms{} embraces distributed database principles and promotes the
 separation of concerns software and project management practice. For
 example, \sciwms{} may be deployed by a member of a much larger
 project who's sole responsibility is providing a visualization
-platform, promoting quality through specialization, saving time and
+platform, promoting quality through specialization and saving time and
 costs for data analysis projects by providing a simple interface for
 end users to generate consistent visualizations of federated data.
