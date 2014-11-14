@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mainPdf="ci14book_mayer.pdf"
 mainFile="ci14book_mayer.tex"
 macroFile="../macros.sty"
 refFile="../ci_mayer.bib"
@@ -31,6 +32,7 @@ done
 cp "${macroFile}" "${odir}"
 cp "${refFile}" "${odir}"
 cp "${mainFile}" "${texdir}"
+cp "${mainPdf}" "${texdir}"
 
 
 for texFile in "${texFiles[@]}" 
@@ -62,4 +64,15 @@ do
     done
 
 done
+echo -e "THE MAIN FILE IS CONTAINED IN ./tex/ci14book_mayer.pdf\n"\
+    "TO COMPILE, CD INTO ./tex/ AND RUN:\n"\
+    ">> pdflatex ci14book_mayer.tex && bibtex ci14book_mayer.aux && " \
+    "pdflatex ci14book_mayer.tex && pdflatex ci14book_mayer.tex" \
+    >> "${odir}/README"
 echo ""
+echo "ZIPPING"
+pushd ./ci14book_mayer
+zip -r ../ci14book_mayer.zip *
+popd
+echo "FIN."
+
