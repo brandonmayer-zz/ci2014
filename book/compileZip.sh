@@ -16,8 +16,14 @@ odir="./ci14book_mayer"
 figdir="${odir}/figs"
 texdir="${odir}/tex"
 
+
 if [ -d "${odir}" ] ; then
     rm -r "${odir}"
+fi
+
+if [ -f "./ci14book_mayer.zip" ] ; then
+    echo "REMOVING OLD ZIP ARCHIVE"
+    rm "./ci14book_mayer.zip"
 fi
 
 mkdir "${odir}"
@@ -64,11 +70,11 @@ do
     done
 
 done
-echo -e "THE MAIN FILE IS CONTAINED IN ./tex/ci14book_mayer.pdf\n"\
-    "TO COMPILE, CD INTO ./tex/ AND RUN:\n"\
-    ">> pdflatex ci14book_mayer.tex && bibtex ci14book_mayer.aux && " \
-    "pdflatex ci14book_mayer.tex && pdflatex ci14book_mayer.tex" \
-    >> "${odir}/README"
+echo -e "THE MAIN FILE to build the pdf is ./tex/ci14book_mayer.tex\n"\
+"TO COMPILE, CD INTO ./tex/ AND RUN:\n"\
+">> pdflatex ci14book_mayer.tex && bibtex ci14book_mayer.aux && " \
+"pdflatex ci14book_mayer.tex && pdflatex ci14book_mayer.tex" \
+>> "${odir}/README"
 echo ""
 echo "ZIPPING"
 pushd ./ci14book_mayer
