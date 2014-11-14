@@ -32,7 +32,7 @@ done
 cp "${macroFile}" "${odir}"
 cp "${refFile}" "${odir}"
 cp "${mainFile}" "${texdir}"
-cp "${mainPdf}" "${texdir}"
+# cp "${mainPdf}" "${texdir}"
 
 
 for texFile in "${texFiles[@]}" 
