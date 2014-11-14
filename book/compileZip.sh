@@ -33,7 +33,7 @@ cp "${macroFile}" "${odir}"
 cp "${refFile}" "${odir}"
 cp "${mainFile}" "${texdir}"
 # cp "${mainPdf}" "${texdir}"
-
+cp ./springerConsent*.JPG "${odir}"
 
 for texFile in "${texFiles[@]}" 
 do 
