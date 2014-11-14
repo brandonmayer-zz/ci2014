@@ -11,3 +11,5 @@ which will compile ci14book_mayer.pdf
 
 To automatically generate the a zip archive of the book chapter according to the springing submission guidlines, run ./book/compileZip.sh
 
+The script ./book/buildPdf.sh will compile the book and bulid the zip archive.
+
