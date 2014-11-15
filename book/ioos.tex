@@ -15,7 +15,8 @@ visualizing and assessing a diverse set of coastal modeling and
 observational data. While \sciwms{} is a general software solution for
 geospatial visualization, it is a key component in realizing the
 U.S. \ioos{} \comt{} mission, facilitating qualitative model
-comparisons and aggregation through a unified visualization framework.
+comparisons and aggregation of distributed data with a unified
+visualization framework.
 \begin{figure}[ht!]
   \centering
   \includegraphics[height=2.2in]{../figs/sciwms_overview_v2.pdf}
@@ -100,7 +101,7 @@ Research Association (\sura{}) on a dedicated server for the \comt{}
 project~\cite{luettich12}. Each data set may consist of multiple files
 in different formats, and may be the result of very different models
 run by various institutions with disparate computing
-resources. However, accompanying each dataset is an \ncml{} virtual
+resources. However, accompanying the raw data is an \ncml{} virtual
 layer which exposes each dataset as a single \netcdf{}~\cite{netcdf},
 \opendap{}~\cite{Cornillon03} accessible object. Furthermore, the
 \ncml{} facade presents a consistent set of meta information in
