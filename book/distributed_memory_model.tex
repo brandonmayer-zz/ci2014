@@ -2,7 +2,7 @@
 Attributes are numerical quantities associated with a topology. For
 example, common attributes may be vector valued wind directions computed by an
 atmospheric modeling algorithm at the vertices of a triangulated 2D
-topology. Another algorithm may have also simulated air temperature,
+topology. Another algorithm may have simulated air temperature,
 a scalar attribute, at the centroid of cell volumes specified by a 3D
 topology. Attributes have their own dimensionality which is not
 necessarily equal to the dimension of the topology.
@@ -11,7 +11,7 @@ The local topology cache and external attribute mechanism defines a
 distributed memory model for datasets registered with \sciwms{}. Given
 a request for the visualization of a attributes pertaining to a region
 of interest, the visualization pipeline consists of first computing
-the sample locations withing the region of interest, using the
+the sample locations within the region of interest, using the
 implicit representation for \cgrid{} and \rtree{}s for \ugrid{}
 topologies, then fetching the corresponding external attributes. For
 rendering, the sample connectivity within the area of interest is
