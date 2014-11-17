@@ -13,3 +13,5 @@ To automatically generate the a zip archive of the book chapter according to the
 
 The script ./book/buildPdf.sh will compile the book and bulid the zip archive.
 
+To build the poster, run xelatex poster.tex in ./poster
+
