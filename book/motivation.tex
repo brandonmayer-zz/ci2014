@@ -41,19 +41,15 @@ visualizations and reach conflicting conclusions. Normalizing these
 results introduces a potential point of error and likewise increases
 project costs in terms of time and accuracy.
 
-%% CONTRIBUTIONS CAN GO HERE
-
 By maintaining a list of web accessible data endpoints, \sciwms{} is
 able to transparently produce consistent visualizations of web-hosted
 data. While \sciwms{} implements the Open Geospatial Consortium (\ogc{})
 Web Mapping Service (\wms{}) protocol~\cite{wms14}, it is augmented
 with services for interacting with standard meta-data catalogs such as
 Catalog Service for the Web (\csw{})~\cite{csw14}, allowing \sciwms{}
-to autonomously track dynamic catalogs. \sciwms{} uses \netcdf{}
-Markup Language (\ncml{})~\cite{ncml06} as a data abstraction layer
-allowing data hosting agencies to maintain their own file formats
-which are exposed to \sciwms{} without writing custom i/o software,
-data duplication or reformatting.
+to autonomously track dynamic catalogs. 
+
+%% CONTRIBUTIONS CAN GO HERE
 
 \sciwms{} embraces distributed database principles and promotes the
 separation of concerns software and project management practice. For

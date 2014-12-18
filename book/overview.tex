@@ -1,17 +1,29 @@
 \section{\sciwms{}}
 \label{sec:sciwms}
-\Sciwms{} is an open-source Web Map Service (\wms{})~\cite{wms14} written in
-Python using the Django~\cite{django} web framework and standard
-cross-platform numerical software, NumPy~\cite{numpy11} and
+\Sciwms{} is an open-source Web Map Service (\wms{})~\cite{wms14}
+written in Python using the Django~\cite{django} web framework and
+standard cross-platform numerical software, NumPy~\cite{numpy11} and
 Matplotlib~\cite{hunter07} for generating visual content. The \wms{}
-specification defines a REST API~\cite{Fielding02} which responds to
-standardized HTTP GET requests from a web client for serving
-rasterized visualizations of geospatial data. A typical \wms{} request
-specifies a data layer and region of interest with optional meta data
-such as rendering style parameters. A \wms{} response may include
-additional information regarding datasets registered with
-the service or a visualization in the form of a PNG or other standard
-image format.
+specification defines a Representational State Transfer (REST)
+API~\cite{Fielding02} which responds to standardized HTTP GET requests
+from a \wms{} client for serving rasterized visualizations of
+geospatial data. A typical \wms{} request specifies a data layer and
+region of interest with optional meta data such as rendering style
+parameters. A \wms{} response may include additional information
+regarding datasets registered with the service or a visualization in
+the form of a PNG or other standard image format. A base \wms{} client
+has been developed in \javascript{}, which gives analysts the ability
+to generate and interact with visualizations using nothing but a
+standard web browser~\cite{comtui}.  The \wms{} client is likewise
+open-source, was used to create the visualizations in
+section~\ref{sec:ioos}, and is currently in active use for
+U.S. \ioos{} \comt{} project outlined in section~\ref{sec:ioos}.
+
+External datasets to be visualized by \sciwms{} should be exposed by
+data producers in one of the many community standard formats for
+geoscientific gridded data such as \netcdf{}, \hdf{}/\hdf5,
+\grib{}/\grib2 with accompanying metadata adhering to the CF (Climate
+and Forecast) metadata conventions~\cite{cf}. 
 
 While the \ogc{} \wms{} specification standardizes the client-server
 communication protocol, implementations vary dramatically in
