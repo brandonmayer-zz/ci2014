@@ -7,23 +7,23 @@ by modeling, inference and prediction algorithms, it is no longer
 feasible for a single institution to host and maintain a centralized
 database of information. Modern data management has been shifting
 hosting and maintenance responsibilities of large datasets to multiple
-participating institutions unified by a catalogue to provide a single
+participating institutions unified by a catalog to provide a single
 view of the distributed data to end users and analysts.
 
 A common practice is for data producing organizations to host their
 own data and provide meta information to a centralized aggregation
-service called a catalogue. The institution responsible for
-maintaining the catalogue provides a unified view of the data to end
+service called a catalog. The institution responsible for
+maintaining the catalog provides a unified view of the data to end
 users by compiling meta data submitted by registered project
 participants. Such federated datasets may span petabytes of geospatial
 information, be composed of millions of files in different formats
 generated and hosted by vastly different systems located across the
 globe. End users (such as analyst and scientist) interface with the
-catalogue to search the aggregated meta data and interact with
+catalog to search the aggregated meta data and interact with
 particular data of interest, agnostic to distributed nature of the
 database.
 
-While a decentralized approach to data management offers many
+Although a decentralized approach to data management offers many
 advantages, data reduction and analysis tools have been slow to adapt
 to the distributed framework. There is an abundance of applications
 for visualizing cartographic data on local computing resources which
@@ -45,8 +45,8 @@ By maintaining a list of web accessible data endpoints, \sciwms{} is
 able to transparently produce consistent visualizations of web-hosted
 data. While \sciwms{} implements the \ogc{} \wms{}~\cite{wms14}
 protocol, it is augmented with services for interacting with standard
-meta-data catalogues such as \csw{}~\cite{csw14}, allowing \sciwms{}
-to autonomously track dynamic catalogues. \sciwms{} works in conjunction
+meta-data catalogs such as \csw{}~\cite{csw14}, allowing \sciwms{}
+to autonomously track dynamic catalogs. \sciwms{} works in conjunction
 with \ncml{}~\cite{ncml06} (\netcdf{} Markup Language) to implement a data
 abstraction layer allowing data hosting agencies to maintain their own
 file formats which are exposed to \sciwms{} without writing custom i/o
