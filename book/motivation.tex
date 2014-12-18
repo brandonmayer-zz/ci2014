@@ -12,45 +12,48 @@ view of the distributed data to end users and analysts.
 
 A common practice is for data producing organizations to host their
 own data and provide meta information to a centralized aggregation
-service called a catalog. The institution responsible for
-maintaining the catalog provides a unified view of the data to end
-users by compiling meta data submitted by registered project
-participants. Such federated datasets may span petabytes of geospatial
-information, be composed of millions of files in different formats
-generated and hosted by vastly different systems located across the
-globe. End users (such as analyst and scientist) interface with the
-catalog to search the aggregated meta data and interact with
-particular data of interest, agnostic to distributed nature of the
-database.
+service called a catalog~\cite{luettich13, williams09, chervenak00}. The
+institution responsible for maintaining the catalog provides a unified
+view of the data to end users by compiling meta data submitted by
+registered project participants. Such federated datasets may span
+petabytes of geospatial information, be composed of millions of files
+in different formats generated and hosted by vastly different systems
+located across the globe. End users (such as analyst and scientist)
+interface with the catalog to search the aggregated meta data and
+interact with particular data of interest, agnostic to distributed
+nature of the database.
 
 Although a decentralized approach to data management offers many
 advantages, data reduction and analysis tools have been slow to adapt
-to the distributed framework. There is an abundance of applications
-for visualizing cartographic data on local computing resources which
-require analysts to download local copies of datasets and
-potentially reformat the data into the appropriate file format before
-processing and analysis can begin. Even if an end user has access to
-sufficient resources to download and process a dataset of interest,
-tools designed for centralized systems increase project costs in terms
-of bandwidth usage, time and storage. Additionally, coupling
-centralized processing with decentralized storage introduces the risk
-that different analysts working with identical local copies of data
-obtained from the same federation may use different local programs to
-generate incompatible visualizations and reach conflicting
-conclusions. Normalizing these results introduces a potential point of
-error and likewise increases project costs in terms of time
-and accuracy.
+to the distributed framework. There exists an abundance of
+applications for visualizing cartographic data on local computing
+resources which require analysts to download local copies of datasets
+and potentially reformat the data into the appropriate file format
+before processing and analysis can begin. Even if an end user has
+access to sufficient resources to download and process a dataset of
+interest, tools designed for centralized-local systems increase
+project costs in terms of bandwidth usage, time and
+storage. Additionally, coupling centralized processing with
+decentralized storage introduces the risk that different analysts
+working with identical local copies of data obtained from the same
+federation may use different local programs to generate incompatible
+visualizations and reach conflicting conclusions. Normalizing these
+results introduces a potential point of error and likewise increases
+project costs in terms of time and accuracy.
+
+%% CONTRIBUTIONS CAN GO HERE
 
 By maintaining a list of web accessible data endpoints, \sciwms{} is
 able to transparently produce consistent visualizations of web-hosted
-data. While \sciwms{} implements the \ogc{} \wms{}~\cite{wms14}
-protocol, it is augmented with services for interacting with standard
-meta-data catalogs such as \csw{}~\cite{csw14}, allowing \sciwms{}
-to autonomously track dynamic catalogs. \sciwms{} works in conjunction
-with \ncml{}~\cite{ncml06} (\netcdf{} Markup Language) to implement a data
-abstraction layer allowing data hosting agencies to maintain their own
-file formats which are exposed to \sciwms{} without writing custom i/o
-software, data duplication or reformatting.
+data. While \sciwms{} implements the Open Geospatial Consortium (\ogc{})
+Web Mapping Service (\wms{}) protocol~\cite{wms14}, it is augmented
+with services for interacting with standard meta-data catalogs such as
+Catalog Service for the Web (\csw{})~\cite{csw14}, allowing \sciwms{}
+to autonomously track dynamic catalogs. \sciwms{} uses \netcdf{}
+Markup Language (\ncml{})~\cite{ncml06} as a data abstraction layer
+allowing data hosting agencies to maintain their own file formats
+which are exposed to \sciwms{} without writing custom i/o software,
+data duplication or reformatting.
 
 \sciwms{} embraces distributed database principles and promotes the
 separation of concerns software and project management practice. For
