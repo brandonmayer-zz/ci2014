@@ -1,33 +1,41 @@
 \section{\sciwms{}}
 \label{sec:sciwms}
-\Sciwms{}\footnote{\url{https://github.com/brandonmayer/sci-wms}} is an open-source Web Map Service (\wms{})~\cite{wms14}
-written in Python using the Django~\cite{django} web framework and
-standard cross-platform numerical software, NumPy~\cite{numpy11} and
-Matplotlib~\cite{hunter07} for generating visual content. The \wms{}
+\Sciwms{}\footnote{\url{https://github.com/brandonmayer/sci-wms}} is
+an open-source \python{} implementation of the Open Geospatial
+Consortium (\ogc{}) Web Mapping Service (\wms{}) protocol~\cite{wms14}
+using standard cross-platform numerical software, NumPy~\cite{numpy11}
+and Matplotlib~\cite{hunter07} and the Django~\cite{django} web
+framework for generating and serving visual content. The \wms{}
 specification defines a Representational State Transfer (REST)
 API~\cite{Fielding02} which responds to standardized HTTP GET requests
 from a \wms{} client for serving rasterized visualizations of
 geospatial data. A typical \wms{} request specifies a data layer and
 region of interest with optional meta data such as rendering style
 parameters. A \wms{} response may include additional information
-regarding datasets registered with the service or a visualization in
-the form of a PNG or other standard image format. A base \wms{} client
-has been developed in \javascript{}, which gives analysts the ability
-to generate and interact with visualizations using nothing but a
-standard web browser~\cite{comtui}.  The \wms{} client is likewise
-open-source, was used to create the visualizations in
-section~\ref{sec:ioos}, and is currently in active use for
-U.S. \ioos{} \comt{} project outlined in section~\ref{sec:ioos}.
+regarding the selected data or a visualization in the form of a PNG or
+other standard image format. A base \wms{} client has been developed
+in \javascript{} which gives analysts the ability to generate and
+interact with visualizations using only a web browser~\cite{comtui}.
+%% The \wms{} client is likewise open-source, was used to create the
+%% visualizations in the paper, and is currently in active use for
+%% U.S. \ioos{} \comt{} project where \sciwms{} is responsible for
+%% visualizing over 50 terabytes of distributed geospatial data (see
+%% section~\ref{sec:ioos}).
+While \sciwms{} is \ogcwms{} compliant, it is augmented with
+services for automatically polling and interacting with \ogc{} -
+Catalog Service for the Web (\csw{}) compliant met-data
+catalogs~\cite{csw14}, allowing \sciwms{} to autonomously track
+dynamic distributed datasets.
 
-External datasets to be visualized by \sciwms{} should be exposed by
-data producers in one of the many community standard formats for
-geoscientific gridded data such as \netcdf{}, \hdf{}/\hdf5,
-\grib{}/\grib2 with accompanying metadata adhering to the CF (Climate
-and Forecast) metadata conventions~\cite{cf}. 
+Data to be visualized by \sciwms{} should be exposed by producers in
+one of the many community standard formats for geoscientific gridded
+data such as \netcdf{}, \hdf{}/\hdf5, or \grib{}/\grib2 with
+accompanying metadata adhering to the CF (Climate and Forecast)
+metadata conventions~\cite{cf}.
 
-While the \ogc{} \wms{} specification standardizes the client-server
-communication protocol, implementations vary dramatically in how a
-particular system fulfills the \wms{} request and responses. Vital to
+While the \ogcwms{} specification standardizes client-server
+communication, implementations vary dramatically in how a
+particular system fulfills the a \wms{} request. Vital to
 the efficiency of \sciwms{} is the decomposition of a registered
 dataset into \textbf{structure} (also known as \textbf{topology}) and
 \textbf{attributes} as shown in figure~\ref{fig:data_hierarchy} and

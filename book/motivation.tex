@@ -8,27 +8,27 @@ feasible for a single institution to host and maintain a centralized
 database of information. Modern data management has been shifting
 hosting and maintenance responsibilities of large datasets to multiple
 participating institutions unified by a catalog service which provides
-a single view of the distributed data to end users and
-analysts~\cite{luettich13, williams09, chervenak00}. The institution
-responsible for maintaining the catalog compiles meta data published
-by registered participants regarding data hosted and exposed to the
-catalog by the participant. Such federated datasets potentially span
-petabytes of geospatial information, may be composed of millions of
-files in different formats and are typically generated and hosted by
-vastly different systems located across the globe. End users (such as
-an analyst or scientist) interface with the catalog to search through
-the aggregated meta data and interact with particular data of
-interest, agnostic to distributed nature of the database.
+a single view of the distributed data to end users~\cite{luettich13,
+  williams09, chervenak00}. The institution responsible for
+maintaining the catalog compiles \metadata{} regarding data hosted and
+exposed to the catalog by registered data producers. Such federated
+datasets potentially span petabytes of information, may be
+composed of millions of files in different formats and are typically
+generated and hosted by vastly different systems located across the
+globe. End users (such as analysts or scientists) interface with the
+catalog to search through the aggregated \metadata{} and interact with
+particular data of interest, agnostic to distributed nature of the
+database.
 
 Although a decentralized approach to data management offers many
 advantages, data reduction and analysis tools have been slow to adapt
 to the distributed framework. There exists an abundance of
 applications for visualizing cartographic data on local computing
-resources which require analysts to download local copies of datasets
+resources, requiring analysts to download local copies of datasets
 and potentially reformat the data into the appropriate file format
 before processing and analysis can begin. Even if an end user has
 access to sufficient resources to download and process a dataset of
-interest, tools designed for centralized-local systems increase
+interest, tools designed for centralized local systems increase
 project costs in terms of bandwidth usage, time and
 storage. Additionally, coupling centralized processing with
 decentralized storage introduces the risk that different analysts
@@ -40,19 +40,53 @@ project costs in terms of time and accuracy.
 
 %% HOW DOES SCIWMS SOLVE THESE PROBLEMS
 %% CONTRIBUTIONS CAN GO HERE
+By providing a single web-based visualization tool, \sciwms{} fills a
+significant gap in cooperative and distributed computing. Redundancy
+is minimized by avoiding dataset replication as minimal data is
+fetched as needed to fulfill each visualization request. Additionally,
+\sciwms{} enables scientists to visualize data through a simple web
+browser, facilitating rapid and consistent algorithmic and parametric
+comparisons. Since \sciwms{} may be deployed on a server with
+dedicated hardware for storage, processing and visualization,
+\sciwms{} lowers costs and barriers to entry for analysts who would
+otherwise have to invest in the necessary cyberinfrastructure to
+download and visualize local copies of distributed data.
 
-By maintaining a list of web accessible data endpoints, \sciwms{} is
-able to transparently produce consistent visualizations of web-hosted
-data. While \sciwms{} implements the Open Geospatial Consortium (\ogc{})
-Web Mapping Service (\wms{}) protocol~\cite{wms14}, it is augmented
-with services for interacting with standard meta-data catalogs such as
-Catalog Service for the Web (\csw{})~\cite{csw14}, allowing \sciwms{}
-to autonomously track dynamic catalogs. 
+While there exists other distributed geospatial visualization
+solutions including \ncwms{}~\cite{blower13},
+\mapserver{}~\cite{mapserver14}, and
+\geoserver{}~\cite{geoserver14}. \sciwms{} and \ncwms{} are the only
+platforms which support \netcdf{}, a community standard file
+format. Additionally, \sciwms{} is the only service which supports
+data associated with unstructured topologies as outlined in section~\ref{sec:ugrid}.
 
-\sciwms{} embraces distributed database principles and promotes the
-separation of concerns software and project management practice. For
-example, \sciwms{} may be deployed by a member of a much larger
-project who's sole responsibility is providing a visualization
-platform, promoting quality through specialization, saving time and
-costs for data analysis projects by providing a simple interface for
-end users to generate consistent visualizations of federated data.
+%% Furthermore, after a catalog service is registered with \sciwms{},
+%% data producers need only publish \metadata{} about a new dataset to the
+%% catalog and make their data available over http. \sciwms{} will
+%% automatically add new catalog entries to the list of datasets it can
+%% visualize transparent to the end user.
+
+%% \sciwms{} represents a significant advance in geospatial
+%% science by providing a platform for producing consistent
+%% visualizations of distributed data. \sciwms{} is a visualization
+%% system with a distributed memory model, minimizing data redundancy by
+%% fetching the minimal amount of data needed to fulfill a request for a
+%% visualization from the data federation.
+
+%% While \sciwms{} implements the \ogc{}-\wms{} compliant, it is
+%% augmented with services for interacting with standard meta-data
+%% catalogs such as Catalog Service for the Web (\csw{})~\cite{csw14},
+%% allowing \sciwms{} to autonomously track dynamic catalogs. Once a
+%% catalog service is registered to \sciwms{}, any data a producer
+%% publishes to the catalog service is automatically ingested by
+%% \sciwms{}. \sciwms{} does not replicate the data hosted by the
+%% publisher but instead parses meta data and creates a compressed local
+%% cache to facilitate real-time data visualization.
+
+%% \sciwms{} embraces distributed database principles and promotes the
+%% separation of concerns software and project management practice. For
+%% example, \sciwms{} may be deployed by a member of a much larger
+%% project who's sole responsibility is providing a visualization
+%% platform, promoting quality through specialization, saving time and
+%% costs for data analysis projects by providing a simple interface for
+%% end users to generate consistent visualizations of federated data.
