@@ -1,6 +1,6 @@
 \section{\sciwms{}}
 \label{sec:sciwms}
-\Sciwms{} is an open-source Web Map Service (\wms{})~\cite{wms14}
+\Sciwms{}\footnote{\url{https://github.com/brandonmayer/sci-wms}} is an open-source Web Map Service (\wms{})~\cite{wms14}
 written in Python using the Django~\cite{django} web framework and
 standard cross-platform numerical software, NumPy~\cite{numpy11} and
 Matplotlib~\cite{hunter07} for generating visual content. The \wms{}
@@ -26,23 +26,21 @@ geoscientific gridded data such as \netcdf{}, \hdf{}/\hdf5,
 and Forecast) metadata conventions~\cite{cf}. 
 
 While the \ogc{} \wms{} specification standardizes the client-server
-communication protocol, implementations vary dramatically in
-how a particular system fulfills the \wms{} request and
-responses. Vital to the efficiency of \sciwms{} is the decomposition
-of a registered dataset into \textbf{structure} (also known as
-\textbf{topology}) and \textbf{attributes} as shown in
-figure~\ref{fig:data_hierarchy} and detailed in subsequent
-sections. \Sciwms{} maintains a local topology cache for efficient
-storage and processing of spatial neighborhoods and subsets with
-respect to data structure. To minimize redundancy, attributes are not
-replicated locally but referenced via standard web-services and a
-database of structure-endpoint pairs is maintained as visualized in
-figure~\ref{fig:sciwms_topology_endpoints}. As geospatial \wms{}
-requests are commonly restricted to a subset of the Earth's surface,
-\sciwms{} uses the topology cache to compute the subset of numerical
-attributes needed to fulfill each request prior to retrieving the
-appropriate data, which are typically external to the server hosting
-\sciwms{} and accessed via HTTP. Furthermore, by classifying a
-topology as regular or irregular, efficient algorithms and data
-structures are exploited to optimize the computation of attribute
-subsets.
+communication protocol, implementations vary dramatically in how a
+particular system fulfills the \wms{} request and responses. Vital to
+the efficiency of \sciwms{} is the decomposition of a registered
+dataset into \textbf{structure} (also known as \textbf{topology}) and
+\textbf{attributes} as shown in figure~\ref{fig:data_hierarchy} and
+detailed in subsequent sections. \Sciwms{} maintains a local topology
+cache for efficient storage and processing of spatial neighborhoods
+and subsets with respect to data structure. To minimize redundancy,
+attributes are not replicated locally but referenced via standard
+web-services and a database of structure-endpoint pairs is maintained
+as visualized in figure~\ref{fig:sciwms_topology_endpoints}. As
+geospatial \wms{} requests are commonly restricted to a subset of the
+Earth's surface, \sciwms{} uses the topology cache to compute the
+subset of numerical attributes needed to fulfill each request prior to
+retrieving the appropriate data, typically via HTTP request. Furthermore, by
+classifying a topology as regular or irregular, efficient algorithms
+and data structures are exploited to optimize the computation of
+attribute subsets.

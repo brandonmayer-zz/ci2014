@@ -1,8 +1,6 @@
 %% this is /book/ioos.txt
 \section{\sciwms{} Deployment: U.S. \ioos{} \comt{} Testbed Project}
 \label{sec:ioos}
-
-
 The U.S. Integrated Ocean Observing System (\ioos{}) Coastal and Ocean
 Modeling Testbed (\comt{}) was formed to unify otherwise disparate
 entities in government, academia and industry to leverage the
@@ -19,33 +17,33 @@ geospatial visualization, it is a key component in realizing the
 U.S. \ioos{} \comt{} mission, facilitating qualitative model
 comparisons and aggregation of distributed data with a unified
 visualization framework.
-%% \begin{figure}[ht!]
-%%   \centering
-%%   \includegraphics[height=2.2in]{../figs/sciwms_overview_v2.pdf}
-%%   \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
-%%     \comt{} project. \Sciwms{} updates its topology and endpoint
-%%     database via a nightly service which queries CF-Compliant datasets
-%%     cataloged by \ngdc{}. Model data is hosted on an external web
-%%     server exposed by an \ncml{} facade as a single \netcdf{} data
-%%     structure accessable to \sciwms{} via \opendap{}. \Sciwms{}
-%%     responds to requests by end users interfacing through a custom built
-%%     web portal.}
-%%   \label{fig:overview1}
-%% \end{figure}
-%% \begin{figure}[ht!]
-%%   \centering
-%%   \includegraphics[height=2.7in]{../figs/SciWMS_ModelObsComparison_crop_373_8_1052_879}
-%%   \caption{Comparison of ADCIRC (unstructured topology) model results
-%%     with observed water levels in the Northern Gulf of Mexico for
-%%     Hurricane Ike. Verified observed water levels are from NOAA's
-%%     Station 8760922 (red dot on map). The map shows modeled water
-%%     levels (in meters above the geoid) at the peak of the storm in
-%%     southern Louisiana. The time series plot shows both the modeled
-%%     (green) and observed (orange) water levels. The vertical blue line
-%%     in the time series plot corresponds to the current time of the
-%%     map.}
-%%   \label{fig:adcirc_comp}
-%% \end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[height=2.2in]{../figs/sciwms_overview_v2.pdf}
+  \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
+    \comt{} project. \Sciwms{} updates its topology and endpoint
+    database via a nightly service which queries CF-Compliant datasets
+    cataloged by \ngdc{}. Model data is hosted on an external web
+    server exposed by an \ncml{} facade as a single \netcdf{} data
+    structure accessable to \sciwms{} via \opendap{}. \Sciwms{}
+    responds to requests by end users interfacing through a custom built
+    web portal.}
+  \label{fig:overview1}
+\end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[height=2.7in]{../figs/SciWMS_ModelObsComparison_crop_373_8_1052_879}
+  \caption{Comparison of ADCIRC (unstructured topology) model results
+    with observed water levels in the Northern Gulf of Mexico for
+    Hurricane Ike. Verified observed water levels are from NOAA's
+    Station 8760922 (red dot on map). The map shows modeled water
+    levels (in meters above the geoid) at the peak of the storm in
+    southern Louisiana. The time series plot shows both the modeled
+    (green) and observed (orange) water levels. The vertical blue line
+    in the time series plot corresponds to the current time of the
+    map.}
+  \label{fig:adcirc_comp}
+\end{figure}
 
 Figure~\ref{fig:overview1} outlines the cyberinfrastructre behind the
 deployment of \sciwms{} for the \comt{}
@@ -79,6 +77,44 @@ algorithms and serves as a use-case for how \sciwms{} can be leveraged
 as a scalable solution for delivering visualizations of
 scientific data to a diverse community.
 
+\newif\ifpltsub
+\pltsubtrue%set to true comment if false
+\ifpltsub
+\begin{figure}[ht!]
+  \centering
+  \begin{subfigure}[t]{0.49\columnwidth}
+    \centering
+    \includegraphics[width=\columnwidth]{../figs/vims_selfe_ubaratropic_vbaratropic_chesapeake_bay_crop_695_0_2125_1265}
+    \caption{}
+    \label{fig:vims_selfe_chesapeake}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.49\columnwidth}
+    \centering
+    \includegraphics[width=\columnwidth]{../figs/inundation_tropical_VIMS_SELFE_hurricane_rita_2d_final_run_with_waves_sea_surface_wave_significant_height_crop_695_0_2125_1265}
+    \caption{}
+    \label{fig:vims_selfe_ssh}
+  \end{subfigure}
+  \caption{(a) Visualizing Current direction and speed in the
+    Chesapeake Bay area. (b) Visualizing significant sea surface wave
+    height along the eastern coast of the United States.}
+\end{figure}
+\else
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.8\columnwidth]{../figs/vims_selfe_ubaratropic_vbaratropic_chesapeake_bay_crop_695_0_2125_1265}
+  \caption{Visualizing Current direction and speed in the
+    Chesapeake Bay area.}
+  \label{fig:vims_selfe_chesapeake}
+\end{figure}
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.8\columnwidth]{../figs/inundation_tropical_VIMS_SELFE_hurricane_rita_2d_final_run_with_waves_sea_surface_wave_significant_height_crop_695_0_2125_1265}
+  \caption{Visualizing significant sea surface wave
+    height along the eastern coast of the United States.}
+  \label{fig:vims_selfe_ssh}
+\end{figure}
+\fi
+
 \sciwms{} currently supports contour and filled-contour visualizations
 styles for scalar attributes while 2D flow fields can be shown as
 arrows or barbs for vector valued
@@ -97,41 +133,4 @@ storage redundency. Ongoing development is in progress for \sciwms{}
 to support emerging geophysical datasets such as ensemble model output
 and to provide clear visual support for the assessment and
 quantification of model skill and performance metrics.
-%% \newif\ifpltsub
-%% \pltsubtrue%set to true comment if false
-%% \ifpltsub
-%% \begin{figure}[ht!]
-%%   \centering
-%%   \begin{subfigure}[t]{0.49\columnwidth}
-%%     \centering
-%%     \includegraphics[width=\columnwidth]{../figs/vims_selfe_ubaratropic_vbaratropic_chesapeake_bay_crop_695_0_2125_1265}
-%%     \caption{}
-%%     \label{fig:vims_selfe_chesapeake}
-%%   \end{subfigure}
-%%   \begin{subfigure}[t]{0.49\columnwidth}
-%%     \centering
-%%     \includegraphics[width=\columnwidth]{../figs/inundation_tropical_VIMS_SELFE_hurricane_rita_2d_final_run_with_waves_sea_surface_wave_significant_height_crop_695_0_2125_1265}
-%%     \caption{}
-%%     \label{fig:vims_selfe_ssh}
-%%   \end{subfigure}
-%%   \caption{(a) Visualizing Current direction and speed in the
-%%     Chesapeake Bay area. (b) Visualizing significant sea surface wave
-%%     height along the eastern coast of the United States.}
-%% \end{figure}
-%% \else
-%% \begin{figure}[ht!]
-%%   \centering
-%%   \includegraphics[width=0.8\columnwidth]{../figs/vims_selfe_ubaratropic_vbaratropic_chesapeake_bay_crop_695_0_2125_1265}
-%%   \caption{Visualizing Current direction and speed in the
-%%     Chesapeake Bay area.}
-%%   \label{fig:vims_selfe_chesapeake}
-%% \end{figure}
-%% \begin{figure}[ht!]
-%%   \centering
-%%   \includegraphics[width=0.8\columnwidth]{../figs/inundation_tropical_VIMS_SELFE_hurricane_rita_2d_final_run_with_waves_sea_surface_wave_significant_height_crop_695_0_2125_1265}
-%%   \caption{Visualizing significant sea surface wave
-%%     height along the eastern coast of the United States.}
-%%   \label{fig:vims_selfe_ssh}
-%% \end{figure}
-%% \fi
-%% \FloatBarrier
+\FloatBarrier
