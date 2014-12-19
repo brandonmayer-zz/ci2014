@@ -7,21 +7,18 @@ by modeling, inference and prediction algorithms, it is no longer
 feasible for a single institution to host and maintain a centralized
 database of information. Modern data management has been shifting
 hosting and maintenance responsibilities of large datasets to multiple
-participating institutions unified by a catalog to provide a single
-view of the distributed data to end users and analysts.
-
-A common practice is for data producing organizations to host their
-own data and provide meta information to a centralized aggregation
-service called a catalog~\cite{luettich13, williams09, chervenak00}. The
-institution responsible for maintaining the catalog provides a unified
-view of the data to end users by compiling meta data submitted by
-registered project participants. Such federated datasets may span
-petabytes of geospatial information, be composed of millions of files
-in different formats generated and hosted by vastly different systems
-located across the globe. End users (such as analyst and scientist)
-interface with the catalog to search the aggregated meta data and
-interact with particular data of interest, agnostic to distributed
-nature of the database.
+participating institutions unified by a catalog service which provides
+a single view of the distributed data to end users and
+analysts~\cite{luettich13, williams09, chervenak00}. The institution
+responsible for maintaining the catalog compiles meta data published
+by registered participants regarding data hosted and exposed to the
+catalog by the participant. Such federated datasets potentially span
+petabytes of geospatial information, may be composed of millions of
+files in different formats and are typically generated and hosted by
+vastly different systems located across the globe. End users (such as
+an analyst or scientist) interface with the catalog to search through
+the aggregated meta data and interact with particular data of
+interest, agnostic to distributed nature of the database.
 
 Although a decentralized approach to data management offers many
 advantages, data reduction and analysis tools have been slow to adapt
@@ -41,6 +38,9 @@ visualizations and reach conflicting conclusions. Normalizing these
 results introduces a potential point of error and likewise increases
 project costs in terms of time and accuracy.
 
+%% HOW DOES SCIWMS SOLVE THESE PROBLEMS
+%% CONTRIBUTIONS CAN GO HERE
+
 By maintaining a list of web accessible data endpoints, \sciwms{} is
 able to transparently produce consistent visualizations of web-hosted
 data. While \sciwms{} implements the Open Geospatial Consortium (\ogc{})
@@ -48,8 +48,6 @@ Web Mapping Service (\wms{}) protocol~\cite{wms14}, it is augmented
 with services for interacting with standard meta-data catalogs such as
 Catalog Service for the Web (\csw{})~\cite{csw14}, allowing \sciwms{}
 to autonomously track dynamic catalogs. 
-
-%% CONTRIBUTIONS CAN GO HERE
 
 \sciwms{} embraces distributed database principles and promotes the
 separation of concerns software and project management practice. For
