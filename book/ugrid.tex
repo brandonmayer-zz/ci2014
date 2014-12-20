@@ -36,7 +36,7 @@ In contrast with \cgrid{} topologies, \ugrid{} topologies require
 explicit enumeration of sample locations and connectivity, requiring
 spatially-aware data structures for optimal storage and processing for
 performant visualization algorithms. To this end, \sciwms{} maintains
-a local topology cache, storing \ugrid{} topologies using binary
+a local topology cache, storing \ugrid{} topologies as binary
 \rtree{}~\cite{Guttman84} data structures on disk locally on the
 deployment server for fast access. The \rtree{} is created when the
 dataset is first registered with the \sciwms{} service and if a change

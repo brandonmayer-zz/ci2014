@@ -41,17 +41,18 @@ project costs in terms of time and accuracy.
 %% HOW DOES SCIWMS SOLVE THESE PROBLEMS
 %% CONTRIBUTIONS CAN GO HERE
 The Open Geospatial Consotrium (\ogc{}) defines the Web Mapping
-Service (\wms{})~\cite{wms14} standard which describes how a compliant
+Service (\wms{})~\cite{wms14} standard that specifies how a compliant
 visualization server responds to HTTP requests from a \wms{} compliant
 client application. \sciwms{} is an implementation of an \ogcwms{}
 server which responds to requests from clients with either \metadata{}
 or geo-registered visualizations.  While there exists other \ogcwms{}
 compliant solutions including \ncwms{}~\cite{blower13},
 \mapserver{}~\cite{mapserver14}, and \geoserver{}~\cite{geoserver14},
-\sciwms{} and \ncwms{} are the only platforms which support \netcdf{},
-a community standard file format. Additionally, \sciwms{} is the only
-\ogcwms{} service to supports data associated with unstructured
-topologies as outlined in section~\ref{sec:ugrid}.
+\sciwms{} and \ncwms{} are the only platforms which support
+\netcdf{}~\cite{netcdf}, a community standard file
+format. Additionally, \sciwms{} is the only \ogcwms{} service to
+support modern model outputs which associate data with unstructured
+geo-registered topologies as outlined in section~\ref{sec:ugrid}.
 
 \sciwms{} is designed in such a way as to fill significant gaps in
 cooperative and distributed geoscientific computing. Data redundancy
@@ -63,6 +64,6 @@ rapid and consistent algorithmic and parametric
 comparisons. Furthermore, because \sciwms{} may be deployed on a
 server with dedicated hardware for storage, processing and
 visualization, \sciwms{} lowers costs and barriers to entry for
-analysts who would otherwise have to invest in the necessary
+analysts who would otherwise have to invest in the necessary local
 cyberinfrastructure to download and visualize local copies of
 distributed data.

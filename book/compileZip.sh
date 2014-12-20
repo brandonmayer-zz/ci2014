@@ -3,7 +3,7 @@
 mainPdf="ci14book_mayer.pdf"
 mainFile="ci14book_mayer.tex"
 macroFile="../macros.sty"
-refFile="../ci_mayer.bib"
+refFile="ci14book_mayer.bib"
 texFiles=("abstract" "motivation" "overview" \
     "dataset_abstraction" "cgrid" "ugrid" \
     "distributed_memory_model" "ioos")
@@ -36,7 +36,7 @@ do
 done
 
 cp "${macroFile}" "${odir}"
-cp "${refFile}" "${odir}"
+cp "${refFile}" "${texdir}"
 cp "${mainFile}" "${texdir}"
 # cp "${mainPdf}" "${texdir}"
 cp ./springerConsent*.JPG "${odir}"
