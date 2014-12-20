@@ -3,19 +3,20 @@
 \Sciwms{}\footnote{\url{https://github.com/brandonmayer/sci-wms}} is
 an open-source \python{} implementation of the Open Geospatial
 Consortium (\ogc{}) Web Mapping Service (\wms{}) protocol~\cite{wms14}
-using standard cross-platform numerical software, NumPy~\cite{numpy11}
-and Matplotlib~\cite{hunter07} and the Django~\cite{django} web
-framework for generating and serving visual content. The \wms{}
-specification defines a Representational State Transfer (REST)
-API~\cite{Fielding02} which responds to standardized HTTP GET requests
-from a \wms{} client for serving rasterized visualizations of
-geospatial data. A typical \wms{} request specifies a data layer and
-region of interest with optional meta data such as rendering style
-parameters. A \wms{} response may include additional information
-regarding the selected data or a visualization in the form of a PNG or
-other standard image format. A base \wms{} client has been developed
-in \javascript{} which gives analysts the ability to generate and
-interact with visualizations using only a web browser~\cite{comtui}.
+using standard cross-platform numerical software,
+NumPy~\cite{numpy11}, Matplotlib~\cite{hunter07} and
+Django~\cite{django} web framework for generating and serving visual
+content. The \ogcwms{} specification defines a Representational State
+Transfer (REST) API~\cite{Fielding02} which responds to standardized
+HTTP GET requests from a \wms{} client for serving rasterized
+visualizations of geospatial data. A typical \wms{} request specifies
+a data layer and region of interest with optional \metadata such as
+rendering style parameters. A \wms{} response may include additional
+information regarding the selected data or a visualization in the form
+of a PNG or other standard image format. A base \wms{} client has been
+developed in \javascript{} which gives analysts the ability to
+generate and interact with visualizations using only a web
+browser~\cite{comtui}.
 %% The \wms{} client is likewise open-source, was used to create the
 %% visualizations in the paper, and is currently in active use for
 %% U.S. \ioos{} \comt{} project where \sciwms{} is responsible for

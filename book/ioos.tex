@@ -17,6 +17,40 @@ geospatial visualization, it is a key component in realizing the
 U.S. \ioos{} \comt{} mission, facilitating qualitative model
 comparisons and aggregation of distributed data with a unified
 visualization framework.
+\newif\iffoo
+\footrue%set to true, comment out if you want false
+\iffoo
+\begin{figure}[ht!]
+  \centering
+  \begin{subfigure}[t]{0.49\columnwidth}
+    \centering
+    \includegraphics[width=\columnwidth]{../figs/sciwms_overview_v2.pdf}
+    \caption{Overview of the \sciwms{} deployment for the U.S. \ioos{}
+      \comt{} project. \Sciwms{} updates its topology and endpoint
+      database via a nightly service which queries CF-Compliant datasets
+      cataloged by \ngdc{}. Model data is hosted on an external web
+      server exposed by an \ncml{} facade as a single \netcdf{} data
+      structure accessable to \sciwms{} via \opendap{}. \Sciwms{}
+      responds to requests by end users interfacing through a custom built
+      web portal.}
+    \label{fig:overview1}
+  \end{subfigure}
+  \begin{subfigure}[t]{0.49\columnwidth}
+    \centering
+    \includegraphics[width=\columnwidth]{../figs/SciWMS_ModelObsComparison_crop_373_8_1052_879}
+    \caption{Comparison of ADCIRC (unstructured topology) model results
+      with observed water levels in the Northern Gulf of Mexico for
+      Hurricane Ike. Verified observed water levels are from NOAA's
+      Station 8760922 (red dot on map). The map shows modeled water
+      levels (in meters above the geoid) at the peak of the storm in
+      southern Louisiana. The time series plot shows both the modeled
+      (green) and observed (orange) water levels. The vertical blue line
+      in the time series plot corresponds to the current time of the
+      map.}
+    \label{fig:adcirc_comp}
+  \end{subfigure}
+\end{figure}
+\else
 \begin{figure}[ht!]
   \centering
   \includegraphics[height=2.2in]{../figs/sciwms_overview_v2.pdf}
@@ -44,6 +78,8 @@ visualization framework.
     map.}
   \label{fig:adcirc_comp}
 \end{figure}
+\fi
+
 
 Figure~\ref{fig:overview1} outlines the cyberinfrastructre behind the
 deployment of \sciwms{} for the \comt{}
