@@ -11,14 +11,14 @@ processing requirements compared to regular topologies. As storage and
 processing hardware has become more accessible, unstructured data has
 become more prevalent due to the flexibility of the
 representation. However, most existing visualization technologies in
-the \cf{} community can only render regularly structured
+the geospatial community can only render regularly structured
 datasets. \sciwms{} is one of the first visualization services to
 support rendering irregularly structured data.
 
-Any \ncml{} file exposing the topology of an externally hosted dataset
-according to the \cfugrid{} sepcification can be processed by
-\sciwms{}. According the \cfugrid{} standard, a topology is always
-embedded on the real line, in the plane or space with sample
+Any \ncml{}~\cite{ncml06} file exposing the topology of an externally
+hosted dataset according to the \cfugrid{} sepcification can be
+processed by \sciwms{}. According the \cfugrid{} standard, a topology
+is always embedded on the real line, in the plane or space with sample
 locations, the vertices of the topology, exposed as an array of
 coordinates in the appropriate ambient space. Vertex connectivity is
 expressed as an array where each element is an index into the vertex

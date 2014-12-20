@@ -42,28 +42,28 @@ project costs in terms of time and accuracy.
 %% CONTRIBUTIONS CAN GO HERE
 The Open Geospatial Consotrium (\ogc{}) defines the Web Mapping
 Service (\wms{})~\cite{wms14} standard that specifies how a compliant
-visualization server responds to HTTP requests from a \wms{} compliant
-client application. \sciwms{} is an implementation of an \ogcwms{}
-server which responds to requests from clients with either \metadata{}
-or geo-registered visualizations.  While there exists other \ogcwms{}
-compliant solutions including \ncwms{}~\cite{blower13},
-\mapserver{}~\cite{mapserver14}, and \geoserver{}~\cite{geoserver14},
-\sciwms{} and \ncwms{} are the only platforms which support
-\netcdf{}~\cite{netcdf}, a community standard file
-format. Additionally, \sciwms{} is the only \ogcwms{} service to
+visualization server responds to HTTP requests from a \ogcwms{}
+compliant client application. \sciwms{} is an implementation of an
+\ogcwms{} server which responds to requests from clients returning
+\metadata{}, data or geo-registered visualizations.  While there
+exists other \ogcwms{} compliant solutions including
+\ncwms{}~\cite{blower13}, \mapserver{}~\cite{mapserver14}, and
+\geoserver{}~\cite{geoserver14}, \sciwms{} and \ncwms{} are the only
+platforms which support \netcdf{}~\cite{netcdf}, a community standard
+file format. Additionally, \sciwms{} is the only \ogcwms{} service to
 support modern model outputs which associate data with unstructured
 geo-registered topologies as outlined in section~\ref{sec:ugrid}.
 
 \sciwms{} is designed in such a way as to fill significant gaps in
 cooperative and distributed geoscientific computing. Data redundancy
-is minimized by avoiding dataset replication as minimal data is
-fetched as needed to fulfill each visualization request. \sciwms{}
-enables the end user generate scientific visualization using \wms{}
-clients, which may be simple web browser applications, facilitating
-rapid and consistent algorithmic and parametric
-comparisons. Furthermore, because \sciwms{} may be deployed on a
-server with dedicated hardware for storage, processing and
-visualization, \sciwms{} lowers costs and barriers to entry for
-analysts who would otherwise have to invest in the necessary local
-cyberinfrastructure to download and visualize local copies of
+is minimized by avoiding dataset replication by fetching only the
+minimal amount of information from a distributed datastore to fulfill each
+\ogcwms{} request. \sciwms{} enables end users to generate scientific
+visualization using \ogcwms{} compatible clients, which may be simple
+web browser applications, facilitating rapid and consistent
+algorithmic and parametric comparisons. Furthermore, because \sciwms{}
+may be deployed on a server with dedicated hardware for storage,
+processing and visualization, \sciwms{} lowers costs and barriers to
+entry for analysts who would otherwise have to invest in the necessary
+local cyberinfrastructure to download and visualize local copies of
 distributed data.
