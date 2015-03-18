@@ -6,3 +6,10 @@
 *.dvi
 *.DS_Store
 *.out
+*.fls
+*.idx
+*.ind
+*.zip
+*.xcf
+*.fdb_latexmk
+*.ilg
